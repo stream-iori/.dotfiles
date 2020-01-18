@@ -1,32 +1,8 @@
-let mapleader=' '
+" Selected IntelliSpace modules
+source ~/intelli-space/spacemacs.vim
+source ~/intelli-space/extra.vim
+source ~/intelli-space/major.vim
+source ~/intelli-space/hybrid.vim
 
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set showmode
-set nohlsearch
-set number
-set clipboard+=unnamed
-" set relativenumber
-set scrolloff=3
+" My own vim commands
 set history=100000
-
-" Insert mode shortcut
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-inoremap <C-d> <Delete>
-
-" Redo
-nnoremap U <C-r>
-
-nnoremap <Leader>s :action AceAction<CR>
-nnoremap <C-p> :action RecentFiles<CR>
-nnoremap <C-x>r :action Refactorings.QuickListPopupAction<CR>
-nnoremap <C-x>f :action FindUsages<CR>
-nnoremap <Leader>rr :action ChooseRunConfiguration<CR>
-nnoremap <Leader>rs :action Stop<CR>

@@ -9,6 +9,7 @@ Plug 'mileszs/ack.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-syntastic/syntastic'
+Plug 'aklt/plantuml-syntax'
 " markdown start
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -16,7 +17,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'iCyMind/NeoSolarized'
 Plug 'tomasr/molokai'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'majutsushi/tagbar'                  "标签列表
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'SirVer/ultisnips'
@@ -38,7 +38,7 @@ set clipboard+=unnamedplus
 set autowrite
 set laststatus=2
 set background=dark
-colorscheme Molokai "NeoSolarized
+colorscheme NeoSolarized "Molokai
 
 syntax on
 filetype plugin on
@@ -85,6 +85,11 @@ let g:syntastic_check_on_wq = 0
 " lua
 let g:syntastic_lua_checkers = ["luac", "luacheck"]
 "let g:syntastic_lua_luacheck_args = "--std ngx_lua"
+
+let g:plantuml_executable_script = 1
+
+au FileType plantuml command! OpenUml :!start chrome %
+
 
 map <leader>t :NERDTreeToggle<CR>
 " Add spaces after comment delimiters by default
@@ -190,81 +195,6 @@ inoremap <C-a> <C-o>0
 inoremap <C-d> <Delete>
 
 let g:UltiSnipsExpandTrigger="<M-Tab>"
-" Golang
-autocmd FileType go nmap <leader>gr  <Plug>(go-run)
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
-autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-autocmd FileType go nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <Leader>gc <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
-"autocmd FileType go nmap <C-[> <Plug>(go-def-pop)
-" :GoDef but opens in a vertical split
-autocmd FileType go nmap <C-]>v <Plug>(go-def-vertical)
-" :GoDef but opens in a horizontal split
-autocmd FileType go nmap <C-]>s <Plug>(go-def-split)
-
-
-let g:go_fmt_command = "goimports"
-let g:go_addtags_transform = "camelcase"
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_build_constraints = 1
-
-let g:go_metalinter_enabled = ['golint', 'errcheck']
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['golint']
-let g:go_metalinter_deadline = "5s"
-
-let g:go_def_mode = 'godef'
-let g:go_decls_includes = "func,type"
-
-let g:go_auto_type_info = 1
-set updatetime=100
-
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-nmap <M-2> :TagbarToggle<CR>
-
 nnoremap <M-n> :cnext<CR>
 nnoremap <M-p> :cprevious<CR>
 nnoremap <M-c> :cclose<CR>
