@@ -16,8 +16,9 @@
 
   plantuml-executable-path "/usr/local/bin/plantuml"
   plantuml-default-exec-mode 'executable
-  plantuml-output-type "Unicode ASCII art"
-  )
+;;  plantuml-server-url "http://localhost:8080"
+)
+
 
 ;;全局启用better-jumper
 (better-jumper-mode +1)
@@ -40,4 +41,4 @@
 
 ;;golang
 (setenv "GOPATH" (concat ""
-                       "/Users/stream/codes/golang"))
+                       "/Users/sajia/codes/golang"))
