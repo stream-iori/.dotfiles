@@ -102,7 +102,7 @@ alias clean-none-images="docker images | grep none | awk '{print $3}' | xargs do
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-
+loginName=`id -un`
 # kafkaBinPath=/opt/kafka_2.11-0.10.1.0/bin/
 # alias kafka-commands="docker exec -it kafka ls ${kafkaBinPath}"
 # alias kafka-topics="docker exec -it kafka ${kafkaBinPath}kafka-topics.sh"
@@ -113,15 +113,15 @@ alias clean-none-images="docker images | grep none | awk '{print $3}' | xargs do
 # alias kafka-streams-application-reset='docker exec -it kafka ${kafkaBinPath}kafka-streams-application-reset.sh'
 
 # alias kafka-console-producer='docker exec -it kafka ${kafkaBinPath}kafka-console-producer.sh'
-alias mysql-server-local-start="docker run --name mysql -v /Users/stream/datas/my.cnf:/etc/mysql/my.cnf -v /Users/stream/datas/mysql-5.7.28:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5.7.28"
+alias mysql-server-local-start="docker run --name mysql -v /Users/${loginName}/datas/mysql5.7/my.cnf:/etc/mysql/my.cnf -v /Users/${loginName}/datas/mysql5.7/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5.7.28"
 alias mysql-server-local-stop="docker stop mysql && docker rm -v mysql"
 alias mysql-server-local-restart="mysql-server-local-stop && mysql-server-local-start"
 
-alias docker-registry-start="docker run -d -p 5000:5000 --name registry -v /Users/stream/datas/docker-registry:/var/lib/registry registry:2"
+alias docker-registry-start="docker run -d -p 5000:5000 --name registry -v /Users/${loginName}/datas/docker-registry:/var/lib/registry registry:2"
 
 alias mongo-cli='f() { docker run -it --rm --name mongo-cli-${RANDOM} mongo:3.6.15-xenial mongo --username ${1} --password ${2} --host ${3} }; f'
 
-alias redis-start="docker run --name redis -p 6379:6379 -v /Users/stream/datas/redis/redis.conf:/usr/local/etc/redis/redis.conf -v /Users/stream/datas/redis/redis-data:/data -d redis:5.0.6"
+alias redis-start="docker run --name redis -p 6379:6379 -v /Users/${loginName}/datas/redis/redis.conf:/usr/local/etc/redis/redis.conf -v /Users/${loginName}/datas/redis/redis-data:/data -d redis:5.0.6"
 alias redis-stop="docker stop redis && docker rm -v redis"
 alias redis-restart="redis-stop-local && redis-start-local"
 alias redis-cli='f() { docker run -it --rm --name redis-cli-${RANDOM} redis:5.0.6 redis-cli -h ${1} }; f'
