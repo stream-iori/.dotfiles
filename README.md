@@ -1,14 +1,15 @@
-ln -s /Users/stream/codes/dotFiles/.zshrc /Users/stream/.zshrc  
 
-ln -s /Users/stream/codes/dotFiles/.ideavimrc /Users/stream/.ideavimrc  
+ln -s /Users/`id -F`/codes/dotFiles/.zshrc /Users/`id -F`/.zshrc  
 
-ln -s /Users/stream/codes/dotFiles/doom.d /Users/stream/.doom.d
+ln -s /Users/`id -F`/codes/dotFiles/.ideavimrc /Users/`id -F`/.ideavimrc  
 
-*have to install plugins*
-ln -s /Users/stream/codes/dotFiles/.tmux.conf /Users/stream/.tmux.conf  
-
-ln -s /Users/stream/codes/dotFiles/.tmux /Users/stream/.tmux  
-
+ln -s /Users/`id -F`/codes/dotFiles/doom.d /Users/`id -F`/.doom.d
 
 *have to install plugins*
-ln -s init.vim  /Users/stream/.config/nvim/init.vim
+ln -s /Users/`id -F`/codes/dotFiles/.tmux.conf /Users/`id -F`/.tmux.conf  
+
+ln -s /Users/`id -F`/codes/dotFiles/.tmux /Users/`id -F`/.tmux  
+
+
+*have to install plugins*
+ln -s init.vim  /Users/`id -F`/.config/nvim/init.vim
