@@ -16,6 +16,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 #jenv
 export PATH="$HOME/.jenv/bin:$PATH"
+#node12
+export PATH="/usr/local/opt/node@12/bin:$PATH"
 
 # You may need to manually set your language environment
 export LC_ALL=en_US.UTF-8
