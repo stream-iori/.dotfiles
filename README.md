@@ -1,6 +1,7 @@
 name=`id -un`
 
 ln -s /Users/${name}/codes/dotFiles/.zshrc /Users/${name}/.zshrc  
+ln -s /Users/${name}/codes/dotFiles/.zshenv /Users/${name}/.zshenv  
 
 ln -s /Users/${name}/codes/dotFiles/.ideavimrc /Users/${name}/.ideavimrc  
 

@@ -9,6 +9,8 @@ Plug 'w0rp/ale'
 " markdown start
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'vimwiki/vimwiki'
+Plug 'ferrine/md-img-paste.vim'
 " markdown end
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } "search
 
@@ -39,6 +41,7 @@ set autowrite
 set laststatus=2
 set background=dark
 colorscheme Molokai "NeoSolarized 
+set nocompatible
 syntax on
 filetype plugin on
 set tabstop=2
@@ -52,6 +55,11 @@ set smartcase
 
 " 设置:E command 为Explore防止歧义
 cabbrev E Explore
+let g:netrw_liststyle = 3 "netrw view as tree mode
+let g:netrw_banner = 0
+let g:netrw_browse_split = 1 "open files in a new vertical split
+let g:netrw_winsize = 30
+
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
@@ -77,6 +85,16 @@ let g:ale_fixers = {
 \   'javascript': ['standard'],
 \   'python': ['pylint']
 \}
+
+let g:vimwiki_list = [{'path': '~/iCloud/notes',
+                      \ 'syntax': 'markdown', 'ext': '.md',
+                      \ 'index': 'Wiki'}]
+let g:vimwiki_global_ext = 0
+
+autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+" there are some defaults for image directory and image name, you can change them
+let g:mdip_imgdir = 'imgs'
+let g:mdip_imgname = 'image'
 
 let g:Lf_ShowDevIcons = 0
 let g:Lf_WorkingDirectoryMode = 'a'

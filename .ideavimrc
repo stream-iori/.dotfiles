@@ -1,8 +1,6 @@
-" Selected IntelliSpace modules
-source ~/intelli-space/spacemacs.vim
-source ~/intelli-space/extra.vim
-source ~/intelli-space/major.vim
-source ~/intelli-space/hybrid.vim
-
 " My own vim commands
 set history=100000
+set surround "enable vim-surround emulation
+set incsearch
+set ignorecase
+set smartcase
