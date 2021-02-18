@@ -26,7 +26,7 @@ Plug 'airblade/vim-gitgutter'
 " snip
 Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'                "自动括号补全
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "自动补全
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " syntax highlight
 Plug 'pearofducks/ansible-vim'
@@ -54,17 +54,15 @@ set ignorecase " 查找时忽略字母大小写
 set smartcase
 
 " 设置:E command 为Explore防止歧义
-cabbrev E Explore
+cabbrev E Vexplore
 let g:netrw_liststyle = 3 "netrw view as tree mode
 let g:netrw_banner = 0
-let g:netrw_browse_split = 1 "open files in a new vertical split
-let g:netrw_winsize = 30
+let g:netrw_browse_split = 0 "open files in a new horizontally split
+let g:netrw_winsize = 25
 
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
-
-let g:deoplete#enable_at_startup = 1
 
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
@@ -118,9 +116,6 @@ noremap <leader>fs :LeaderfFunction!<CR>
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
-" Toggle bar
-nmap <F8> :TagbarToggle<CR>
-
 "GitGutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=Green
 highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
@@ -130,6 +125,11 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_highlight_linenrs = 1
 nmap <leader>g] <Plug>(GitGutterNextHunk)
 nmap <leader>g[ <Plug>(GitGutterPrevHunk)
+
+" Auto Completion
+let g:deoplete#enable_at_startup = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " ansible
 let g:ansible_name_highlight = 'd'

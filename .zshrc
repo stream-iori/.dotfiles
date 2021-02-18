@@ -66,10 +66,9 @@ alias grep='grep --color=auto'
 alias date='gdate'
 
 alias chrome="open -a \"Google Chrome\" $@"
-alias e="emacsclient"
-alias em="emacs -nw"
-alias vim="emacsclient"
+alias vim="nvim"
 alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
+alias python=/usr/local/bin/python3
 
 # 关闭 C-s 的提醒
 stty -ixon
