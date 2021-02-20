@@ -1,6 +1,66 @@
-" My own vim commands
+
 set history=100000
+set hlsearch                      " highlight search occurrences
 set surround "enable vim-surround emulation
+set commentary " set multiple-cursors
 set incsearch
 set ignorecase
+set ideajoin
 set smartcase
+set visualbell
+set noerrorbells
+set clipboard=unnamedplus,unnamed,ideaput " integrate with system clipboard
+set gdefault                      " substitute all occurrences in line per default
+set scrolloff=5 sidescrolloff=10  " keep some lines before and after the cursor visible
+set wrapscan                      " searches wrap around the end of the file
+
+let mapleader = " "
+
+" make Y behave like D and C, yanking till end of line
+map Y y$
+
+" don't overwrite register when pasting over selection
+vnoremap p pgvy
+
+" clear search highlighting
+nnoremap <leader>/ :nohls<CR><ESC>
+
+map <C-s> :action SaveAll<CR>
+
+" Editor
+map <leader>ef :action ReformatCode<CR>
+map <leader>eo :OptimizeImports
+
+"Compile and Running
+nmap <leader>rr :action ChooseRunConfiguration<CR>
+nmap <leader>rs :action Stop<CR>
+
+" Active window
+nmap <leader>ap :action ActivateProjectToolWindow<CR>
+nmap <leader>ad :action ActivateDebugToolWindow<CR>
+
+" Create
+nmap <leader>cc :action NewClass<CR>
+nmap <leader>cg :action Generate<CR>
+
+" search
+map <leader>ff :action SearchEverywhere<CR>
+map <leader>fc :action GotoClass<CR>
+map <leader>fp :action FindInPath<CR>
+map <leader>fb :action RecentFiles<CR>
+map <leader>fs :action GotoSymbol<CR>
+
+" code navigation
+nnoremap <C-o> :action Back<CR>
+nnoremap <C-t> :action Back<CR>
+nnoremap <C-i> :action Forward<CR>
+" for java or jump
+nmap gt :action GotoTypeDeclaration<CR>
+nmap gd :action GotoDeclaration<CR>
+nmap gu :action ShowUsages<CR>
+nmap gi :action GotoImplementation<CR>
+nmap gs :action GotoSuperMethod<CR>
+nmap <leader>s :action AceAction<CR>
+
+nmap <C-p> :action ParameterInfo<CR>
+imap <C-p> <C-o>:action ParameterInfo<CR>
