@@ -16,6 +16,7 @@ set wrapscan                      " searches wrap around the end of the file
 
 let mapleader = " "
 
+
 " make Y behave like D and C, yanking till end of line
 map Y y$
 
@@ -27,9 +28,21 @@ nnoremap <leader>/ :nohls<CR><ESC>
 
 map <C-s> :action SaveAll<CR>
 
-" Editor
+" High frequency
+nmap bb :action RecentFiles<CR>
+
+" Editor which will change file
 map <leader>ef :action ReformatCode<CR>
-map <leader>eo :OptimizeImports
+map <leader>eo :action OptimizeImports<CR>
+map <A-e> :action EditorCompleteStatement<CR>
+map <A-c> :action CommentByBlockComment<CR>
+map <C-A-y> :action PasteMultiple<CR>
+nnoremap <Leader><Leader>r :%s//g<Left><Left>
+xnoremap <Leader><Leader>r :s//g<Left><Left>
+
+" Create
+nmap <leader>cc :action NewClass<CR>
+nmap <leader>cg :action Generate<CR>
 
 "Compile and Running
 nmap <leader>rr :action ChooseRunConfiguration<CR>
@@ -38,29 +51,36 @@ nmap <leader>rs :action Stop<CR>
 " Active window
 nmap <leader>ap :action ActivateProjectToolWindow<CR>
 nmap <leader>ad :action ActivateDebugToolWindow<CR>
+nmap <leader>au :action ShowUmlDiagramPopup<CR>
+nmap <Leader>ah :action HideAllWindows<CR>
 
-" Create
-nmap <leader>cc :action NewClass<CR>
-nmap <leader>cg :action Generate<CR>
-
-" search
+" Search
 map <leader>ff :action SearchEverywhere<CR>
 map <leader>fc :action GotoClass<CR>
 map <leader>fp :action FindInPath<CR>
 map <leader>fb :action RecentFiles<CR>
 map <leader>fs :action GotoSymbol<CR>
 
-" code navigation
+" Codes navigation in multiple files
 nnoremap <C-o> :action Back<CR>
 nnoremap <C-t> :action Back<CR>
 nnoremap <C-i> :action Forward<CR>
-" for java or jump
+nnoremap <A-n> : action GotoNextError<CR>
+nnoremap <A-p> : action GotoPreviousError<CR>
+
+" For java or jump in single file
 nmap gt :action GotoTypeDeclaration<CR>
 nmap gd :action GotoDeclaration<CR>
 nmap gu :action ShowUsages<CR>
 nmap gi :action GotoImplementation<CR>
 nmap gs :action GotoSuperMethod<CR>
+"locate file in project
+nmap gp :action SelectIn<CR>1<CR>
 nmap <leader>s :action AceAction<CR>
 
 nmap <C-p> :action ParameterInfo<CR>
 imap <C-p> <C-o>:action ParameterInfo<CR>
+
+
+nmap <Leader>le :e pom.xml<CR>
+
