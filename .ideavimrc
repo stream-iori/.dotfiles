@@ -37,8 +37,11 @@ map <leader>eo :action OptimizeImports<CR>
 map <A-e> :action EditorCompleteStatement<CR>
 map <A-c> :action CommentByBlockComment<CR>
 map <C-A-y> :action PasteMultiple<CR>
-nnoremap <Leader><Leader>r :%s//g<Left><Left>
-xnoremap <Leader><Leader>r :s//g<Left><Left>
+nnoremap <Leader>rs :%s//g<Left><Left>
+xnoremap <Leader>rs :s//g<Left><Left>
+
+" Editor refactor
+nnoremap <leader>re :action RenameElement<CR>
 
 " Create
 nmap <leader>cc :action NewClass<CR>
@@ -65,8 +68,8 @@ map <leader>fs :action GotoSymbol<CR>
 nnoremap <C-o> :action Back<CR>
 nnoremap <C-t> :action Back<CR>
 nnoremap <C-i> :action Forward<CR>
-nnoremap <A-n> : action GotoNextError<CR>
-nnoremap <A-p> : action GotoPreviousError<CR>
+nnoremap <A-n> :action GotoNextError<CR>
+nnoremap <A-p> :action GotoPreviousError<CR>
 
 " For java or jump in single file
 nmap gt :action GotoTypeDeclaration<CR>
