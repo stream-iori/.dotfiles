@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/stream/bin:/usr/local/opt/coreutils/libexec/gnubin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/sajia/bin:/usr/local/opt/coreutils/libexec/gnubin"
 GNU_BIN=/usr/local/opt/coreutils/libexec/gnubin
 
 export PYTHON_PATH=/usr/local/opt/python/libexec/bin
