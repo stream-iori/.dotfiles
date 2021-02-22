@@ -46,9 +46,9 @@ ZSH_THEME="pygmalion" #pygmalion
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 plugins=(
-  git tig autojump osx kubectl gnu-utils 
+  git autojump osx gnu-utils
   zsh-syntax-highlighting zsh-completions
-  fzf docker docker-compose
+  fzf docker
 )
 autoload -U compinit && compinit
 
