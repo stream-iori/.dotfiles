@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pygmalion" #agnoster
+ZSH_THEME="pygmalion" #pygmalion
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -66,10 +66,9 @@ alias grep='grep --color=auto'
 alias date='gdate'
 
 alias chrome="open -a \"Google Chrome\" $@"
-alias e="emacsclient"
-alias em="emacs -nw"
-alias vim="emacsclient"
+alias vim="nvim"
 alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
+alias python=/usr/local/bin/python3
 
 # 关闭 C-s 的提醒
 stty -ixon
