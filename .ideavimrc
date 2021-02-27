@@ -29,7 +29,7 @@ nnoremap <leader>/ :nohls<CR><ESC>
 map <C-s> :action SaveAll<CR>
 
 " High frequency
-nmap bb :action RecentFiles<CR>
+nmap <C-x>b :action RecentFiles<CR>
 
 " Editor which will change file
 map <leader>ef :action ReformatCode<CR>
@@ -56,6 +56,14 @@ nmap <leader>ap :action ActivateProjectToolWindow<CR>
 nmap <leader>ad :action ActivateDebugToolWindow<CR>
 nmap <leader>au :action ShowUmlDiagramPopup<CR>
 nmap <Leader>ah :action HideAllWindows<CR>
+
+" Git
+nmap <leader>gbl :action Annotate<CR>
+nmap <leader>gb :action Git.Branches<CR>
+nmap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+nmap <leader>gc :action CheckinProject<CR>
+nmap <leader>ga :action Git.Add<CR>
+
 
 " Search
 map <leader>ff :action SearchEverywhere<CR>
