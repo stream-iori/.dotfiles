@@ -4,6 +4,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users
 GNU_BIN=/usr/local/opt/coreutils/libexec/gnubin
 
 export PYTHON_PATH=/usr/local/opt/python/libexec/bin
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=/Users/stream/codes/golang

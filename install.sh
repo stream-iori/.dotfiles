@@ -2,6 +2,7 @@ name=`id -un`
 
 ln -s /Users/${name}/codes/dotFiles/.zshrc /Users/${name}/.zshrc
 ln -s /Users/${name}/codes/dotFiles/.zshenv /Users/${name}/.zshenv
+curl https://raw.githubusercontent.com/cheat/cheat/master/scripts/cheat.zsh -o ~/.cheat.zsh
 
 ln -s /Users/${name}/codes/dotFiles/.ideavimrc /Users/${name}/.ideavimrc
 
