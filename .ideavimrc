@@ -68,9 +68,8 @@ nmap <leader>ga :action Git.Add<CR>
 " Search
 map <leader>ff :action SearchEverywhere<CR>
 map <leader>fc :action GotoClass<CR>
-map <leader>fp :action FindInPath<CR>
+map <leader>fl :action FindInPath<CR>
 map <leader>fb :action RecentFiles<CR>
-map <leader>fs :action GotoSymbol<CR>
 
 " Codes navigation in multiple files
 nnoremap <C-o> :action Back<CR>
