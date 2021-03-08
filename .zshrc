@@ -46,7 +46,7 @@ ZSH_THEME="pygmalion" #pygmalion
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 plugins=(
-  git autojump osx gnu-utils
+  git autojump osx gnu-utils 
   zsh-syntax-highlighting zsh-completions
   fzf docker
 )
@@ -136,8 +136,6 @@ alias proxy-maxwon-general="echo proxy maxwon db of general to local 4409 && ssh
 alias split="gsplit"
 alias kc="kubectl"
 alias local-ip="ipconfig getifaddr en0"
-
-[ -f ~/.cheat.zsh ] && source ~/.cheat.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 KUBECTX_IGNORE_FZF=1
