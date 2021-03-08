@@ -54,11 +54,11 @@ set ignorecase " 查找时忽略字母大小写
 set smartcase
 
 " 设置:E command 为Explore防止歧义
-cabbrev E Vexplore
+cabbrev E Lexplore
 let g:netrw_liststyle = 3 "netrw view as tree mode
 let g:netrw_banner = 0
 let g:netrw_browse_split = 0 "open files in a new horizontally split
-let g:netrw_winsize = 25
+" let g:netrw_winsize = 25
 
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
