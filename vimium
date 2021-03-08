@@ -1,0 +1,11 @@
+unmap f
+unmap F
+unmap H
+unmap L
+map S LinkHints.activateModeToOpenInNewTab
+map s LinkHints.activateMode
+map H previousTab
+map L nextTab
+map <c-i> goForward
+map <c-o> goBack
+map <c-t> goBack
