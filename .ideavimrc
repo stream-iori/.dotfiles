@@ -53,6 +53,7 @@ nmap <leader>rs :action Stop<CR>
 
 " Active window
 nmap <leader>ap :action ActivateProjectToolWindow<CR>
+nmap <leader>ap :action ActivateStructureToolWindow<CR>
 nmap <leader>ad :action ActivateDebugToolWindow<CR>
 nmap <leader>au :action ShowUmlDiagramPopup<CR>
 nmap <Leader>ah :action HideAllWindows<CR>
