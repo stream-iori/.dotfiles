@@ -1,8 +1,8 @@
 
 set history=100000
 set hlsearch                      " highlight search occurrences
-set surround "enable vim-surround emulation
-set commentary " set multiple-cursors
+set surround                      " enable vim-surround emulation
+set commentary                    " set multiple-cursors
 set incsearch
 set ignorecase
 set ideajoin
@@ -39,6 +39,7 @@ map <A-c> :action CommentByBlockComment<CR>
 map <C-A-y> :action PasteMultiple<CR>
 nnoremap <Leader>rs :%s//g<Left><Left>
 xnoremap <Leader>rs :s//g<Left><Left>
+nnoremap <leader>rt :action Refactorings.QuickListPopupAction<CR>
 
 " Editor refactor
 nnoremap <leader>re :action RenameElement<CR>
@@ -53,7 +54,7 @@ nmap <leader>rs :action Stop<CR>
 
 " Active window
 nmap <leader>ap :action ActivateProjectToolWindow<CR>
-nmap <leader>ap :action ActivateStructureToolWindow<CR>
+nmap <leader>as :action ActivateStructureToolWindow<CR>
 nmap <leader>ad :action ActivateDebugToolWindow<CR>
 nmap <leader>au :action ShowUmlDiagramPopup<CR>
 nmap <Leader>ah :action HideAllWindows<CR>

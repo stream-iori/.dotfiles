@@ -1,4 +1,5 @@
 name=`id -un`
+brew install antigen
 
 ln -s /Users/${name}/codes/dotFiles/.zshrc /Users/${name}/.zshrc
 ln -s /Users/${name}/codes/dotFiles/.zshenv /Users/${name}/.zshenv
