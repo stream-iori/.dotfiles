@@ -91,9 +91,6 @@ alias redis-stop="docker stop redis && docker rm -v redis"
 alias redis-restart="redis-stop-local && redis-start-local"
 alias redis-cli='f() { docker run -it --rm --name redis-cli-${RANDOM} redis:5.0.6 redis-cli -h ${1} }; f'
 
-alias plantuml-server-start="docker run -d --name plantuml -p 8080:8080 plantuml/plantuml-server:jetty"
-alias plantuml-server-stop="docker stop plantuml && docker rm plantuml"
-
 alias proxy-circe-rds="echo proxy rds of circe to local 4406 && ssh -Ng -L 4406:10.20.16.230:3306 -p 22 cnbroker"
 alias proxy-maxwon-vip="echo proxy maxwon circe service to local 4407 && ssh -Ng -L 4407:10.20.16.199:3306 -p 22 cnbroker"
 alias proxy-maxwon-default="echo proxy maxwon db of default to local 4408 && ssh -Ng -L 4408:10.20.15.198:3306 -p 22 cnbroker"
