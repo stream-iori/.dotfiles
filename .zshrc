@@ -28,7 +28,7 @@ alias no_proxy='export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24
 #采用 GNU 方式的参数
 alias ls='gls --color=auto'
 alias dir='gdir --color=auto'
-alias grep='grep --color=auto'
+alias grep='ggrep --color=auto'
 alias date='gdate'
 
 alias chrome="open -a \"Google Chrome\" $@"
