@@ -65,6 +65,7 @@ nmap <leader>gb :action Git.Branches<CR>
 nmap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
 nmap <leader>gc :action CheckinProject<CR>
 nmap <leader>ga :action Git.Add<CR>
+nmap <leader>gs :action ActivateCommitToolWindow<CR>
 
 
 " Search

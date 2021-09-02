@@ -30,3 +30,4 @@ LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
 export GO111MODULE=auto
 export GOPROXY=https://goproxy.io
+. "$HOME/.cargo/env"
