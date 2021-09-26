@@ -42,7 +42,7 @@ xnoremap <Leader>rs :s//g<Left><Left>
 nnoremap <leader>rt :action Refactorings.QuickListPopupAction<CR>
 
 " Editor refactor
-nnoremap <leader>re :action RenameElement<CR>
+nnoremap <leader>re :action RenameElement<CR><ESC>
 
 " Create
 nmap <leader>cc :action NewClass<CR>
