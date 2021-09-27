@@ -1,0 +1,14 @@
+---
+tags: [network]
+---
+
+# SSH
+tcpdump 'tcp[(tcp[12]>>2):4] = 0x5353482D'
+
+# DNS流量
+tcpdump -vvAs0 port 53
+
+# 根据 TCP FIN flag筛选
+tcpdump 'tcp[13] & 1!=0'
+tcpdump 'tcp[tcpflags] == tcp-fin'
+
