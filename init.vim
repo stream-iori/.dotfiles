@@ -14,7 +14,6 @@ Plug 'ferrine/md-img-paste.vim'
 " markdown end
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } "search
 
-Plug 'iCyMind/NeoSolarized'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'                   "标签列表,类似Jetbrian structure
 
@@ -91,7 +90,7 @@ let g:vimwiki_global_ext = 0
 
 autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 " there are some defaults for image directory and image name, you can change them
-let g:mdip_imgdir = 'imgs'
+let g:mdip_imgdir = 'attachs'
 let g:mdip_imgname = 'image'
 
 let g:Lf_ShowDevIcons = 0
