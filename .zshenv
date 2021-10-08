@@ -7,7 +7,6 @@ export PYTHON_PATH=/usr/local/opt/python/libexec/bin
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 
 export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=/Users/stream/codes/golang
 
 export PATH=$PYTHON_PATH:$PATH:$GNU_BIN:$GOROOT/bin:$GOPATH/bin
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
