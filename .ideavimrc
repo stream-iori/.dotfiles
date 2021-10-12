@@ -81,8 +81,6 @@ map <leader>fb :action RecentFiles<CR>
 nnoremap <C-o> :action Back<CR>
 nnoremap <C-t> :action Back<CR>
 nnoremap <C-i> :action Forward<CR>
-nnoremap <A-n> :action GotoNextError<CR>
-nnoremap <A-p> :action GotoPreviousError<CR>
 
 " For java or jump in single file
 nmap gt :action GotoTypeDeclaration<CR>
@@ -90,12 +88,15 @@ nmap gd :action GotoDeclaration<CR>
 nmap gu :action ShowUsages<CR>
 nmap gi :action GotoImplementation<CR>
 nmap gs :action GotoSuperMethod<CR>
+nmap gen :action GotoNextError<CR>
+nmap gep :action GotoPreviousError<CR>
+nmap ggc :action VcsShowNextChangeMarker<CR>
+
 "locate file in project
 nmap gp :action SelectIn<CR><1><CR>
 nmap <leader>s :action AceAction<CR>
 
-nmap <C-p> :action ParameterInfo<CR>
-imap <C-p> <C-o>:action ParameterInfo<CR>
+nmap <leader>pi :action ParameterInfo<CR>
 
 
 nmap <Leader>le :e pom.xml<CR>
