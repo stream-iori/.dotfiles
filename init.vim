@@ -2,20 +2,20 @@ call plug#begin('~/.config/nvim/plugged')
 " highlight
 Plug 'itchyny/lightline.vim'
 Plug 'edkolev/tmuxline.vim'
-" jump in file
+"Jump in file:
 Plug 'easymotion/vim-easymotion'
-" grammar check
+"grammar check
 Plug 'w0rp/ale'
-" markdown start
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'vimwiki/vimwiki'
-Plug 'ferrine/md-img-paste.vim'
-" markdown end
+
+"File Browser:
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'mkitt/tabline.vim'
+
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } "search
 
-Plug 'tomasr/molokai'
-Plug 'majutsushi/tagbar'                   "标签列表,类似Jetbrian structure
+" Theme
+Plug 'ayu-theme/ayu-vim' 
 
 Plug 'fannheyward/rainbow_parentheses.vim' "括号匹配高亮
 Plug 'tpope/vim-surround'                  "快速加环绕符
@@ -39,7 +39,6 @@ set clipboard+=unnamedplus
 set autowrite
 set laststatus=2
 set background=dark
-colorscheme Molokai "NeoSolarized 
 set nocompatible
 syntax on
 filetype plugin on
@@ -51,27 +50,35 @@ set shiftwidth=2
 set incsearch "查找短语时显示部分匹配
 set ignorecase " 查找时忽略字母大小写
 set smartcase
+colorscheme ayu 
+
+set termguicolors     " enable true colors support
+let ayucolor="dark"   " light mirage
+
+" clear search highlighting
+nmap <leader>/ :nohls<CR>
 
 " 设置:E command 为Explore防止歧义
 cabbrev E Lexplore
 let g:netrw_liststyle = 3 "netrw view as tree mode
 let g:netrw_banner = 0
 let g:netrw_browse_split = 0 "open files in a new horizontally split
-" let g:netrw_winsize = 25
 
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_toc_autofit = 1
-let g:instant_markdown_slow = 1
-let g:instant_markdown_open_to_the_world = 1
-let g:vim_markdown_math = 1
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_json_frontmatter = 1
-let g:vim_markdown_new_list_item_indent = 2
+"FILE BROWSER:
+"-------------
+"allows NERDTree to open/close by typing 'n' then 't'
+map nt :NERDTreeTabsToggle<CR>
+"Start NERDtree when dir is selected (e.g. "vim .") and start NERDTreeTabs
+let g:nerdtree_tabs_open_on_console_startup=2
+"Add a close button in the upper right for tabs
+let g:tablineclosebutton=1
+"Automatically find and select currently opened file in NERDTree
+let g:nerdtree_tabs_autofind=1
+highlight! link NERDTreeFlags NERDTreeDir
 
 " syntastic checker ale settings
 let g:ale_set_loclist = 0
@@ -82,16 +89,6 @@ let g:ale_fixers = {
 \   'javascript': ['standard'],
 \   'python': ['pylint']
 \}
-
-let g:vimwiki_list = [{'path': '~/iCloud/notes',
-                      \ 'syntax': 'markdown', 'ext': '.md',
-                      \ 'index': 'Wiki'}]
-let g:vimwiki_global_ext = 0
-
-autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
-" there are some defaults for image directory and image name, you can change them
-let g:mdip_imgdir = 'attachs'
-let g:mdip_imgname = 'image'
 
 let g:Lf_ShowDevIcons = 0
 let g:Lf_WorkingDirectoryMode = 'a'
@@ -114,6 +111,8 @@ noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 noremap <leader>fs :LeaderfFunction!<CR> 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+
+
 
 "GitGutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=Green
@@ -164,6 +163,6 @@ inoremap <C-a> <C-o>0
 inoremap <C-d> <Delete>
 
 let g:UltiSnipsExpandTrigger="<M-Tab>"
-nnoremap <M-n> :cnext<CR>
-nnoremap <M-p> :cprevious<CR>
+nnoremap gen :cnext<CR>
+nnoremap gep :cprevious<CR>
 nnoremap <M-c> :cclose<CR>

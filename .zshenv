@@ -6,6 +6,7 @@ GNU_BIN=/usr/local/opt/coreutils/libexec/gnubin
 export PYTHON_PATH=/usr/local/opt/python/libexec/bin
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 
+export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 
 export PATH=$PYTHON_PATH:$PATH:$GNU_BIN:$GOROOT/bin:$GOPATH/bin
@@ -28,5 +29,5 @@ LC_ALL=en_US.UTF-8
 
 export TERM=xterm-256color
 export GO111MODULE=auto
-export GOPROXY=https://goproxy.io
+export GOPROXY=https://goproxy.cn,direct
 . "$HOME/.cargo/env"
