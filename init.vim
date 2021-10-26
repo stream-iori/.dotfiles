@@ -10,6 +10,8 @@ Plug 'w0rp/ale'
 "File Browser:
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'ryanoasis/vim-devicons' "可以在导航中显示图标， 不过需要有字体支持，否则就是乱码
+Plug 'majutsushi/tagbar'
 Plug 'mkitt/tabline.vim'
 
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } "search
@@ -78,6 +80,8 @@ let g:nerdtree_tabs_open_on_console_startup=2
 let g:tablineclosebutton=1
 "Automatically find and select currently opened file in NERDTree
 let g:nerdtree_tabs_autofind=1
+" 忽略一下文件的显示， 可以定义只隐藏指定文件或目录
+let NERDTreeIgnore=['\.pyc','\~$','\.swp','\.git']
 highlight! link NERDTreeFlags NERDTreeDir
 
 " syntastic checker ale settings
