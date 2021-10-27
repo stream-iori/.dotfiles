@@ -17,7 +17,7 @@ set wrapscan                      " searches wrap around the end of the file
 let mapleader = " "
 
 set keep-english-in-normal "开启输入法自动切换功能
-"set keep-english-in-normal-and-restore-in-insert "回到insert模式时恢复输入法
+set keep-english-in-normal-and-restore-in-insert "回到insert模式时恢复输入法
 set nokeep-english-in-normal-and-restore-in-insert "保留输入法自动切换功能，但是回到insert模式不恢复输入法
 
 " make Y behave like D and C, yanking till end of line
@@ -70,7 +70,6 @@ nmap <leader>gc :action CheckinProject<CR>
 nmap <leader>ga :action Git.Add<CR>
 nmap <leader>gs :action ActivateCommitToolWindow<CR>
 
-
 " Search
 map <leader>ff :action SearchEverywhere<CR>
 map <leader>fc :action GotoClass<CR>
@@ -96,8 +95,7 @@ nmap ggc :action VcsShowNextChangeMarker<CR>
 nmap gp :action SelectIn<CR><1><CR>
 nmap <leader>s :action AceAction<CR>
 
+"Tip
 nmap <leader>pi :action ParameterInfo<CR>
-
-
 nmap <Leader>le :e pom.xml<CR>
 

@@ -21,8 +21,10 @@ Plug 'ayu-theme/ayu-vim'
 
 Plug 'fannheyward/rainbow_parentheses.vim' "括号匹配高亮
 Plug 'tpope/vim-surround'                  "快速加环绕符
+Plug 'airblade/vim-gitgutter'              "文档显示git信息
 
-Plug 'airblade/vim-gitgutter'
+" markdown If you have nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " snip
 Plug 'SirVer/ultisnips'
@@ -80,21 +82,30 @@ let g:nerdtree_tabs_open_on_console_startup=2
 let g:tablineclosebutton=1
 "Automatically find and select currently opened file in NERDTree
 let g:nerdtree_tabs_autofind=1
+"Add folder icon to directories
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+"Hide expand/collapse arrows
+let g:NERDTreeDirArrowExpandable = "\u00a0"
+let g:NERDTreeDirArrowCollapsible = "\u00a0"
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
 " 忽略一下文件的显示， 可以定义只隐藏指定文件或目录
 let NERDTreeIgnore=['\.pyc','\~$','\.swp','\.git']
+let g:NERDTreeWinSize=35
 highlight! link NERDTreeFlags NERDTreeDir
 
 " syntastic checker ale settings
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_open_list = 1 
+
 " python checker
 let g:ale_fixers = {
 \   'javascript': ['standard'],
 \   'python': ['pylint']
 \}
 
-let g:Lf_ShowDevIcons = 0
+let g:Lf_ShowDevIcons = 1
 let g:Lf_WorkingDirectoryMode = 'a'
 " don't show the help in normal mode
 let g:Lf_HideHelp = 1
@@ -116,6 +127,26 @@ noremap <leader>fs :LeaderfFunction!<CR>
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
+"Markdown
+"https://github.com/iamcco/markdown-preview.nvim
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+let g:mkdp_filetypes = ['markdown', 'md']
+
+nmap <leader>mp <Plug>MarkdownPreview
+nmap <leader>ms <Plug>MarkdownPreviewStop
+nmap <leader>mt <Plug>MarkdownPreviewToggle
 
 
 "GitGutter
