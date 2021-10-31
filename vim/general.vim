@@ -19,8 +19,9 @@ if empty($TMUX)
     set termguicolors
   endif
 endif
-
+" have to set by manually
 set termguicolors
+
 set background=dark
 
 set number

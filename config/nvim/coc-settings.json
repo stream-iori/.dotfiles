@@ -21,6 +21,11 @@
   },
   "javascript.suggestionActions.enabled": false,
   "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    },
     "lua": {
       "command": "lua-lsp",
       "filetypes": ["lua"]

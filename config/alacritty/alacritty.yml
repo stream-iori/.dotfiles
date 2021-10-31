@@ -15,7 +15,7 @@ window:
   # DPI and the specified value is always added at both opposing sides.
   padding:
     x: 5
-    y: 5
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -58,32 +58,68 @@ font:
     x: 1
     y: 2
 
-
-# Colors (Ayu Dark)
+# Colors (one Dark)
 colors:
   # Default colors
   primary:
-    background: '0x0f1419'
-    foreground: '0xe6e1cf'
+    background: '0x1e2127'
+    foreground: '0xabb2bf'
+
+    # Bright and dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically if it is not present.
+    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+    # is `false`, the normal foreground color will be used.
+    #dim_foreground: '0x9a9a9a'
+    bright_foreground: '0xe6efff'
+
+  # Cursor colors
+  #
+  # Colors which should be used to draw the terminal cursor. If these are unset,
+  # the cursor color will be the inverse of the cell color.
+  #cursor:
+  #  text: '0x000000'
+  #  cursor: '0xffffff'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xf34a4a'
-    green:   '0xbae67e'
-    yellow:  '0xffee99'
-    blue:    '0x73d0ff'
-    magenta: '0xd4bfff'
-    cyan:    '0x83CEC6'
-    white:   '0xf2f2f2'
+    black:   '0x1e2127'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0x828791'
 
   # Bright colors
   bright:
-    black:   '0x737d87'
-    red:     '0xff3333'
-    green:   '0xc2d94c'
-    yellow:  '0xe7c547'
-    blue:    '0x59c2ff'
-    magenta: '0xb77ee0'
-    cyan:    '0x5ccfe6'
-    white:   '0xffffff'
+    black:   '0x5c6370'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xe6efff'
+
+  # Dim colors
+  #
+  # If the dim colors are not set, they will be calculated automatically based
+  # on the `normal` colors.
+  dim:
+    black:   '0x1e2127'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0x828791'
+
+  # Indexed Colors
+  #
+  # The indexed colors include all colors from 16 to 256.
+  # When these are not set, they're filled with sensible defaults.
+  #indexed_colors:
+  #  - { index: 16, color: '0x000000' }

@@ -8,7 +8,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
   " Colorscheme
-  Plug 'ayu-theme/ayu-vim'
+  Plug 'rakr/vim-one'
 
   " Language
   Plug 'pangloss/vim-javascript'
@@ -20,12 +20,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'hail2u/vim-css3-syntax'
 
   Plug 'eraserhd/parinfer-rust', { 'do': 'cargo build --release' }
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+  Plug 'fatih/vim-go'
 
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
   Plug 'pearofducks/ansible-vim'
   Plug 'chr4/nginx.vim'
   Plug 'cespare/vim-toml'
-
 
   " UI
   Plug 'lukas-reineke/indent-blankline.nvim'
@@ -75,9 +75,8 @@ call plug#end()
 " ----------------------------------------------------------------------------
 " Colorscheme
 " ----------------------------------------------------------------------------
-colorscheme ayu
-let ayucolor="dark"   " light mirage
-
+colorscheme one
+let g:one_allow_italics = 1 " I love italic for comments
 
 " ----------------------------------------------------------------------------
 " Language
@@ -91,6 +90,8 @@ let g:javascript_enable_domhtmlcss = 1
 " javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'underscore,jquery,react'
 
+" golang
+"
 " ----------------------------------------------------------------------------
 " UI
 " ----------------------------------------------------------------------------
@@ -160,7 +161,7 @@ augroup END
 let g:defx_icons_enable_syntax_highlight = 1
 
 " vim-airline
-let g:airline_theme='ayu'
+let g:airline_theme='one'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
