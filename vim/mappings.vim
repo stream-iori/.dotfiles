@@ -25,6 +25,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>0
+inoremap <C-d> <Delete>
+
 nnoremap <Leader>/ :nohl<Cr>
 
 if has('nvim')

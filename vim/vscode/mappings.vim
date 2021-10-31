@@ -20,6 +20,10 @@ nnoremap K gg
 vnoremap J G
 vnoremap K gg
 
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>0
+inoremap <C-d> <Delete>
+
 nnoremap <silent> <C-j> :<C-u>call VSCodeNotify('workbench.action.focusBelowGroup')<Cr>
 nnoremap <silent> <C-k> :<C-u>call VSCodeNotify('workbench.action.focusAboveGroup')<Cr>
 nnoremap <silent> <C-h> :<C-u>call VSCodeNotify('workbench.action.focusLeftGroup')<Cr>
