@@ -7,9 +7,9 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle autojump
 antigen bundle osx
-antigen bundle gnu-utils 
-antigen bundle docker 
-antigen bundle fzf 
+antigen bundle gnu-utils
+antigen bundle docker
+antigen bundle fzf
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -21,7 +21,7 @@ antigen theme pygmalion
 antigen apply
 
 # User configuration
-alias proxy='export https_proxy=http://127.0.0.1:1087; export http_proxy=http://127.0.0.1:1087'
+alias proxy='export https_proxy=http://127.0.0.1:8118; export http_proxy=http://127.0.0.1:8118'
 alias unproxy='unset https_proxy; unset http_proxy'
 alias no_proxy='export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.64.0/24'
 #
@@ -34,7 +34,6 @@ alias date='gdate'
 alias chrome="open -a \"Google Chrome\" $@"
 alias vim="nvim"
 alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
-alias python=/usr/local/bin/python3
 
 # 关闭 C-s 的提醒
 stty -ixon
@@ -105,3 +104,5 @@ KUBECTX_IGNORE_FZF=1
 KUBE_PS1_SYMBOL_USE_IMG=true
 
 eval "$(jenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

@@ -1,0 +1,111 @@
+# ========== Basic ========= #
+set -g default-terminal "screen-256color"
+set -g terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+set -g display-time 3000
+set -g history-limit 10000
+set -g base-index 1
+set -g pane-base-index 1
+set -s escape-time 1
+set -g mouse on
+
+set-window-option -g allow-rename off
+set-window-option -g automatic-rename on
+
+# easy reload
+unbind r
+bind C-r source-file ~/.tmux.conf \; display-message "tmux.conf reloaded."
+
+# bind prefix
+unbind C-b
+set -g prefix C-x
+bind C-x send-prefix
+
+# ========== Plugins ========== #
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-urlview'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+run '$DOTFILES/tmux/plugins/tpm/tpm'
+
+# ========== window =========== #
+# create window in current path
+unbind c
+bind c new-window -c "#{pane_current_path}"
+
+# create session
+bind n new-session
+
+# clean screen
+bind C-l send-keys 'C-l'
+
+# fast switch windows
+bind Space choose-tree -w
+bind C-a last-window
+bind C-j previous-window
+bind C-k next-window
+
+# ========== pane ========== #
+# split window
+unbind %
+bind - split-window -v -c '#{pane_current_path}'
+unbind '"'
+bind '\' split-window -h -c '#{pane_current_path}'
+
+# select pane
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# resize pane
+bind -r K resizep -U 5
+bind -r J resizep -D 5
+bind -r H resizep -L 5
+bind -r L resizep -R 5
+
+# swap panes
+bind C-u swap-pane -U
+bind C-d swap-pane -D
+bind C-x rotate-window
+
+# kill pane/window/session
+bind q kill-pane
+bind C-q kill-window
+bind Q kill-session
+
+# ========== Notifition ========== #
+setw -g monitor-activity off
+set -g visual-activity off
+
+# ========== Copy Mode ========== #
+setw -g mode-keys vi
+bind v copy-mode
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi 'r' send-keys -X rectangle-toggle
+bind -Tcopy-mode-vi Escape send -X cancel
+
+bind -Tcopy-mode-vi MouseDrag1Pane send -X begin-selection
+
+# ========== Colorscheme ========== #
+set -g status-justify "left"
+set -g status "on"
+set -g status-left-style "none"
+set -g message-command-style "fg=colour231,bg=colour240"
+set -g status-right-style "none"
+set -g pane-active-border-style "fg=colour148"
+set -g status-style "none,bg=colour236"
+set -g message-style "fg=colour231,bg=colour240"
+set -g pane-border-style "fg=colour240"
+set -g status-right-length "100"
+set -g status-left-length "100"
+setw -g window-status-activity-style "none"
+setw -g window-status-separator ""
+setw -g window-status-style "none,fg=colour245,bg=colour236"
+
+set -g status-left "  #(/bin/zsh $HOME/.tmux/kube.tmux 250 red cyan)  #[fg=colour22,bg=colour148,bold] #S #[fg=colour148,bg=colour236,nobold,nounderscore,noitalics]"
+set -g status-right "#[fg=colour250,bg=colour240] stream #[fg=colour252,bg=colour241]#[fg=colour241,bg=colour252] %Y-%m-%d  %H:%M #[fg=colour240,bg=colour250,nobold,nounderscore,noitalics]#[fg=colour250,bg=colour240] #h "
+setw -g window-status-format "#[fg=colour245,bg=colour236] #I #[fg=colour245,bg=colour236] #W "
+setw -g window-status-current-format "#[fg=colour236,bg=colour240,nobold,nounderscore,noitalics]#[fg=colour231,bg=colour240] #I #[fg=colour231,bg=colour240] #W #[fg=colour240,bg=colour236,nobold,nounderscore,noitalics]"

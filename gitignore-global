@@ -30,3 +30,11 @@ Thumbs.db
 *.log
 tmp/
 sofa-test-config.properties
+
+####################################
+############# config   #############
+####################################
+karabiner/automatic_backups
+vim/plugged
+*.un~
+vim/sessions

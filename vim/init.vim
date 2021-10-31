@@ -2,7 +2,7 @@
 "                               Stream's vimrc                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:mapleader = "\<Space>"
-let g:vimrc_root_path = "~/.dotfile/vim"
+let g:vimrc_root_path = "~/.dotfiles/vim"
 
 " pyenv install 3.9.7
 " pyenv virtualenv 3.9.7 py3nvim

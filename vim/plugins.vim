@@ -8,7 +8,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
   " Colorscheme
-  Plug 'ayu-theme/ayu-vim' 
+  Plug 'ayu-theme/ayu-vim'
 
   " Language
   Plug 'pangloss/vim-javascript'
@@ -75,7 +75,7 @@ call plug#end()
 " ----------------------------------------------------------------------------
 " Colorscheme
 " ----------------------------------------------------------------------------
-colorscheme ayu 
+colorscheme ayu
 let ayucolor="dark"   " light mirage
 
 
@@ -104,10 +104,10 @@ EOF
 let g:gitgutter_enabled = 0
 
 " defx.nvim
-nnoremap <silent> <C-b> :<C-u>Defx -search=`expand('%:p')`<CR>
-" nnoremap <silent> <Leader>b :<C-u>Defx -search=`expand('%:p')`<CR>
+" nnoremap <silent> <C-b> :<C-u>Defx -search=`expand('%:p')`<CR>
+nnoremap <silent> <Leader>tb :<C-u>Defx -search=`expand('%:p')`<CR>
 call defx#custom#option('_', {
-  \ 'winwidth': 30,
+  \ 'winwidth': 32,
   \ 'split': 'vertical',
   \ 'direction': 'topleft',
   \ 'show_ignored_files': 1,
@@ -139,10 +139,10 @@ function! s:defx_mappings() abort
   nnoremap <silent><buffer><expr> p defx#do_action('paste')
   nnoremap <silent><buffer><expr> ma defx#do_action('new_file')
   nnoremap <silent><buffer><expr> md defx#do_action('remove')
-  nnoremap <silent><buffer><expr> mm defx#do_action('rename')
+  nnoremap <silent><buffer><expr> mn defx#do_action('rename')
   nnoremap <silent><buffer><expr> y defx#do_action('yank_path')
   nnoremap <silent><buffer><expr> s defx#do_action('drop', 'split')
-  nnoremap <silent><buffer><expr> i defx#do_action('drop', 'vsplit')
+  nnoremap <silent><buffer><expr> v defx#do_action('drop', 'vsplit')
   nnoremap <silent><buffer><expr> r defx#do_action('redraw')
 endfunction
 augroup Defx
@@ -158,7 +158,6 @@ augroup END
 
 " defx-icons
 let g:defx_icons_enable_syntax_highlight = 1
-
 
 " vim-airline
 let g:airline_theme='ayu'
@@ -251,6 +250,48 @@ nnoremap <silent> <Leader>tn :TestNearest<Cr>
 nnoremap <silent> <Leader>tf :TestFile<Cr>
 nnoremap <silent> <Leader>ts :TestSuite<Cr>
 
+" LeaderF
+let g:Lf_ShowDevIcons = 1
+let g:Lf_WorkingDirectoryMode = 'a'
+" don't show the help in normal mode
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" popup mode
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
+let g:Lf_ShortcutF = "<leader>ff"
+noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+
+"Markdown
+"https://github.com/iamcco/markdown-preview.nvim
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+let g:mkdp_filetypes = ['markdown', 'md']
+
+nmap <leader>mp <Plug>MarkdownPreview
+nmap <leader>ms <Plug>MarkdownPreviewStop
+nmap <leader>mt <Plug>MarkdownPreviewToggle
+
+
+
 
 " ----------------------------------------------------------------------------
 " Completion
@@ -282,8 +323,8 @@ nmap <silent> <Leader>p <Plug>(coc-format-selected)
 vmap <silent> <Leader>p <Plug>(coc-format-selected)
 
 " coc-git
-nmap <silent> <Leader>g :<C-u>CocList --normal gstatus<CR>
-nmap <silent> <Leader>c :<C-u>CocList commits<CR>
+nmap <silent> <Leader>gs :<C-u>CocList --normal gstatus<CR>
+nmap <silent> <Leader>gc :<C-u>CocList commits<CR>
 
 " coc-lists
 nmap <silent> <C-p> :<C-u>CocList files<CR>
@@ -308,7 +349,6 @@ endfunction
 call coc#add_extension(
   \ 'coc-tsserver',
   \ 'coc-go',
-  \ 'coc-rust',
   \ 'coc-json',
   \ 'coc-css',
   \ 'coc-vimlsp',

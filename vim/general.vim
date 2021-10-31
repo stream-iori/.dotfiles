@@ -18,8 +18,9 @@ if empty($TMUX)
   if has('termguicolors')
     set termguicolors
   endif
-endi
+endif
 
+set termguicolors
 set background=dark
 
 set number

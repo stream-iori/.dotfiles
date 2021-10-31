@@ -17,7 +17,7 @@ Plug 'mkitt/tabline.vim'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } "search
 
 " Theme
-Plug 'ayu-theme/ayu-vim' 
+Plug 'ayu-theme/ayu-vim'
 
 Plug 'fannheyward/rainbow_parentheses.vim' "括号匹配高亮
 Plug 'tpope/vim-surround'                  "快速加环绕符
@@ -37,7 +37,7 @@ Plug 'chr4/nginx.vim'
 Plug 'cespare/vim-toml'
 call plug#end()
 
-let g:mapleader=' ' 
+let g:mapleader=' '
 " 对接系统剪切板
 set clipboard+=unnamedplus
 set autowrite
@@ -54,7 +54,7 @@ set shiftwidth=2
 set incsearch "查找短语时显示部分匹配
 set ignorecase " 查找时忽略字母大小写
 set smartcase
-colorscheme ayu 
+colorscheme ayu
 
 set termguicolors     " enable true colors support
 let ayucolor="dark"   " light mirage
@@ -97,7 +97,7 @@ highlight! link NERDTreeFlags NERDTreeDir
 " syntastic checker ale settings
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-let g:ale_open_list = 1 
+let g:ale_open_list = 1
 
 " python checker
 let g:ale_fixers = {
@@ -123,7 +123,7 @@ noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 "显示所有函数
-noremap <leader>fs :LeaderfFunction!<CR> 
+noremap <leader>fs :LeaderfFunction!<CR>
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
@@ -172,7 +172,7 @@ noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C> :update<CR>
 inoremap <silent> <C-S> <C-O> :update<CR>
 
-" EasyMotion 
+" EasyMotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
