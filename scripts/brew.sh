@@ -23,10 +23,8 @@ formulas=(
   ruby
   lua
   luarocks
-  fish
   ripgrep
   fzf
-  nginx
   tmux
   git
   tree
@@ -38,8 +36,6 @@ formulas=(
   fd
   reattach-to-user-namespace
   ctags
-  clojure-lsp
-  borkdude/brew/clj-kondo
 )
 
 for formula in "${formulas[@]}"; do
@@ -53,14 +49,10 @@ done
 echo -e "\nInstalling homebrew casks..."
 echo "=============================="
 casks=(
-  hammerspoon
-  squirrel
   upic
-  kitty
+  alacritty
   fork
-  dash
   wireshark
-  raycast
   karabiner-elements
 )
 
