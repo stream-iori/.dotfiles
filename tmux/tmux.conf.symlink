@@ -22,13 +22,13 @@ set -g prefix C-x
 bind C-x send-prefix
 
 # ========== Plugins ========== #
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-urlview'
-set -g @plugin 'christoomey/vim-tmux-navigator'
-set -g @plugin 'tmux-plugins/tmux-yank'
-
-run '$DOTFILES/tmux/plugins/tpm/tpm'
+#set -g @plugin 'tmux-plugins/tpm'
+#set -g @plugin 'tmux-plugins/tmux-sensible'
+#set -g @plugin 'tmux-plugins/tmux-urlview'
+#set -g @plugin 'christoomey/vim-tmux-navigator'
+#set -g @plugin 'tmux-plugins/tmux-yank'
+#
+#run '$DOTFILES/tmux/plugins/tpm/tpm'
 
 # ========== window =========== #
 # create window in current path
@@ -93,6 +93,7 @@ bind -Tcopy-mode-vi MouseDrag1Pane send -X begin-selection
 # ========== Colorscheme ========== #
 set -g status-justify "left"
 set -g status "on"
+set -g status-position top
 set -g status-left-style "none"
 set -g message-command-style "fg=colour231,bg=colour240"
 set -g status-right-style "none"
