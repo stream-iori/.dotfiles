@@ -1,24 +1,26 @@
-source /usr/local/share/antigen/antigen.zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+source /usr/local/opt/zinit/zinit.zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle autojump
-antigen bundle osx
-antigen bundle gnu-utils
-antigen bundle docker
-antigen bundle fzf
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
+zinit load zsh-users/zsh-syntax-highlighting
 
-# Load the theme.
-antigen theme pygmalion
+# theme
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-antigen apply
+# oh-my-zsh bundle
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit snippet OMZ::plugins/autojump/autojump.plugin.zsh
+zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
+zinit snippet OMZ::lib/history.zsh
+
+#
+zinit ice lucid wait='0'; zinit light zsh-users/zsh-completions
 
 # User configuration
 alias proxy='export https_proxy=http://127.0.0.1:8118; export http_proxy=http://127.0.0.1:8118'
@@ -89,3 +91,6 @@ KUBE_PS1_SYMBOL_USE_IMG=true
 eval "$(jenv init -)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
