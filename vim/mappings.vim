@@ -30,6 +30,7 @@ inoremap <C-a> <C-o>0
 inoremap <C-d> <Delete>
 
 nnoremap <Leader>/ :nohl<Cr>
+nnoremap <C-s> :w<cr>
 
 if has('nvim')
   noremap <C-h> <C-\><C-n><C-w>h

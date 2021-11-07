@@ -25,7 +25,7 @@ set termguicolors
 set background=dark
 
 set number
-set relativenumber
+" set relativenumber
 
 set autoread
 set noautowrite
