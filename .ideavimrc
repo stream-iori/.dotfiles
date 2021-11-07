@@ -93,7 +93,7 @@ nmap ggc :action VcsShowNextChangeMarker<CR>
 
 "locate file in project
 nmap gp :action SelectIn<CR><1><CR>
-nmap <leader>s :action AceAction<CR>
+nmap <leader><leader>s :action AceAction<CR>
 
 "Tip
 nmap <leader>pi :action ParameterInfo<CR>

@@ -126,8 +126,7 @@ EOF
 let g:gitgutter_enabled = 0
 
 " defx.nvim
-" nnoremap <silent> <C-b> :<C-u>Defx -search=`expand('%:p')`<CR>
-nnoremap <silent> <Leader>tb :<C-u>Defx -search=`expand('%:p')`<CR>
+nnoremap <silent> nt :<C-u>Defx -search-recursive=`expand('%:p')`<CR>
 call defx#custom#option('_', {
   \ 'winwidth': 32,
   \ 'split': 'vertical',
@@ -371,7 +370,6 @@ endfunction
 
 call coc#add_extension(
   \ 'coc-tsserver',
-  \ 'coc-go',
   \ 'coc-json',
   \ 'coc-css',
   \ 'coc-vimlsp',

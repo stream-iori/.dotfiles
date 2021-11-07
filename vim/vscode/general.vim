@@ -5,7 +5,6 @@
 set background=dark
 
 set number
-set relativenumber
 
 set autoread
 set noautowrite
