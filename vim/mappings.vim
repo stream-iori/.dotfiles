@@ -20,6 +20,8 @@ nnoremap K gg
 vnoremap J G
 vnoremap K gg
 
+imap jj <Esc>
+
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h

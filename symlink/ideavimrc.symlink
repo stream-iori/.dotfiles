@@ -23,6 +23,8 @@ set nokeep-english-in-normal-and-restore-in-insert "保留输入法自动切换�
 " make Y behave like D and C, yanking till end of line
 map Y y$
 
+imap jj <Esc>
+
 " don't overwrite register when pasting over selection
 vnoremap p pgvy
 
