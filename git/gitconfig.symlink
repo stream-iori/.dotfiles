@@ -5,6 +5,7 @@
 [core]
 ignoreCase = false
 excludesfile = ~/.gitignore_global
+editor = vim
 [push]
 default = current
 
