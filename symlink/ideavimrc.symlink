@@ -20,6 +20,9 @@ set keep-english-in-normal "开启输入法自动切换功能
 set keep-english-in-normal-and-restore-in-insert "回到insert模式时恢复输入法
 set nokeep-english-in-normal-and-restore-in-insert "保留输入法自动切换功能，但是回到insert模式不恢复输入法
 
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
 " make Y behave like D and C, yanking till end of line
 map Y y$
 
@@ -48,6 +51,7 @@ nnoremap <leader>rt :action Refactorings.QuickListPopupAction<CR>
 
 " Editor refactor
 nnoremap <leader>re :action RenameElement <CR> <ESC>
+nnoremap <C-w>q :action CloseContent<CR>
 
 " Create
 nmap <leader>cc :action NewClass<CR>
@@ -89,15 +93,15 @@ nmap gd :action GotoDeclaration<CR>
 nmap gu :action ShowUsages<CR>
 nmap gi :action GotoImplementation<CR>
 nmap gs :action GotoSuperMethod<CR>
-nmap gen :action GotoNextError<CR>
-nmap gep :action GotoPreviousError<CR>
+nmap ge :action GotoNextError<CR>
+nmap gE :action GotoPreviousError<CR>
 nmap ggc :action VcsShowNextChangeMarker<CR>
+nmap gH  :action ParameterInfo<CR>
 
 "locate file in project
 nmap gp :action SelectIn<CR><1><CR>
 nmap <leader><leader>s :action AceAction<CR>
 
 "Tip
-nmap <leader>pi :action ParameterInfo<CR>
 nmap <Leader>le :e pom.xml<CR>
 

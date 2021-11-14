@@ -3,13 +3,13 @@
 	name = stream
 	email = stream.iori97@gmail.com
 [core]
-ignoreCase = false
-excludesfile = ~/.gitignore_global
+    ignoreCase = false
+    excludesfile = ~/.gitignore_global
 [push]
-default = current
+    default = current
 
 [includeIf "gitdir:~/codes/"]
-path = ~/codes/.gitconfig
+    path = ~/codes/.gitconfig
 
 [include]
-path = ~/.gitconfig_proxy
+    path = ~/.gitconfig_proxy

@@ -47,6 +47,6 @@ cnoremap <C-n> <Down>
 
 nnoremap <silent> <Leader>sv :source $MYVIMRC<Cr>
 
-nnoremap gen :cnext<CR>
-nnoremap gep :cprevious<CR>
+nnoremap ge :cnext<CR>
+nnoremap gE :cprevious<CR>
 
