@@ -1,12 +1,17 @@
 -- https://github.com/ashfinal/awesome-hammerspoon/blob/master/init.lua
 
 
+
+
+
 hsreload_keys = hsreload_keys or {{"cmd", "shift", "ctrl"}, "R"}
+if string.len(hsreload_keys[2]) > 0 then
+    hs.hotkey.bind(hsreload_keys[1], hsreload_keys[2], "Reload Configuration", function() hs.reload() end)
+end
 
-
+-- ModalMgr Spoon must be loaded explicitly, because this repository heavily relies upon it.
 hs.loadSpoon("ModalMgr")
 
--- 定义默认加载的 Spoons
 if not hspoon_list then
     hspoon_list = {
         "AClock",
@@ -28,6 +33,20 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", function()
   hs.alert.show("Hello World!")
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "t", function()
-  spoon.AClock:toggleShow()
-end)
+----------------------------------------------------------------------------------------------------
+-- Register AClock
+if spoon.AClock then
+    hsaclock_keys = hsaclock_keys or {"alt", "T"}
+    if string.len(hsaclock_keys[2]) > 0 then
+        spoon.ModalMgr.supervisor:bind(hsaclock_keys[1], hsaclock_keys[2], "Toggle Floating Clock",
+          function() spoon.AClock:toggleShow() end)
+    end
+end
+
+--hs.hotkey.bind({"cmd", "alt", "ctrl"}, "t", function()
+--  spoon.AClock:toggleShow()
+--end)
+
+----------------------------------------------------------------------------------------------------
+-- Finally we initialize ModalMgr supervisor
+spoon.ModalMgr.supervisor:enter()

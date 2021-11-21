@@ -45,6 +45,8 @@ map <leader>eo :action OptimizeImports<CR>
 map <A-e> :action EditorCompleteStatement<CR>
 map <A-c> :action CommentByBlockComment<CR>
 map <C-A-y> :action PasteMultiple<CR>
+map <C-w>x :action MoveEditorToOppositeTabGroup<CR>
+
 nnoremap <Leader>rs :%s//g<Left><Left>
 xnoremap <Leader>rs :s//g<Left><Left>
 nnoremap <leader>rt :action Refactorings.QuickListPopupAction<CR>
