@@ -19,16 +19,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'ap/vim-css-color'
   Plug 'hail2u/vim-css3-syntax'
 
-  Plug 'eraserhd/parinfer-rust', { 'do': 'cargo build --release' }
-  Plug 'fatih/vim-go'
-
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
   Plug 'pearofducks/ansible-vim'
   Plug 'chr4/nginx.vim'
   Plug 'cespare/vim-toml'
 
   " UI
-  Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'airblade/vim-gitgutter'
   Plug 'majutsushi/tagbar'
   if has('nvim')
@@ -90,37 +86,10 @@ let g:javascript_enable_domhtmlcss = 1
 " javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'underscore,jquery,react'
 
-" golang
-"
-let g:go_list_type = "quickfix"
-
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <Leader>hls <Plug>(go-sameids-toggle)
-
-
-
 
 " ----------------------------------------------------------------------------
 " UI
 " ----------------------------------------------------------------------------
-
-" indent-blankline.nvim
-lua <<EOF
-require("indent_blankline").setup()
-EOF
 
 " vim-gitgutter
 let g:gitgutter_enabled = 0
