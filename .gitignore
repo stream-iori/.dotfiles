@@ -2,3 +2,5 @@ karabiner/automatic_backups
 vim/plugged
 *.un~
 vim/sessions
+tmux/plugins/*
+

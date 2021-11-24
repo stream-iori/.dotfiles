@@ -29,7 +29,7 @@ set -g @plugin 'IngoMeyer441/tmux-easy-motion'
 #set -g @plugin 'christoomey/vim-tmux-navigator'
 #set -g @plugin 'tmux-plugins/tmux-yank'
 #
-#run '$DOTFILES/tmux/plugins/tpm/tpm'
+run -b '$DOTFILES/tmux/plugins/tpm/tpm'
 #
 set -g @easy-motion-prefix "Space"
 set -g @easy-motion-verbose "true"
@@ -48,7 +48,8 @@ bind n new-session
 # clean screen
 bind C-l send-keys 'C-l'
 
-# fast switch windows
+
+# fast switch windows conflict with easy motion, sugest using C-x W
 #bind Space choose-tree -w
 #bind C-a last-window
 #bind C-j previous-window
@@ -95,7 +96,7 @@ bind-key -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "pbcopy"
 bind-key -T copy-mode-vi 'r' send-keys -X rectangle-toggle
 bind -Tcopy-mode-vi Escape send -X cancel
 
-bind -Tcopy-mode-vi MouseDrag1Pane send -X begin-selection
+bind -T copy-mode-vi MouseDrag1Pane send -X begin-selection
 
 # ========== Colorscheme ========== #
 set -g status-justify "left"
