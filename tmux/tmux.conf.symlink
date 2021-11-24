@@ -22,13 +22,20 @@ set -g prefix C-x
 bind C-x send-prefix
 
 # ========== Plugins ========== #
-#set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'IngoMeyer441/tmux-easy-motion'
 #set -g @plugin 'tmux-plugins/tmux-sensible'
 #set -g @plugin 'tmux-plugins/tmux-urlview'
 #set -g @plugin 'christoomey/vim-tmux-navigator'
 #set -g @plugin 'tmux-plugins/tmux-yank'
 #
 #run '$DOTFILES/tmux/plugins/tpm/tpm'
+#
+set -g @easy-motion-prefix "Space"
+set -g @easy-motion-verbose "true"
+
+bind-key v next-layout
+bind-key -T copy-mode-vi v send-keys -X begin-selection
 
 # ========== window =========== #
 # create window in current path
@@ -42,10 +49,10 @@ bind n new-session
 bind C-l send-keys 'C-l'
 
 # fast switch windows
-bind Space choose-tree -w
-bind C-a last-window
-bind C-j previous-window
-bind C-k next-window
+#bind Space choose-tree -w
+#bind C-a last-window
+#bind C-j previous-window
+#bind C-k next-window
 
 # ========== pane ========== #
 # split window

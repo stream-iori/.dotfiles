@@ -64,11 +64,11 @@ nmap <leader>rr :action ChooseRunConfiguration<CR>
 nmap <leader>rs :action Stop<CR>
 
 " Active window
-nmap <leader>ap :action ActivateProjectToolWindow<CR>
+nmap <leader>wp :action ActivateProplemsToolWindow<CR>
 nmap <leader>as :action ActivateStructureToolWindow<CR>
-nmap <leader>ad :action ActivateDebugToolWindow<CR>
-nmap <leader>au :action ShowUmlDiagramPopup<CR>
-nmap <Leader>ah :action HideAllWindows<CR>
+nmap <leader>wd :action ActivateDebugToolWindow<CR>
+nmap <leader>wu :action ShowUmlDiagramPopup<CR>
+nmap <Leader>wh :action HideAllWindows<CR>
 
 " Git
 nmap <leader>gbl :action Annotate<CR>

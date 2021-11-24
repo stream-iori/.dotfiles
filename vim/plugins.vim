@@ -95,7 +95,7 @@ let g:used_javascript_libs = 'underscore,jquery,react'
 let g:gitgutter_enabled = 0
 
 " defx.nvim
-nnoremap <silent> nt :<C-u>Defx -search-recursive=`expand('%:p')`<CR>
+nnoremap <silent> <leader>wb :<C-u>Defx -search-recursive=`expand('%:p')`<CR>
 call defx#custom#option('_', {
   \ 'winwidth': 32,
   \ 'split': 'vertical',
