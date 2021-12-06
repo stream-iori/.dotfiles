@@ -11,14 +11,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'rakr/vim-one'
 
   " Language
-  Plug 'pangloss/vim-javascript'
-  Plug 'neoclide/vim-jsx-improve'
-  Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'typescript'] }
-  Plug 'herringtondarkholme/yats.vim', { 'for': 'typescript' }
-  Plug 'groenewege/vim-less'
-  Plug 'ap/vim-css-color'
-  Plug 'hail2u/vim-css3-syntax'
-
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
   Plug 'pearofducks/ansible-vim'
   Plug 'chr4/nginx.vim'
@@ -26,7 +18,6 @@ call plug#begin('~/.vim/plugged')
 
   " UI
   Plug 'airblade/vim-gitgutter'
-  Plug 'majutsushi/tagbar'
   if has('nvim')
     Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " 代替nerd Tree
   else
@@ -47,24 +38,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'easymotion/vim-easymotion'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'Valloric/MatchTagAlways'
-  Plug 'alvan/vim-closetag'
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'bronson/vim-trailing-whitespace'
-  Plug 'tpope/vim-fugitive' " Git operator
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'vim-test/vim-test'
-  Plug 'matze/vim-move'
-  Plug 'kana/vim-textobj-user'
-  Plug 'sgur/vim-textobj-parameter'
-  Plug 'nathangrigg/vim-beancount' "记账
-  Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } "Search
-
   " Completion
-  Plug 'mattn/emmet-vim'
-  Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
-  Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-
 call plug#end()
 
 
@@ -77,14 +53,6 @@ let g:one_allow_italics = 1 " I love italic for comments
 " ----------------------------------------------------------------------------
 " Language
 " ----------------------------------------------------------------------------
-
-" vim-javascript
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
-let g:javascript_enable_domhtmlcss = 1
-
-" javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'underscore,jquery,react'
 
 
 " ----------------------------------------------------------------------------
@@ -206,59 +174,6 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
 let g:EasyMotion_smartcase = 1
 
-
-" MatchTagAlways
-let g:mta_filetypes = {
-  \  'javascript': 1,
-  \  'javascript.jsx': 1,
-  \  'typescript': 1,
-  \ }
-
-" vim-closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.js,*.jsx,*.html.erb,*.md'
-
-" vim-trailing-whitespace
-let g:extra_whitespace_ignored_filetypes = ['defx', 'help', 'grep', 'search']
-augroup TrailingSpace
-  autocmd!
-  autocmd BufWritePre * FixWhitespace
-augroup END
-
-" vim-move
-let g:move_map_keys = 0
-vmap <C-j> <Plug>MoveBlockDown
-vmap <C-k> <Plug>MoveBlockUp
-vmap <C-h> <Plug>MoveBlockLeft
-vmap <C-l> <Plug>MoveBlockRight
-
-" vim-textobj-parameter
-let g:vim_textobj_parameter_mapping = 'a'
-
-
-" vim-test
-nnoremap <silent> <Leader>tn :TestNearest<Cr>
-nnoremap <silent> <Leader>tf :TestFile<Cr>
-nnoremap <silent> <Leader>ts :TestSuite<Cr>
-
-" LeaderF
-let g:Lf_ShowDevIcons = 1
-let g:Lf_WorkingDirectoryMode = 'a'
-" don't show the help in normal mode
-let g:Lf_HideHelp = 1
-let g:Lf_UseCache = 0
-let g:Lf_UseVersionControlTool = 0
-let g:Lf_IgnoreCurrentBufferName = 1
-" popup mode
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 1
-let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
-let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
-
-let g:Lf_ShortcutF = "<leader>ff"
-noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-
 "Markdown
 "https://github.com/iamcco/markdown-preview.nvim
 let g:mkdp_preview_options = {
@@ -286,72 +201,5 @@ nmap <leader>mt <Plug>MarkdownPreviewToggle
 " ----------------------------------------------------------------------------
 " Completion
 "----------------------------------------------------------------------------
-
-" Emmet.vim
-imap <silent> <C-e> <Space><BS><plug>(emmet-expand-abbr)
-let g:user_emmet_install_global = 1
-let g:user_emmet_settings = {
-  \ 'javascript.jsx' : {
-  \   'extends' : 'jsx',
-  \  },
-  \ 'javascript' : {
-  \   'extends' : 'jsx',
-  \  },
-  \ }
-
-" coc.nvim
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> gh :call CocAction('doHover')<CR>
-nnoremap <silent> ga :CocAction<CR>
-
-nmap <silent> <Leader>r <Plug>(coc-rename)
-nmap <silent> <Leader>f <Plug>(coc-format)
-nmap <silent> <Leader>p <Plug>(coc-format-selected)
-vmap <silent> <Leader>p <Plug>(coc-format-selected)
-
-" coc-git
-nmap <silent> <Leader>gs :<C-u>CocList --normal gstatus<CR>
-nmap <silent> <Leader>gc :<C-u>CocList commits<CR>
-
-" coc-lists
-" 使用 leaderF
-" nmap <silent> <C-p> :<C-u>CocList files<CR>
-" nmap <silent> <C-f> :<C-u>CocList grep<CR>
-" nmap <silent> <Leader><Space> :<C-u>CocList buffers<CR>
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-call coc#add_extension(
-  \ 'coc-tsserver',
-  \ 'coc-json',
-  \ 'coc-css',
-  \ 'coc-vimlsp',
-  \ 'coc-snippets',
-  \ 'coc-word',
-  \ 'coc-prettier',
-  \ 'coc-diagnostic',
-  \ 'coc-eslint',
-  \ 'coc-git',
-  \ 'coc-lists',
-  \ 'coc-tabnine'
-  \ )
-
-
 
 

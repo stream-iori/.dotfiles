@@ -11,7 +11,4 @@ augroup Common
     autocmd WinEnter term://* startinsert
     autocmd WinLeave term://* stopinsert
   endif
-
-  " css/less/scss/go/rs keyword
-  autocmd FileType css,less,scss setlocal iskeyword+=-
 augroup end
