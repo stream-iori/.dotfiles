@@ -3,6 +3,7 @@ set history=100000
 set hlsearch                      " highlight search occurrences
 set surround                      " enable vim-surround emulation
 set commentary                    " set multiple-cursors
+set easymotion
 set incsearch
 set ignorecase
 set ideajoin
@@ -20,7 +21,7 @@ set keep-english-in-normal "开启输入法自动切换功能
 set keep-english-in-normal-and-restore-in-insert "回到insert模式时恢复输入法
 set nokeep-english-in-normal-and-restore-in-insert "保留输入法自动切换功能，但是回到insert模式不恢复输入法
 
-nnoremap \e :e ~/.ideavimrc<CR>
+noremap \e :e ~/.ideavimrc<CR>
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 
 " make Y behave like D and C, yanking till end of line
@@ -39,6 +40,7 @@ nnoremap <leader>si :source ~/.ideavimrc<CR>
 
 " High frequency
 nmap <C-x>b :action RecentFiles<CR>
+nmap <l>s <Plug>(easymotion-s)
 
 " Editor which will change file
 map <leader>ef :action ReformatCode<CR>
@@ -47,7 +49,7 @@ map <A-e> :action EditorCompleteStatement<CR>
 map <A-c> :action CommentByBlockComment<CR>
 map <C-A-y> :action PasteMultiple<CR>
 
-nnoremap <Leader>rs :%s//g<Left><Left>
+noremap <Leader>rs :%s//g<Left><Left>
 xnoremap <Leader>rs :s//g<Left><Left>
 nnoremap <leader>rt :action Refactorings.QuickListPopupAction<CR>
 
@@ -97,7 +99,7 @@ nnoremap <C-i> :action Forward<CR>
 nmap gt :action GotoTypeDeclaration<CR>
 nmap gd :action GotoDeclaration<CR>
 nmap gu :action ShowUsages<CR>
-nmap gi :action GotoImplementation<CR>
+nmap gi :action GtoImplementation<CR>
 nmap gs :action GotoSuperMethod<CR>
 nmap ge :action GotoNextError<CR>
 nmap gE :action GotoPreviousError<CR>
@@ -106,7 +108,6 @@ nmap gH  :action ParameterInfo<CR>
 
 "locate file in project
 nmap gp :action SelectIn<CR><1><CR>
-nmap <leader>s :action AceAction<CR>
 
 "Tip
 nmap <Leader>le :e pom.xml<CR>

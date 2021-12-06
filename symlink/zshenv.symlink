@@ -3,7 +3,7 @@
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/sajia/bin:/usr/local/opt/coreutils/libexec/gnubin"
 GNU_BIN=/usr/local/opt/coreutils/libexec/gnubin
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH
@@ -11,6 +11,9 @@ export GOROOT=/usr/local/opt/go/libexec
 
 export PATH=$PYTHON_PATH:$PATH:$GNU_BIN:$GOROOT/bin:$GOPATH/bin
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# maven version in my company macbook
+export PATH=/usr/local/opt/maven@3.5/bin:$PATH
 
 export DOTFILES=$HOME/.dotfiles
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
