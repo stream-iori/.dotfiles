@@ -38,6 +38,7 @@ formulas=(
   ctags
 )
 
+
 for formula in "${formulas[@]}"; do
   if brew list "$formula" >/dev/null 2>&1; then
     echo "$formula already installed... skipping."
@@ -50,9 +51,10 @@ echo -e "\nInstalling homebrew casks..."
 echo "=============================="
 casks=(
   upic
+  temurin8
   alacritty
   fork
-  wireshark
+  stats
   karabiner-elements
 )
 

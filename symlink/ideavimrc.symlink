@@ -40,7 +40,7 @@ nnoremap <leader>si :source ~/.ideavimrc<CR>
 
 " High frequency
 nmap <C-x>b :action RecentFiles<CR>
-nmap <l>s <Plug>(easymotion-s)
+nmap <Leader>s <Plug>(easymotion-s)
 
 " Editor which will change file
 map <leader>ef :action ReformatCode<CR>
@@ -99,7 +99,7 @@ nnoremap <C-i> :action Forward<CR>
 nmap gt :action GotoTypeDeclaration<CR>
 nmap gd :action GotoDeclaration<CR>
 nmap gu :action ShowUsages<CR>
-nmap gi :action GtoImplementation<CR>
+nmap gi :action GotoImplementation<CR>
 nmap gs :action GotoSuperMethod<CR>
 nmap ge :action GotoNextError<CR>
 nmap gE :action GotoPreviousError<CR>
