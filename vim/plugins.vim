@@ -198,7 +198,6 @@ nmap <leader>mp <Plug>MarkdownPreview
 nmap <leader>ms <Plug>MarkdownPreviewStop
 nmap <leader>mt <Plug>MarkdownPreviewToggle
 
-
 " orgMode
 lua << EOF
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
@@ -224,6 +223,8 @@ require'nvim-treesitter.configs'.setup {
 require('orgmode').setup({
   org_agenda_files = {'~/org/*', '~/org/**/*'},
   org_default_notes_file = '~/org/refile.org',
+  org_todo_keywords = {'TODO(t)', 'NEXT(n)', '|', 'DONE(d)', 'DELEGATED'}
+
 })
 EOF
 

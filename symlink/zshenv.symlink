@@ -1,7 +1,10 @@
 #!/usr/bin/env zsh
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/sajia/bin:/usr/local/opt/coreutils/libexec/gnubin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/sajia/bin"
 GNU_BIN=/usr/local/opt/coreutils/libexec/gnubin
+GNU_SED_BIN=/usr/local/opt/gnu-sed/libexec/gnubin
+
+export PATH="$GNU_BIN:$GNU_SED_BIN:$PATH"
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
 
