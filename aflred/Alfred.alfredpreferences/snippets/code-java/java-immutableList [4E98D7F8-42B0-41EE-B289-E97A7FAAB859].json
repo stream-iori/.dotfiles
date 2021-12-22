@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "ImmutableList<{cursor}> l = ImmutableList.of();",
+    "uid" : "4E98D7F8-42B0-41EE-B289-E97A7FAAB859",
+    "name" : "java-immutableList",
+    "keyword" : "ImutableList"
+  }
+}

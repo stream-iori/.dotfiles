@@ -6,13 +6,14 @@ GNU_SED_BIN=/usr/local/opt/gnu-sed/libexec/gnubin
 
 export PATH="$GNU_BIN:$GNU_SED_BIN:$PATH"
 
+export PYENV_ROOT="$HOME/.pyenv"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH
 export GOROOT=/usr/local/opt/go/libexec
 
-export PATH=$PYTHON_PATH:$PATH:$GNU_BIN:$GOROOT/bin:$GOPATH/bin
+export PATH="$PYENV_ROOT/shims:$PATH:$GNU_BIN:$GOROOT/bin:$GOBIN"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # maven version in my company macbook
