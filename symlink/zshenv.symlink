@@ -50,10 +50,10 @@ alias ls='gls --color=auto'
 alias dir='gdir --color=auto'
 alias grep='ggrep --color=auto'
 alias date='gdate'
-
 alias sed='gsed'
-
 alias split="gsplit"
+
+
 alias kc="kubectl"
 alias local-ip="ipconfig getifaddr en0"
 alias lgit="lazygit"
