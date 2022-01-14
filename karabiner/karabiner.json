@@ -469,6 +469,19 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 449,
+                        "vendor_id": 12136
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
                 }
             ],
             "fn_function_keys": [
@@ -726,12 +739,35 @@
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
-                        "product_id": 25345,
-                        "vendor_id": 12851
+                        "product_id": 291,
+                        "vendor_id": 1046
                     },
                     "ignore": false,
-                    "manipulate_caps_lock_led": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 449,
+                        "vendor_id": 12136
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
                     "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "application"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "right_option"
+                                }
+                            ]
+                        },
                         {
                             "from": {
                                 "key_code": "caps_lock"
@@ -739,6 +775,16 @@
                             "to": [
                                 {
                                     "key_code": "left_control"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_command"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_option"
                                 }
                             ]
                         },
@@ -764,6 +810,63 @@
                         },
                         {
                             "from": {
+                                "key_code": "right_option"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "right_command"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 449,
+                        "vendor_id": 12136
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 449,
+                        "vendor_id": 2314
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "application"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "right_option"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "caps_lock"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_control"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
                                 "key_code": "left_command"
                             },
                             "to": [
@@ -774,21 +877,31 @@
                         },
                         {
                             "from": {
-                                "key_code": "right_option"
+                                "key_code": "left_control"
                             },
                             "to": [
                                 {
-                                    "key_code": "right_command"
+                                    "key_code": "caps_lock"
                                 }
                             ]
                         },
                         {
                             "from": {
-                                "key_code": "right_command"
+                                "key_code": "left_option"
                             },
                             "to": [
                                 {
-                                    "key_code": "right_option"
+                                    "key_code": "left_command"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "right_option"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "right_command"
                                 }
                             ]
                         }
@@ -917,12 +1030,22 @@
                     ]
                 }
             ],
-            "name": "my-ducky-mini-RGB",
+            "name": "DUAGOD330W",
             "parameters": {
                 "delay_milliseconds_before_open_device": 1000
             },
             "selected": false,
             "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "application"
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_option"
+                        }
+                    ]
+                },
                 {
                     "from": {
                         "key_code": "caps_lock"
@@ -935,11 +1058,41 @@
                 },
                 {
                     "from": {
+                        "key_code": "left_command"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_option"
+                        }
+                    ]
+                },
+                {
+                    "from": {
                         "key_code": "left_control"
                     },
                     "to": [
                         {
                             "key_code": "caps_lock"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "left_option"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "right_option"
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_command"
                         }
                     ]
                 }
