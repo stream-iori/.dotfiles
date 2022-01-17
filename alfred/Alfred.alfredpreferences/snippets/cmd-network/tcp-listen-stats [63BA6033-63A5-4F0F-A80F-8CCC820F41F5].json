@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "nc -l -p 8080 | pv",
+    "uid" : "63BA6033-63A5-4F0F-A80F-8CCC820F41F5",
+    "name" : "tcp-listen-stats",
+    "keyword" : "tcp-listent-stats"
+  }
+}

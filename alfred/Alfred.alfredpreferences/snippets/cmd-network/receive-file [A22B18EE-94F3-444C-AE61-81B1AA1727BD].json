@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "nc -l -p 8080 > image.jpg",
+    "uid" : "A22B18EE-94F3-444C-AE61-81B1AA1727BD",
+    "name" : "receive-file",
+    "keyword" : "receive"
+  }
+}

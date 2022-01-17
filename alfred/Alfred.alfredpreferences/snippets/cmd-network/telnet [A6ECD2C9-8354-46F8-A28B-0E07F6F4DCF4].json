@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "nc -vz {cursor} 8080",
+    "uid" : "A6ECD2C9-8354-46F8-A28B-0E07F6F4DCF4",
+    "name" : "telnet",
+    "keyword" : "telnet"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "nc 192.168.1.2 8080",
+    "uid" : "0ABADB8F-3B81-416D-8360-1F115F38C466",
+    "name" : "connect-tcp",
+    "keyword" : "connect-tcp"
+  }
+}
