@@ -4,3 +4,4 @@ vim/plugged
 vim/sessions
 tmux/plugins/*
 
+alfred/Alfred.alfredpreferences/preferences/local/*
