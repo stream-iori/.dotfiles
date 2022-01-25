@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "ss -tna",
+    "uid" : "9F1000E3-38E0-4B55-9F89-9DF01461E6A7",
+    "name" : "ss-tcp-conntectd",
+    "keyword" : "ss-tcp-connected"
+  }
+}

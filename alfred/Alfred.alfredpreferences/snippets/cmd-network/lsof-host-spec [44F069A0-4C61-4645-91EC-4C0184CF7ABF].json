@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "lsof -i@host:port",
+    "uid" : "44F069A0-4C61-4645-91EC-4C0184CF7ABF",
+    "name" : "lsof-host-spec",
+    "keyword" : "tcp-lookup-host"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "lsof  -u user",
+    "uid" : "01DDC77C-6F7A-45EF-8083-8E46D542F777",
+    "name" : "lsof-user-process",
+    "keyword" : "user-open-process"
+  }
+}

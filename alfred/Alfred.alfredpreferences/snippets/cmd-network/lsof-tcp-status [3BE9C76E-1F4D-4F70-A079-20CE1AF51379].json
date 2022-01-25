@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "lsof  -i |  grep  -i ESTABLISHED|LISTEN",
+    "uid" : "3BE9C76E-1F4D-4F70-A079-20CE1AF51379",
+    "name" : "lsof-tcp-status",
+    "keyword" : "tcp-status"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "lsof -i :port",
+    "uid" : "0F551E42-B651-42DB-BD35-C6F45973AF56",
+    "name" : "lsof-tcp-list",
+    "keyword" : "tcp-list"
+  }
+}

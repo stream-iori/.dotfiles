@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "ss -tnl",
+    "uid" : "4FDCE085-6D83-4273-BBDF-446DB9E1969F",
+    "name" : "ss-tcp-listen",
+    "keyword" : "ss-tcp-listen"
+  }
+}
