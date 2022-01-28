@@ -13,7 +13,7 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH
 export GOROOT=/usr/local/opt/go/libexec
 
-export PATH="$PYENV_ROOT/shims:$PATH:$GNU_BIN:$GOROOT/bin:$GOBIN"
+export PATH="$JAVA_HOME:$PYENV_ROOT/shims:$PATH:$GNU_BIN:$GOROOT/bin:$GOBIN"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # maven version in my company macbook
