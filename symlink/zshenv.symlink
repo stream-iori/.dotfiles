@@ -13,7 +13,7 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH
 export GOROOT=/usr/local/opt/go/libexec
 
-export PATH="$JAVA_HOME:$PYENV_ROOT/shims:$PATH:$GNU_BIN:$GOROOT/bin:$GOBIN"
+export PATH="$PYENV_ROOT/shims:$PATH:$GNU_BIN:$GOROOT/bin:$GOBIN"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # maven version in my company macbook
@@ -58,11 +58,11 @@ alias kc="kubectl"
 alias local-ip="ipconfig getifaddr en0"
 alias lgit="lazygit"
 
-
 alias chrome="open -a \"Google Chrome\" $@"
 alias vim="nvim"
 alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
 
+alias mvn="mvnd"
 
 
 loginName=`id -un`
