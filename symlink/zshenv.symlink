@@ -47,6 +47,7 @@ alias no_proxy='export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24
 #
 #采用 GNU 方式的参数
 alias ls='gls --color=auto'
+alias ll='gls -altrh'
 alias dir='gdir --color=auto'
 alias grep='ggrep --color=auto'
 alias date='gdate'
@@ -66,16 +67,7 @@ alias mvn="mvnd"
 
 
 loginName=`id -un`
-# kafkaBinPath=/opt/kafka_2.11-0.10.1.0/bin/
-# alias kafka-commands="docker exec -it kafka ls ${kafkaBinPath}"
-# alias kafka-topics="docker exec -it kafka ${kafkaBinPath}kafka-topics.sh"
-# alias kafka-configs='docker exec -it kafka ${kafkaBinPath}kafka-configs.sh'
-# alias kafka-console-consumer='docker exec -it kafka ${kafkaBinPath}kafka-console-consumer.sh'
-# alias kafka-consumer-groups='docker exec -it kafka ${kafkaBinPath}kafka-consumer-groups.sh'
-# alias kafka-consumer-offset-checker='docker exec -it kafka ${kafkaBinPath}kafka-consumer-offset-checker.sh'
-# alias kafka-streams-application-reset='docker exec -it kafka ${kafkaBinPath}kafka-streams-application-reset.sh'
 
-# alias kafka-console-producer='docker exec -it kafka ${kafkaBinPath}kafka-console-producer.sh'
 alias mysql-server-local-start="docker run --name mysql -v /Users/${loginName}/datas/mysql5.7/my.cnf:/etc/mysql/my.cnf -v /Users/${loginName}/datas/mysql5.7/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5.7.28"
 alias mysql-server-local-stop="docker stop mysql && docker rm -v mysql"
 alias mysql-server-local-restart="mysql-server-local-stop && mysql-server-local-start"
