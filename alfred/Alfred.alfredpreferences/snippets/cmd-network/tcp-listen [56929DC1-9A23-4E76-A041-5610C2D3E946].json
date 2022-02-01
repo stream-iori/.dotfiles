@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "nc -l -p 8080",
-    "uid" : "56929DC1-9A23-4E76-A041-5610C2D3E946",
-    "name" : "tcp-listen",
-    "keyword" : "tcp-listen"
-  }
-}

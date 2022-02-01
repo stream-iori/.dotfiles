@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "ss -imo state state established '(dport = 80)'",
-    "uid" : "7AEEFF4C-933C-4FEF-A5D4-C8D614686854",
-    "name" : "ss-time-memory-info",
-    "keyword" : "ss-more-info"
-  }
-}

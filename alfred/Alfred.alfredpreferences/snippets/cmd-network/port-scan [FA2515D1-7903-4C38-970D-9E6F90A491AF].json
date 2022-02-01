@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "nc -v -v -w3 -z 127.0.0.1 8080-8083",
-    "uid" : "FA2515D1-7903-4C38-970D-9E6F90A491AF",
-    "name" : "port-scan",
-    "keyword" : "port-scan"
-  }
-}

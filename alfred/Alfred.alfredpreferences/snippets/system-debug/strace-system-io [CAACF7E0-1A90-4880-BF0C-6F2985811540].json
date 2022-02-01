@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "strace -f -s 1024 -tt -v -p ${pid}",
+    "uid" : "CAACF7E0-1A90-4880-BF0C-6F2985811540",
+    "name" : "strace-system-io",
+    "keyword" : "strace-system-io"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "nc -N 192.168.1.2 8080 < image.jpg",
-    "uid" : "64799954-C411-4D9D-BB0E-BCF59489C960",
-    "name" : "send-file",
-    "keyword" : "send-file"
-  }
-}

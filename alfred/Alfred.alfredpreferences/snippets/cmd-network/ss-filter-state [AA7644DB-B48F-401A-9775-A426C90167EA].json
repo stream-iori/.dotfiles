@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "ss -4 state listening established syn-sent syn-recv fin-wait-1\/2 time-wait closed  close-wait closing last-ack",
-    "uid" : "AA7644DB-B48F-401A-9775-A426C90167EA",
-    "name" : "ss-filter-state",
-    "keyword" : "ss-filter-state"
-  }
-}

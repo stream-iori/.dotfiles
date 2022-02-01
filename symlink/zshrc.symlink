@@ -11,6 +11,7 @@ zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/autojump/autojump.plugin.zsh
 zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
 zinit snippet OMZ::lib/history.zsh
+zinit light Aloxaf/fzf-tab
 
 #
 zinit ice lucid wait='0'; zinit light zsh-users/zsh-completions
@@ -24,12 +25,14 @@ stty -ixon
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-
+#fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-KUBECTX_IGNORE_FZF=1
-KUBE_PS1_SYMBOL_USE_IMG=true
+
+#cheat search
+[ -f $DOTFILES/config/my-zsh/cheat-fzf.sh ] && . $DOTFILES/config/my-zsh/cheat-fzf.sh
 
 eval "$(jenv init -)"
 eval "$(pyenv init -)"

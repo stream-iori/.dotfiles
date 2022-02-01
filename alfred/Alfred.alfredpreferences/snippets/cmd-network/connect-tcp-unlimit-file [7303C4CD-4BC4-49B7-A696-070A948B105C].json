@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "nc 192.168.1.2 8080 < \/dev\/zero",
-    "uid" : "7303C4CD-4BC4-49B7-A696-070A948B105C",
-    "name" : "connect-tcp-unlimit-file",
-    "keyword" : "connect-tcp-unlimit-file"
-  }
-}

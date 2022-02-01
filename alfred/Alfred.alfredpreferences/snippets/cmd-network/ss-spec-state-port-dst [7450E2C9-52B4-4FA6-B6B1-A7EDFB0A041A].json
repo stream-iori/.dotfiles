@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "ss state fin-wait-1 '( sport = :80 or sport = :443 )' dst 193.233.7\/24 ",
-    "uid" : "7450E2C9-52B4-4FA6-B6B1-A7EDFB0A041A",
-    "name" : "ss-spec-state-port-dst",
-    "keyword" : "ss-spec-state-port-dst"
-  }
-}
