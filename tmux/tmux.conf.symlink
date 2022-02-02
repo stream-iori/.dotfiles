@@ -62,6 +62,7 @@ bind - split-window -v -c '#{pane_current_path}'
 unbind '"'
 bind '\' split-window -h -c '#{pane_current_path}'
 
+
 # select pane
 bind h select-pane -L
 bind j select-pane -D
@@ -80,6 +81,7 @@ bind C-d swap-pane -D
 bind C-x rotate-window
 
 # kill pane/window/session
+unbind C-d
 bind q kill-pane
 bind C-q kill-window
 bind Q kill-session
