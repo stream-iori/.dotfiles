@@ -1,11 +1,15 @@
+map S LinkHints.activateModeToOpenInNewTab
+map s LinkHints.activateMode
 unmap f
 unmap F
 unmap H
 unmap L
-map S LinkHints.activateModeToOpenInNewTab
-map s LinkHints.activateMode
+unmap d
+unmap u
 map H previousTab
 map L nextTab
 map <c-i> goForward
 map <c-o> goBack
 map <c-t> goBack
+map <c-u> scrollPageUp
+map <c-d> scrollPageDown
