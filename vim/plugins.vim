@@ -230,7 +230,7 @@ require'nvim-treesitter.configs'.setup {
 
 require('orgmode').setup({
   org_agenda_files = {'~/org/*', '~/org/**/*'},
-  org_default_notes_file = '~/org/refile.org',
+  org_default_notes_file = '~/org/todo.org',
   org_todo_keywords = {'TODO(t)', 'NEXT(n)', '|', 'DONE(d)', 'DELEGATED'},
 
   mappings = {
