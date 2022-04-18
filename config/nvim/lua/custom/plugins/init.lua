@@ -6,4 +6,8 @@ return {
    },
 
    { "easymotion/vim-easymotion" },
+
+   {
+     "ray-x/go.nvim"
+   },
 }
