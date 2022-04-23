@@ -25,9 +25,9 @@ return {
      -- you can configure Hop the way you like here; see :h hop-config
         require'hop'.setup{}
      -- normal mode (easymotion-like)
-        vim.api.nvim_set_keymap("n", "<Leader>s", "<cmd>HopWord<CR>", {noremap=true})
+        vim.api.nvim_set_keymap("n", "<Leader>s", "<cmd>HopChar2<CR>", {noremap=true})
      -- visual mode (easymotion-like)
-        vim.api.nvim_set_keymap("v", "<Leader>s", "<cmd>HopWord<CR>", {noremap=true})
+        vim.api.nvim_set_keymap("v", "<Leader>s", "<cmd>HopChar2<CR>", {noremap=true})
      end
    },
 
