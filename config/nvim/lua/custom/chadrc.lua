@@ -19,6 +19,8 @@ M.ui = {
 
 -- nvim-lsp-installer
 M.options = {
+  tabstop = 4,
+
   lspconfig = {
     setup_lspconf = "custom.configs.lspconfig",
   }
