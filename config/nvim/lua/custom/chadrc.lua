@@ -5,6 +5,15 @@ local userPlugins = require "custom.plugins" -- path to table
 M.plugins = {
    install = userPlugins,
 
+   default_plugin_remove = {
+       "akinsho/bufferline.nvim",
+   },
+
+   -- enable/disable plugins (false for disable)
+   status = {
+      bufferline = false, -- manage and preview opened buffers
+   },
+
    options = {
       lspconfig = {
          setup_lspconf = "custom.plugins.lspconfig",
