@@ -40,7 +40,7 @@ nnoremap <leader>si :source ~/.ideavimrc<CR>
 
 " High frequency
 nmap <C-x>b :action RecentFiles<CR>
-nmap <Leader>s <Plug>(easymotion-s)
+nmap <Leader>s <Plug>(easymotion-s2)
 
 " Editor which will change file
 map <leader>ef :action ReformatCode<CR>
