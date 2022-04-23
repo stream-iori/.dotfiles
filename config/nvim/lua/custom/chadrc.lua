@@ -1,17 +1,23 @@
 local M = {}
 
-local userPlugins = require "custom.plugins" -- path to table
+local userPlugins = require "custom.plugins"
+local pluginConfs = require "custom.plugins.configs"
+
 
 M.plugins = {
+   -- enable/disable plugins (false for disable)
+   status = {
+      bufferline = false, -- manage and preview opened buffers
+   },
+
    install = userPlugins,
 
    default_plugin_remove = {
        "akinsho/bufferline.nvim",
    },
 
-   -- enable/disable plugins (false for disable)
-   status = {
-      bufferline = false, -- manage and preview opened buffers
+  default_plugin_config_replace = {
+      nvim_treesitter = pluginConfs.treesitter,
    },
 
    options = {
