@@ -40,7 +40,7 @@ return {
   },
 
    [ "williamboman/nvim-lsp-installer" ] = {},
-   [ "tpope/vim-surround" ] = { keys = {"c", "d", "S"} },
+   [ "tpope/vim-surround"] = { keys = {"c", "d", "S"} },
 
   -- speed up filetype
    [ "nathom/filetype.nvim" ] = {},
