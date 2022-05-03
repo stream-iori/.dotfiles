@@ -5,17 +5,18 @@ local pluginConfs = require "custom.plugins.configs"
 
 
 M.plugins = {
-   install = userPlugins,
+   user = userPlugins,
+
+   override = {
+      ["nvim-treesitter/nvim-treesitter"] = pluginConfs.treesitter,
+      ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
+   },
 
    options = {
       lspconfig = {
          setup_lspconf = "custom.plugins.lspconfig",
       },
    },
-
-   user = {
-      nvim_treesitter = pluginConfs.treesitter,
-   }
 }
 
 
@@ -23,10 +24,12 @@ M.ui = {
    theme = "onedark",
 }
 
--- nvim-lsp-installer
 M.options = {
-  tabstop = 4,
+  user = function()
+      vim.opt.number = true
+   end,
 
+-- nvim-lsp-installer
   lspconfig = {
     setup_lspconf = "custom.configs.lspconfig",
   }
