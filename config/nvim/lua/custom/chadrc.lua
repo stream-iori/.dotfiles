@@ -5,19 +5,11 @@ local pluginConfs = require "custom.plugins.configs"
 
 
 M.plugins = {
-   -- enable/disable plugins (false for disable)
-   status = {
-      bufferline = false, -- manage and preview opened buffers
-   },
+   user = userPlugins,
 
-   install = userPlugins,
-
-   default_plugin_remove = {
-       "akinsho/bufferline.nvim",
-   },
-
-  default_plugin_config_replace = {
-      nvim_treesitter = pluginConfs.treesitter,
+   override = {
+      ["nvim-treesitter/nvim-treesitter"] = pluginConfs.treesitter,
+      ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
    },
 
    options = {
@@ -32,10 +24,12 @@ M.ui = {
    theme = "onedark",
 }
 
--- nvim-lsp-installer
 M.options = {
-  tabstop = 4,
+  user = function()
+      vim.opt.number = true
+   end,
 
+-- nvim-lsp-installer
   lspconfig = {
     setup_lspconf = "custom.configs.lspconfig",
   }
