@@ -9,7 +9,6 @@ set ignorecase
 set ideajoin
 set smartcase
 set visualbell
-set noerrorbells
 set clipboard=unnamedplus,unnamed,ideaput " integrate with system clipboard
 set gdefault                      " substitute all occurrences in line per default
 set scrolloff=5 sidescrolloff=10  " keep some lines before and after the cursor visible
@@ -27,7 +26,7 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 " make Y behave like D and C, yanking till end of line
 map Y y$
 
-imap jj <Esc>
+imap jk <Esc>
 
 " don't overwrite register when pasting over selection
 vnoremap p pgvy
@@ -49,7 +48,7 @@ map <A-e> :action EditorCompleteStatement<CR>
 map <A-c> :action CommentByBlockComment<CR>
 map <C-A-y> :action PasteMultiple<CR>
 
-noremap <Leader>rs :%s//g<Left><Left>
+nnoremap <Leader>rs :%s//g<Left><Left>
 xnoremap <Leader>rs :s//g<Left><Left>
 nnoremap <leader>rt :action Refactorings.QuickListPopupAction<CR>
 
@@ -87,7 +86,7 @@ nmap <leader>gs :action ActivateCommitToolWindow<CR>
 " Search
 map <leader>ff :action SearchEverywhere<CR>
 map <leader>fc :action GotoClass<CR>
-map <leader>fl :action FindInPath<CR>
+map <leader>fw :action FindInPath<CR>
 map <leader>fb :action RecentFiles<CR>
 
 " Codes navigation in multiple files
@@ -98,7 +97,7 @@ nnoremap <C-i> :action Forward<CR>
 " For java or jump in single file
 nmap gt :action GotoTypeDeclaration<CR>
 nmap gd :action GotoDeclaration<CR>
-nmap gu :action ShowUsages<CR>
+nmap gr :action ShowUsages<CR>
 nmap gi :action GotoImplementation<CR>
 nmap gs :action GotoSuperMethod<CR>
 nmap ge :action GotoNextError<CR>
@@ -107,9 +106,10 @@ nmap ggc :action VcsShowNextChangeMarker<CR>
 nmap gH  :action ParameterInfo<CR>
 
 "locate file in project
-nmap gp :action SelectIn<CR><1><CR>
+nmap gp :action SelectIn<CR><CR>
+nmap <leader><leader>e :action SelectIn<CR><CR>
 
 "Tip
-nmap <Leader>le :e pom.xml<CR>
+nmap <leader>le :e pom.xml<CR>
 nmap <leader>bmr :action Maven.Reimport<CR>
 
