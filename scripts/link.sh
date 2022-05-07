@@ -35,3 +35,10 @@ for config in $DOTFILES/config/*; do
   fi
 done
 
+filename="$DOTFILES/my-nvchad/"
+target="$DOTFILES/config/nvim/lua/custom/"
+cp -r $filename $target
+
+
+
+
