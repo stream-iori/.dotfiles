@@ -16,9 +16,9 @@ set wrapscan                      " searches wrap around the end of the file
 
 let mapleader = " "
 
-" set keep-english-in-normal "开启输入法自动切换功能
-" set keep-english-in-normal-and-restore-in-insert "回到insert模式时恢复输入法
-" set nokeep-english-in-normal-and-restore-in-insert "保留输入法自动切换功能，但是回到insert模式不恢复输入法
+set keep-english-in-normal "开启输入法自动切换功能
+set keep-english-in-normal-and-restore-in-insert "回到insert模式时恢复输入法
+set nokeep-english-in-normal-and-restore-in-insert "保留输入法自动切换功能，但是回到insert模式不恢复输入法
 
 noremap \e :e ~/.ideavimrc<CR>
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
@@ -65,7 +65,7 @@ nmap <leader>rr :action ChooseRunConfiguration<CR>
 nmap <leader>rs :action Stop<CR>
 
 " Active window
-nmap <C-w>q :action CloseTab<CR>
+nmap <C-w>q :action CloseContent<CR>
 nmap <leader>wp :action ActivateProplemsToolWindow<CR>
 nmap <leader>ws :action ActivateStructureToolWindow<CR>
 nmap <leader>wd :action ActivateDebugToolWindow<CR>
@@ -90,9 +90,9 @@ map <leader>fw :action FindInPath<CR>
 map <leader>fb :action RecentFiles<CR>
 
 " Codes navigation in multiple files
-nmap <C-o> :action Back<CR>
-nmap <C-t> :action Back<CR>
-nmap <C-i> :action Forward<CR>
+nnoremap <C-o> :action Back<CR>
+nnoremap <C-t> :action Back<CR>
+nnoremap <C-i> :action Forward<CR>
 
 " For java or jump in single file
 nmap gt :action GotoTypeDeclaration<CR>
