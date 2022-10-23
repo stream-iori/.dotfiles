@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>E8735378-C160-4E99-BF24-5FBBF310765C</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>yuntu</string>
+			<key>text</key>
+			<string>yuntu</string>
+			<key>url</key>
+			<string>https://yuntu.alipay.com/trace/#/trace/traceView?traceId={query}&amp;env=main_dev</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

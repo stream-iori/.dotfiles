@@ -42,14 +42,14 @@ nmap <C-x>b :action RecentFiles<CR>
 nmap <Leader>s <Plug>(easymotion-s2)
 
 " Editor which will change file
-map <leader>ef :action ReformatCode<CR>
+map <leader>fm :action ReformatCode<CR>
 map <leader>eo :action OptimizeImports<CR>
 map <A-e> :action EditorCompleteStatement<CR>
 map <A-c> :action CommentByBlockComment<CR>
 map <C-A-y> :action PasteMultiple<CR>
 
-nnoremap <Leader>rs :%s//g<Left><Left>
-xnoremap <Leader>rs :s//g<Left><Left>
+nnoremap <Leader>es :%s//g<Left><Left>
+xnoremap <Leader>es :s//g<Left><Left>
 nnoremap <leader>rt :action Refactorings.QuickListPopupAction<CR>
 
 " Editor refactor
@@ -70,7 +70,6 @@ nmap <leader>wp :action ActivateProplemsToolWindow<CR>
 nmap <leader>ws :action ActivateStructureToolWindow<CR>
 nmap <leader>wd :action ActivateDebugToolWindow<CR>
 nmap <leader>wb :action ActivateProjectToolWindow<CR>
-nmap <leader>wu :action ShowUmlDiagramPopup<CR>
 nmap <Leader>wh :action HideAllWindows<CR>
 nmap <leader>wx :action MoveEditorToOppositeTabGroup<CR>
 nmap <leader>wm :action MaximizeEditorInSplit<CR>
