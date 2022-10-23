@@ -9,6 +9,7 @@ export PATH="$GNU_BIN:$GNU_SED_BIN:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
 export CHEAT_CONFIG_PATH="~/.dotfiles/config/cheat/conf.yml"
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 
 export GOPATH=$HOME/go
