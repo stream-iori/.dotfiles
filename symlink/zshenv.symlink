@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/sajia/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/stream/bin"
 GNU_BIN=/usr/local/opt/coreutils/libexec/gnubin
 GNU_SED_BIN=/usr/local/opt/gnu-sed/libexec/gnubin
 
@@ -72,7 +72,7 @@ alias chrome="open -a \"Google Chrome\" $@"
 alias vim="nvim"
 alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
 
-alias mvn="mvnd"
+alias mvn="mvn"
 
 
 loginName=`id -un`
