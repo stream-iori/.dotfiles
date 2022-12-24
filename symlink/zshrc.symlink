@@ -34,7 +34,6 @@ stty -ixon
 #cheat search
 [ -f $DOTFILES/config/my-zsh/cheat-fzf.sh ] && . $DOTFILES/config/my-zsh/cheat-fzf.sh
 
-eval "$(jenv init -)"
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
