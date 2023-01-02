@@ -27,6 +27,7 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 map Y y$
 
 imap jk <Esc>
+imap kj <Esc>
 
 " don't overwrite register when pasting over selection
 vnoremap p pgvy
@@ -42,8 +43,8 @@ nmap <C-x>b :action RecentFiles<CR>
 nmap <Leader>s <Plug>(easymotion-s2)
 
 " Editor which will change file
-map <leader>fm :action ReformatCode<CR>
-map <leader>eo :action OptimizeImports<CR>
+map <leader>lf :action ReformatCode<CR>
+map <leader>lo :action OptimizeImports<CR>
 map <A-e> :action EditorCompleteStatement<CR>
 map <A-c> :action CommentByBlockComment<CR>
 map <C-A-y> :action PasteMultiple<CR>
@@ -83,10 +84,10 @@ nmap <leader>ga :action Git.Add<CR>
 nmap <leader>gs :action ActivateCommitToolWindow<CR>
 
 " Search
-map <leader>ff :action SearchEverywhere<CR>
+map <leader>f :action SearchEverywhere<CR>
 map <leader>fc :action GotoClass<CR>
-map <leader>fw :action FindInPath<CR>
-map <leader>fb :action RecentFiles<CR>
+map <leader>F :action FindInPath<CR>
+map <leader>b :action RecentFiles<CR>
 
 " Codes navigation in multiple files
 nnoremap <C-o> :action Back<CR>
@@ -102,7 +103,7 @@ nmap gs :action GotoSuperMethod<CR>
 nmap ge :action GotoNextError<CR>
 nmap gE :action GotoPreviousError<CR>
 nmap ggc :action VcsShowNextChangeMarker<CR>
-nmap gH  :action ParameterInfo<CR>
+nmap K  :action ParameterInfo<CR>
 
 "locate file in project
 nmap gp :action SelectIn<CR><CR>

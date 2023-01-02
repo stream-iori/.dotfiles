@@ -25,11 +25,6 @@ export DOTFILES=$HOME/.dotfiles
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-#jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-#node17
-export PATH="/usr/local/opt/node@17/bin:$PATH"
-
 # You may need to manually set your language environment
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
