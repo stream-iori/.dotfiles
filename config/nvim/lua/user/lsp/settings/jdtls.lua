@@ -35,7 +35,7 @@ return {
         runtimes = {
           {
             name = "JavaSE-17",
-            path = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/",
+            path = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/",
           },
         },
       },
