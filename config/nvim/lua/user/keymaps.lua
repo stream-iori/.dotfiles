@@ -23,18 +23,18 @@ keymap("n", "<C-s>", ":w!<CR>", opts)
 keymap("i", "<C-s>", ":w!<CR>", opts)
 
 -- Resize with arrows
-keymap("n", "<C-A-h>", ":resize -2<CR>", opts)
-keymap("n", "<C-A-l>", ":resize +2<CR>", opts)
-keymap("n", "<C-A-k>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-A-j>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-w>+", ":resize -5<CR>", opts)
+keymap("n", "<C-w>-", ":resize +5<CR>", opts)
+keymap("n", "<C-w>>", ":vertical resize -5<CR>", opts)
+keymap("n", "<C-w><", ":vertical resize +5<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
+keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode 
@@ -47,8 +47,8 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
