@@ -20,7 +20,7 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 keymap("n", "<C-s>", ":w!<CR>", opts)
-keymap("i", "<C-s>", ":w!<CR>", opts)
+keymap("i", "<C-s>", "<Esc>:w!<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-w>+", ":resize -5<CR>", opts)
