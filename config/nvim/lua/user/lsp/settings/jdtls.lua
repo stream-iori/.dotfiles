@@ -1,6 +1,6 @@
 return {
   cmd = {
-    "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java", -- or '/path/to/java17_or_newer/bin/java'
+    "/Library/Java/JavaVirtualMachines/temurin-19.jdk/Contents/Home/bin/java", -- or '/path/to/java17_or_newer/bin/java'
     -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -49,6 +49,10 @@ return {
         -- And search for `interface RuntimeOption`
         -- The `name` is NOT arbitrary, but must match one of the elements from `enum ExecutionEnvironment` in the link above
         runtimes = {
+          {
+            name = "JavaSE-19",
+            path = "/Library/Java/JavaVirtualMachines/temurin-19.jdk/Contents/Home/",
+          },
           {
             name = "JavaSE-17",
             path = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/",
