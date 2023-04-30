@@ -6,8 +6,16 @@ GNU_SED_BIN=/usr/local/opt/gnu-sed/libexec/gnubin
 
 export PATH="$GNU_BIN:$GNU_SED_BIN:$PATH"
 
+# JDK
+export JAVA_8_HOME="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
+export JAVA_17_HOME="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+
+alias j8='export JAVA_HOME=$JAVA_8_HOME'
+alias j17='export JAVA_HOME=$JAVA_17_HOME'
+export JAVA_HOME=$JAVA_8_HOME
+
 export PYENV_ROOT="$HOME/.pyenv"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
+export JAVA_HOME=
 export CHEAT_CONFIG_PATH="~/.dotfiles/config/cheat/conf.yml"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
