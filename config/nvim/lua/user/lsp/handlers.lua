@@ -75,6 +75,9 @@ local function lsp_keymaps(client, bufnr)
     keymap(bufnr, "n", "<leader>ji", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
     keymap(bufnr, "n", "<leader>jt", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
     keymap(bufnr, "n", "<leader>jn", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
+    keymap(bufnr, "n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+    keymap(bufnr, "n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+    keymap(bufnr, "n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
   end
 end
 
