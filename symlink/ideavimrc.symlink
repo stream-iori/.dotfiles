@@ -26,8 +26,8 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 " make Y behave like D and C, yanking till end of line
 map Y y$
 
-imap jk <Esc>
-imap kj <Esc>
+"imap jk <Esc>
+"imap kj <Esc>
 
 " don't overwrite register when pasting over selection
 vnoremap p pgvy
