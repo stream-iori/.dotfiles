@@ -1,0 +1,32 @@
+---
+tags: [network]
+---
+
+# filter with state
+# filter-with-state
+ss -4 state listening established syn-sent syn-recv fin-wait-1/2 time-wait closed  close-wait closing last-ack
+
+# filter with state and port dst
+# filte-with-state-port-dst
+ss state fin-wait-1 '( sport = :80 or sport = :443 )' dst 193.233.7/24
+
+# connection statistics
+# ss-stats
+ss -s
+
+# show connection with conntectd
+# ss-tcp-connected
+ss -tna
+
+# show tcp listen
+# ss-tcp-listen
+ss -tnl
+
+# show tcp connect memory time info
+# ss-time-memory-info
+# ss-connect-detail
+ss -imo state state established '(dport = 80)'
+
+
+
+

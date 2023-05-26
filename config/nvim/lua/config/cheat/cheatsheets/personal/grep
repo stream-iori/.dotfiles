@@ -1,0 +1,7 @@
+
+---
+tags: [ search ]
+---
+
+# To search keyworkd in specific suffix file
+grep -rRn "FlowTypeEnum" --include '*.java' --col
