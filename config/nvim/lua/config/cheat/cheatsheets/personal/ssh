@@ -1,0 +1,9 @@
+
+---
+tags: [ network, ssh ]
+---
+
+# delete hosts from know_hists with IP
+#delete-know_hosts-item
+sed -i '/{cursor}/d' ~/.ssh/known_hosts
+
