@@ -9,9 +9,11 @@ export PATH="$GNU_BIN:$GNU_SED_BIN:$PATH"
 # JDK
 export JAVA_8_HOME="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
 export JAVA_17_HOME="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+export JAVA_19_HOME="/Library/Java/JavaVirtualMachines/temurin-19.jdk/Contents/Home"
 
 alias j8='export JAVA_HOME=$JAVA_8_HOME'
 alias j17='export JAVA_HOME=$JAVA_17_HOME'
+alias j19='export JAVA_HOME=$JAVA_19_HOME'
 export JAVA_HOME=$JAVA_8_HOME
 
 export PYENV_ROOT="$HOME/.pyenv"
