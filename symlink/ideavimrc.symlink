@@ -43,7 +43,7 @@ nmap <C-x>b :action RecentFiles<CR>
 nmap <Leader>s <Plug>(easymotion-s2)
 
 " Editor which will change file
-map <leader>lf :action ReformatCode<CR>
+map <leader>fm :action ReformatCode<CR>
 map <leader>lo :action OptimizeImports<CR>
 map <A-e> :action EditorCompleteStatement<CR>
 map <A-c> :action CommentByBlockComment<CR>
