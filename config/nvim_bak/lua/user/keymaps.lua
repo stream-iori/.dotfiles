@@ -37,7 +37,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 
