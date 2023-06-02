@@ -39,16 +39,13 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
-
-    -- java
-    "jdtls",
   },
 }
 
 -- git support in nvimtree
 M.nvimtree = {
   git = {
-    enable = true,
+    enable = false,
   },
 
   renderer = {
