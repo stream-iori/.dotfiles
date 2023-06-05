@@ -5,8 +5,14 @@ M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
   },
+  i = {
+    -- save on insert mode
+    ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
+  },
 }
 
--- more keybinds!
+M.lspconfig = {}
+
+-- more keybinds
 
 return M
