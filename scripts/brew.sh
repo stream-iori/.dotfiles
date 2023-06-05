@@ -52,6 +52,7 @@ echo "=============================="
 casks=(
   upic
   temurin8
+  temurin17
   alacritty
   fork
   stats
