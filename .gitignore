@@ -1,5 +1,5 @@
 karabiner/automatic_backups
-config/nvim/plugin/packer_compiled.lua
+config/nvim/lazy-lock.json
 *.un~
 vim/sessions
 tmux/plugins/*
