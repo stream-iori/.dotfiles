@@ -82,6 +82,8 @@ local plugins = {
       }
     end,
   },
+  { "kevinhwang91/nvim-bqf", ft = "qf" },
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
