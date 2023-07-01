@@ -1,7 +1,7 @@
 --neovide confg
 if vim.g.neovide then
   vim.o.guifont = "JetBrainsMono Nerd Font:style=Regular,Regular:h17"
-  vim.api.nvim_set_var("neovide_refresh_rate", 75)
+  vim.api.nvim_set_var("neovide_refresh_rate", 80)
   vim.g.neovide_scale_factor = 1.0
   vim.g.neovide_padding_top = 0.1
   vim.g.neovide_padding_bottom = 0.1
@@ -19,6 +19,12 @@ if vim.g.neovide then
   vim.g.neovide_floating_blur_amount_y = 2.0
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_input_macos_alt_is_meta = true
+  -- make cmd + v work in neovide
+  vim.g.neovide_input_use_logo = 1
+  vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 end
 
 -- local autocmd = vim.api.nvim_create_autocmd

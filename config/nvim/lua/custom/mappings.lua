@@ -1,6 +1,15 @@
 ---@type MappingsTable
 local M = {}
 
+-- In order to disable a default keymap, use
+M.disabled = {
+  n = {
+    -- i will use for diagnostic
+      ["ge"] = "",
+      ["gn"] = ""
+  }
+}
+
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
@@ -11,7 +20,12 @@ M.general = {
   },
 }
 
-M.lspconfig = {}
+M.lspconfig = {
+  n = {
+    ["gn"] = {"<cmd>lua vim.diagnostic.goto_next()<CR>"},
+    ["ge"] = {"<cmd>lua vim.diagnostic.goto_prev()<CR>"}
+  }
+}
 
 -- debug
 M.dap = {
