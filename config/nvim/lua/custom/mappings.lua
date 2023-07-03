@@ -27,6 +27,12 @@ M.lspconfig = {
   }
 }
 
+M.aerial = {
+  n = {
+    ["<leader>a"] = {"<cmd>AerialToggle!<CR>"}
+  }
+}
+
 -- debug
 M.dap = {
   plugin = true,

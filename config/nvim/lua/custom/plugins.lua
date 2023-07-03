@@ -21,6 +21,13 @@ local plugins = {
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
+  {
+    "stevearc/aerial.nvim",
+    init = function(_, opts)
+      require("aerial").setup(opts)
+      require("core.utils").load_mappings "aerial"
+    end,
+  },
   -- debug
   {
     "mfussenegger/nvim-dap",
