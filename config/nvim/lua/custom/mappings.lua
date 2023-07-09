@@ -5,9 +5,9 @@ local M = {}
 M.disabled = {
   n = {
     -- i will use for diagnostic
-      ["ge"] = "",
-      ["gn"] = ""
-  }
+    ["ge"] = "",
+    ["gn"] = "",
+  },
 }
 
 M.general = {
@@ -22,15 +22,15 @@ M.general = {
 
 M.lspconfig = {
   n = {
-    ["gn"] = {"<cmd>lua vim.diagnostic.goto_next()<CR>"},
-    ["ge"] = {"<cmd>lua vim.diagnostic.goto_prev()<CR>"}
-  }
+    ["gn"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>" },
+    ["ge"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>" },
+  },
 }
 
 M.aerial = {
   n = {
-    ["<leader>a"] = {"<cmd>AerialToggle!<CR>"}
-  }
+    ["<leader>a"] = { "<cmd>AerialToggle!<CR>" },
+  },
 }
 
 -- debug

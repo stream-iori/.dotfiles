@@ -32,9 +32,25 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     init = function()
+      require "custom.configs.dap"
       require("core.utils").load_mappings "dap"
     end,
   },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap" },
+    config = function()
+      require("dapui").setup()
+    end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = { "mfussenegger/nvim-dap" },
+    config = function()
+      require("nvim-dap-virtual-text").setup()
+    end,
+  },
+  -- golang
   {
     "leoluz/nvim-dap-go",
     ft = "go",
