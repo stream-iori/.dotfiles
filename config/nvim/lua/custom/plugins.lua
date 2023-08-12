@@ -22,6 +22,20 @@ local plugins = {
     end, -- Override to setup mason-lspconfig
   },
   {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
+  {
     "stevearc/aerial.nvim",
     init = function(_, opts)
       require("aerial").setup(opts)
@@ -58,17 +72,6 @@ local plugins = {
     config = function(_, opts)
       require("dap-go").setup(opts)
       require("core.utils").load_mappings "dap_go"
-    end,
-  },
-  {
-    "olexsmir/gopher.nvim",
-    ft = "go",
-    config = function(_, opts)
-      require("gopher").setup(opts)
-      require("core.utils").load_mappings "gopher"
-    end,
-    build = function()
-      vim.cmd [[silent! GoInstallDeps]]
     end,
   },
   -- override plugin configs

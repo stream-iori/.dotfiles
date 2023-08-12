@@ -5,8 +5,8 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "tokyonight",
-  theme_toggle = { "tokyonight", "one_light" },
+  theme = "onedark",
+  theme_toggle = { "onedark", "one_light" },
 
   nvdash = {
     load_on_startup = true,

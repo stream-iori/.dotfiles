@@ -24,6 +24,7 @@ M.lspconfig = {
   n = {
     ["gn"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>" },
     ["ge"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>" },
+    ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>" },
   },
 }
 
@@ -66,20 +67,6 @@ M.dap_go = {
         require("dap-go").debug_last()
       end,
       "Debug last go test",
-    },
-  },
-}
-
-M.gopher = {
-  plugin = true,
-  n = {
-    ["<leader>gsj"] = {
-      "<cmd> GoTagAdd json <CR>",
-      "Add json struct tags",
-    },
-    ["<leader>gsy"] = {
-      "<cmd> GoTagAdd yaml <CR>",
-      "Add yaml struct tags",
     },
   },
 }
