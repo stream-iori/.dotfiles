@@ -12,7 +12,10 @@ export PATH="$GNU_BIN:$GNU_SED_BIN:$LLVM_BIN:$PATH"
 export C_INCLUDE_PATH=/usr/local/include
 export LIBRARY_PATH=/usr/local/lib
 export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
-:
+
+export JDK_INCLUDE="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home/include;/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home/include/darwin"
+export JLI_SO="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home/jre/lib/jli"
+
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
@@ -20,9 +23,11 @@ export CPPFLAGS="-I/usr/local/opt/llvm/include"
 # JDK
 export JAVA_8="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
 export JAVA_17="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+export GRAAL_JAVA_8="/Library/Java/JavaVirtualMachines/graalvm-ce-lts-java8-20.3.1/Contents/Home"
 
 alias j8='export JAVA_HOME=$JAVA_8'
 alias j17='export JAVA_HOME=$JAVA_17'
+alias g8='export JAVA_HOME=$GRAAL_JAVA_8'
 export JAVA_HOME=$JAVA_8
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -52,7 +57,7 @@ LC_ALL=en_US.UTF-8
 
 export TERM=screen-256color
 
-export GOPRIVATE=gitlab.alipay-inc.com,rsc.io/private
+export GOPRIVATE=gitlab.alipay-inc.com,code.alipay.com,rsc.io/private
 export GOPROXY=https://goproxy.cn,direct
 . "$HOME/.cargo/env"
 
