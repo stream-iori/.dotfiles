@@ -43,6 +43,8 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/stream/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+#
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Wasmer
 export WASMER_DIR="/Users/stream/.wasmer"

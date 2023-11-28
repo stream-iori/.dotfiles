@@ -7,7 +7,9 @@ LLVM_BIN=/usr/local/opt/llvm/bin
 
 LDFLAGS="-L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
 
-export PATH="$GNU_BIN:$GNU_SED_BIN:$LLVM_BIN:$PATH"
+#GO
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH
 
 export C_INCLUDE_PATH=/usr/local/include
 export LIBRARY_PATH=/usr/local/lib
@@ -34,11 +36,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export CHEAT_CONFIG_PATH="~/.dotfiles/config/cheat/conf.yml"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH
-
-export PATH="$PYENV_ROOT/shims:$PATH:$GNU_BIN:$GOROOT/bin:$GOBIN"
+export PATH=$GNU_BIN:$GNU_SED_BIN:$LLVM_BIN:$PYENV_ROOT/shims:$PATH:$GNU_BIN:$GOROOT/bin:$GOBIN:$PATH
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # maven version in my company macbook
@@ -47,6 +45,18 @@ export PATH=/usr/local/opt/maven@3.5/bin:$PATH
 export DOTFILES=$HOME/.dotfiles
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# JDK
+export JAVA_8="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
+export JAVA_17="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+export GRAALVM_17="/Library/Java/JavaVirtualMachines/graalvm-ce-java17/Contents/Home"
+
+alias j8='export JAVA_HOME=$JAVA_8'
+alias j17='export JAVA_HOME=$JAVA_17'
+alias g17='export JAVA_HOME=$GRAALVM_17'
+
+export JAVA_HOME=$JAVA_8
+
 
 # You may need to manually set your language environment
 export LC_ALL=en_US.UTF-8
@@ -69,7 +79,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d --color=never"
 
 # User configuration
-alias proxy='export https_proxy=https://127.0.0.1:8118; export http_proxy=http://127.0.0.1:8118'
+alias proxy='export https_proxy=http://127.0.0.1:8118;export http_proxy=http://127.0.0.1:8118'
 alias unproxy='unset https_proxy; unset http_proxy'
 alias no_proxy='export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.64.0/24'
 #
@@ -95,23 +105,4 @@ alias mvn="mvn"
 
 
 loginName=`id -un`
-
-alias mysql-server-local-start="docker run --name mysql -v /Users/${loginName}/datas/mysql5.7/my.cnf:/etc/mysql/my.cnf -v /Users/${loginName}/datas/mysql5.7/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5.7.28"
-alias mysql-server-local-stop="docker stop mysql && docker rm -v mysql"
-alias mysql-server-local-restart="mysql-server-local-stop && mysql-server-local-start"
-
-alias docker-registry-start="docker run -d -p 5000:5000 --name registry -v /Users/${loginName}/datas/docker-registry:/var/lib/registry registry:2"
-
-alias mongo-cli='f() { docker run -it --rm --name mongo-cli-${RANDOM} mongo:3.6.15-xenial mongo --username ${1} --password ${2} --host ${3} }; f'
-
-alias redis-start="docker run --name redis -p 6379:6379 -v /Users/${loginName}/datas/redis/redis.conf:/usr/local/etc/redis/redis.conf -v /Users/${loginName}/datas/redis/redis-data:/data -d redis:5.0.6"
-alias redis-stop="docker stop redis && docker rm -v redis"
-alias redis-restart="redis-stop-local && redis-start-local"
-alias redis-cli='f() { docker run -it --rm --name redis-cli-${RANDOM} redis:5.0.6 redis-cli -h ${1} }; f'
-
-alias proxy-circe-rds="echo proxy rds of circe to local 4406 && ssh -Ng -L 4406:10.20.16.230:3306 -p 22 cnbroker"
-alias proxy-maxwon-vip="echo proxy maxwon circe service to local 4407 && ssh -Ng -L 4407:10.20.16.199:3306 -p 22 cnbroker"
-alias proxy-maxwon-default="echo proxy maxwon db of default to local 4408 && ssh -Ng -L 4408:10.20.15.198:3306 -p 22 cnbroker"
-alias proxy-maxwon-general="echo proxy maxwon db of general to local 4409 && ssh -Ng -L 4409:10.20.15.189:3306 -p 22 cnbroker"
-
 
