@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "sed -i \"\" \"\/# GitHub520 Host Start\/,\/# Github520 Host End\/d\" \/etc\/hosts && curl https:\/\/raw.hellogithub.com\/hosts >> \/etc\/hosts",
-    "uid" : "C27EFE4A-EE53-4626-9649-23CE2775FD0C",
-    "name" : "github-520",
-    "keyword" : "github-520"
-  }
-}

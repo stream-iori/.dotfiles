@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "cat \/proc\/meminfo",
-    "dontautoexpand" : true,
-    "uid" : "22D9FC24-9941-482C-B298-4CFD943B198F",
-    "name" : "meminfo",
-    "keyword" : "meminfo"
-  }
-}

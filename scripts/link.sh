@@ -34,11 +34,3 @@ for config in $DOTFILES/config/*; do
     ln -s $config $target
   fi
 done
-
-filename="$DOTFILES/my-nvchad/custom"
-target="$DOTFILES/config/nvim/lua"
-echo "copy nvchad custom folder."
-rm -rf "$target/custom"
-cp -r $filename $target   
-
-

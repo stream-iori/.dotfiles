@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "sed -i '\/{cursor}\/d' ~\/.ssh\/known_hosts",
-    "uid" : "180360E0-369B-4CD2-8353-69F32BA1C2EA",
-    "name" : "delete-know_hosts-item",
-    "keyword" : "dk_hi"
-  }
-}

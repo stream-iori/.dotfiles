@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "lsof  -p pid",
-    "uid" : "700BC91F-C3C4-465A-9624-FCA6B8C82F0A",
-    "name" : "lsof-process-resource",
-    "keyword" : "lsof-process-resource"
-  }
-}

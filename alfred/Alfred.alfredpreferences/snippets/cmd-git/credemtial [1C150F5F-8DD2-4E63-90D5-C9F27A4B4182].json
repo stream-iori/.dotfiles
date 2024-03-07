@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "git config credential.helper store",
-    "uid" : "1C150F5F-8DD2-4E63-90D5-C9F27A4B4182",
-    "name" : "credemtial",
-    "keyword" : "git-passwd"
-  }
-}
