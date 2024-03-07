@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 if test ! $(which brew); then
-  echo "Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "Installing homebrew..."
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
@@ -20,49 +20,47 @@ echo -e "\nInstalling homebrew packages..."
 echo "=============================="
 
 formulas=(
-  ruby
-  lua
-  luarocks
-  ripgrep
-  fzf
-  tmux
-  git
-  tree
-  wget
-  neovim
-  cmake
-  fx
-  bat
-  fd
-  reattach-to-user-namespace
-  ctags
+    ruby
+    lua
+    luarocks
+    ripgrep
+    fzf
+    git
+    tree
+    wget
+    neovim
+    cmake
+    fx
+    bat
+    fd
+    reattach-to-user-namespace
+    ctags
 )
 
-
 for formula in "${formulas[@]}"; do
-  if brew list "$formula" >/dev/null 2>&1; then
-    echo "$formula already installed... skipping."
-  else
-    brew install $formula
-  fi
+    if brew list "$formula" >/dev/null 2>&1; then
+        echo "$formula already installed... skipping."
+    else
+        brew install $formula
+    fi
 done
 
 echo -e "\nInstalling homebrew casks..."
 echo "=============================="
 casks=(
-  upic
-  temurin8
-  temurin17
-  alacritty
-  fork
-  stats
-  karabiner-elements
+    upic
+    temurin8
+    temurin17
+    kitty
+    fork
+    stats
+    karabiner-elements
 )
 
 for cask in "${casks[@]}"; do
-  if brew list "$cask" >/dev/null 2>&1; then
-    echo "$cask already installed... skipping."
-  else
-    brew install $cask --cask
-  fi
+    if brew list "$cask" >/dev/null 2>&1; then
+        echo "$cask already installed... skipping."
+    else
+        brew install $cask --cask
+    fi
 done
