@@ -15,6 +15,7 @@ web:*.{html,css,js}*
 # or
 --glob
 !.git/*
+!**/test/*
 
 # Set the colors.
 --colors=line:none

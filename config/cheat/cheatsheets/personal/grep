@@ -5,3 +5,6 @@ tags: [ search ]
 
 # To search keyworkd in specific suffix file
 grep -rRn "FlowTypeEnum" --include '*.java' --col
+
+# Search filename with specific word
+rg -l -t java -g '!**/test/*' 'word' ./director
