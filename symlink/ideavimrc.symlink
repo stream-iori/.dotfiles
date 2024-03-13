@@ -75,6 +75,7 @@ nmap <leader>wb :action ActivateProjectToolWindow<CR>
 nmap <Leader>wh :action HideAllWindows<CR>
 nmap <leader>wx :action MoveEditorToOppositeTabGroup<CR>
 nmap <leader>wm :action MaximizeEditorInSplit<CR>
+nmap <leader>wc :action CallHierarchy<CR>
 
 " Git
 nmap <leader>gbl :action Annotate<CR>
