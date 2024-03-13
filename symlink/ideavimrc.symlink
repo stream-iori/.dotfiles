@@ -44,6 +44,7 @@ nmap <Leader>s <Plug>(easymotion-s2)
 
 " Editor which will change file
 map <leader>fm :action ReformatCode<CR>
+map <leader>cf :action ReformatCode<CR>
 map <leader>lo :action OptimizeImports<CR>
 map <A-e> :action EditorCompleteStatement<CR>
 map <A-c> :action CommentByBlockComment<CR>
@@ -87,7 +88,9 @@ nmap <leader>gs :action ActivateCommitToolWindow<CR>
 map <leader>f :action SearchEverywhere<CR>
 map <leader>fc :action GotoClass<CR>
 map <leader>F :action FindInPath<CR>
-map <leader>b :action RecentFiles<CR>
+map <leader>ff :action FindInPath<CR>
+map <leader>bl :action RecentFiles<CR>
+map <leader>bb :action RecentFiles<CR>
 
 " Codes navigation in multiple files
 nnoremap <C-o> :action Back<CR>
@@ -104,7 +107,6 @@ nmap ge :action GotoNextError<CR>
 nmap gE :action GotoPreviousError<CR>
 nmap ggc :action VcsShowNextChangeMarker<CR>
 nmap K  :action ParameterInfo<CR>
-nmap gc :action CallHierarchy<CR>
 
 "locate file in project
 nmap gp :action SelectIn<CR><CR>
