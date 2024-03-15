@@ -40,7 +40,7 @@ nnoremap <leader>si :source ~/.ideavimrc<CR>
 
 " High frequency
 nmap <C-x>b :action RecentFiles<CR>
-nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>f <Plug>(easymotion-s2)
 
 " Editor which will change file
 map <leader>fm :action ReformatCode<CR>
@@ -72,6 +72,7 @@ nmap <leader>ws :action ActivateStructureToolWindow<CR>
 nmap <leader>wd :action ActivateDebugToolWindow<CR>
 nmap <leader>wb :action ActivateProjectToolWindow<CR>
 nmap <Leader>wh :action HideAllWindows<CR>
+nmap <Leader>wb :action ActivateBookmarkWindow<CR>
 nmap <leader>wx :action MoveEditorToOppositeTabGroup<CR>
 nmap <leader>wm :action MaximizeEditorInSplit<CR>
 
