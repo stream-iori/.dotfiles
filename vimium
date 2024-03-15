@@ -1,5 +1,5 @@
-map S LinkHints.activateModeToOpenInNewTab
-map s LinkHints.activateMode
+map F LinkHints.activateModeToOpenInNewTab
+map f LinkHints.activateMode
 unmap f
 unmap F
 unmap H
