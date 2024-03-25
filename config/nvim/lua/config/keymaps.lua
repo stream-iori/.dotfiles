@@ -16,3 +16,6 @@ local map = Util.safe_keymap_set
 map({ "n", "v" }, "<leader>fm", function()
   Util.format({ force = true })
 end, { desc = "Format" })
+
+-- lsp
+vim.keymap.set("n", "ge", vim.diagnostic.open_float)

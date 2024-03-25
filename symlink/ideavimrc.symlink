@@ -71,7 +71,7 @@ nmap <C-w>q :action CloseContent<CR>
 nmap <leader>wp :action ActivateProplemsToolWindow<CR>
 nmap <leader>ws :action ActivateStructureToolWindow<CR>
 nmap <leader>wd :action ActivateDebugToolWindow<CR>
-nmap <leader>wb :action ActivateProjectToolWindow<CR>
+nmap <leader>e :action ActivateProjectToolWindow<CR>
 nmap <Leader>wh :action HideAllWindows<CR>
 nmap <Leader>wb :action ActivateBookmarkWindow<CR>
 nmap <leader>wx :action MoveEditorToOppositeTabGroup<CR>
