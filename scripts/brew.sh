@@ -54,7 +54,7 @@ casks=(
     kitty
     fork
     stats
-    karabiner-elements
+    powerlevel10k
 )
 
 for cask in "${casks[@]}"; do
