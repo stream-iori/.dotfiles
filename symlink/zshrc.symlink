@@ -1,11 +1,10 @@
 source ~/.zshenv
-source /usr/local/opt/zinit/zinit.zsh
-
-zinit load zsh-users/zsh-syntax-highlighting
+source ${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh
 
 # theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
+zinit light zsh-users/zsh-syntax-highlighting
 # oh-my-zsh bundle
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/autojump/autojump.plugin.zsh
@@ -26,7 +25,7 @@ stty -ixon
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f ${HOMEBREW_PREFIX}/etc/profile.d/autojump.sh ] && . ${HOMEBREW_PREFIX}/etc/profile.d/autojump.sh
 
 #fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -50,11 +50,9 @@ echo "=============================="
 casks=(
     upic
     temurin8
-    temurin17
     kitty
     fork
     stats
-    karabiner-elements
 )
 
 for cask in "${casks[@]}"; do
