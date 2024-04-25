@@ -25,7 +25,6 @@ formulas=(
     luarocks
     ripgrep
     fzf
-    git
     tree
     wget
     neovim
@@ -34,7 +33,6 @@ formulas=(
     bat
     fd
     reattach-to-user-namespace
-    ctags
 )
 
 for formula in "${formulas[@]}"; do
@@ -51,8 +49,6 @@ casks=(
     upic
     temurin8
     kitty
-    fork
-    stats
 )
 
 for cask in "${casks[@]}"; do
