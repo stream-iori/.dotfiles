@@ -30,6 +30,7 @@ export GRAAL_JAVA_8="/Library/Java/JavaVirtualMachines/graalvm-ce-lts-java8-20.3
 
 alias j8='export JAVA_HOME=$JAVA_8'
 alias j17='export JAVA_HOME=$JAVA_17'
+alias j21='export JAVA_HOME=$JAVA_21'
 alias g8='export JAVA_HOME=$GRAAL_JAVA_8'
 export JAVA_HOME=$JAVA_8
 
@@ -51,6 +52,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # JDK
 export JAVA_8="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
 export JAVA_17="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+export JAVA_21="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
 export GRAALVM_17="/Library/Java/JavaVirtualMachines/graalvm-ce-java17/Contents/Home"
 
 alias j8='export JAVA_HOME=$JAVA_8'
@@ -97,6 +99,9 @@ alias vim="nvim"
 alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
 
 alias mvn="mvn"
+
+# ---- Eza (better ls) -----
+alias ls="eza --color=always --git --icons=always --no-user --no-permissions --sort newest"
 
 
 loginName=`id -un`
