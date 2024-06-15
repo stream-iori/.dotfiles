@@ -91,7 +91,9 @@ alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
 alias mvn="mvn"
 
 # ---- Eza (better ls) -----
-alias ls="eza --color=always --git --icons=always --no-user --no-permissions --sort newest"
+alias ls="eza --color=always --git --icons=always --no-user --no-permissions -1 -m -l --sort newest"
+
+
 
 
 loginName=`id -un`

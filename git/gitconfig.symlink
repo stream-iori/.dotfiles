@@ -8,8 +8,6 @@
     insteadOf = http://gitlab.alibaba-inc.com
 [url "git@gitlab.alipay-inc.com:"]
     insteadOf = http://gitlab.alipay-inc.com
-[url "git@github.com:"]
-    insteadOf = https://github.com/
 
 [core]
     ignoreCase = false
