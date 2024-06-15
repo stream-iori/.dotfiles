@@ -22,24 +22,14 @@ export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 
-# JDK
-export JAVA_8="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
-export JAVA_17="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
-export JAVA_21="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
-export GRAAL_JAVA_8="/Library/Java/JavaVirtualMachines/graalvm-ce-lts-java8-20.3.1/Contents/Home"
-
-alias j8='export JAVA_HOME=$JAVA_8'
-alias j17='export JAVA_HOME=$JAVA_17'
-alias j21='export JAVA_HOME=$JAVA_21'
-alias g8='export JAVA_HOME=$GRAAL_JAVA_8'
-export JAVA_HOME=$JAVA_8
+export CARGO_HOME="/Users/stream/.cargo"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export CHEAT_CONFIG_PATH="~/.dotfiles/config/cheat/conf.yml"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK
 
-export PATH=$GNU_BIN:$GNU_SED_BIN:$LLVM_BIN:$PYENV_ROOT/shims:$PATH:$GNU_BIN:$GOROOT/bin:$GOBIN:$PATH
+export PATH=$GNU_BIN:$GNU_SED_BIN:$LLVM_BIN:$PYENV_ROOT/shims:$PATH:$GNU_BIN:$GOROOT/bin:$GOBIN:$PATH:$CARGO_HOME/bin
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # maven version in my company macbook
