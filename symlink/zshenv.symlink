@@ -7,6 +7,8 @@ LLVM_BIN=${HOMEBREW_PREFIX}/opt/llvm/bin
 
 LDFLAGS="-L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
 
+export LS_COLORS='di=1;32'
+
 #GO
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH
