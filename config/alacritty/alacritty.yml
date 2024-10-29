@@ -1,0 +1,147 @@
+live_config_reload: true
+  #key_bindings:
+  #  - { key: H, mods: Alt, chars: "\x1bh" }
+  #  - { key: I, mods: Alt, chars: "\x1bi" }
+  #  - { key: J, mods: Alt, chars: "\x1bj" }
+  #  - { key: K, mods: Alt, chars: "\x1bk" }
+
+window:
+  # 设置option key as alt
+  option_as_alt: Both
+  # Window dimensions (changes require restart)
+  #
+  # Specified in number of columns/lines, not pixels. If both are zero this
+  # setting is ignored.
+  dimensions:
+    columns: 100
+    lines: 85
+
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is not scaled by
+  # DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 7
+    y: 3
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+
+  # Window decorations
+  #
+  # Available values:
+  # - full: borders and title bar
+  # - none: neither borders nor title bar
+  # - transparent: title bar, transparent background and title bar buttons
+  # - buttonless: title bar, transparent background, but no title bar buttons
+  decorations: buttonless
+
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  # Values for `startup_mode` (macOS only):
+  #   - SimpleFullscreen
+  startup_mode: Windowed
+
+scrolling:
+  # maximum number of lines in the scrollback buffer. Specifying '0' will
+  # disable scrolling.
+  history: 5000
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 3
+
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+  size: 17.0
+  offset:
+    x: 0
+    y: 1
+
+# Colors (catppuccin)
+colors:
+    # Default colors
+    primary:
+        background: "#24273A" # base
+        foreground: "#CAD3F5" # text
+        # Bright and dim foreground colors
+        dim_foreground: "#CAD3F5" # text
+        bright_foreground: "#CAD3F5" # text
+
+    # Cursor colors
+    cursor:
+        text: "#24273A" # base
+        cursor: "#F4DBD6" # rosewater
+    vi_mode_cursor:
+        text: "#24273A" # base
+        cursor: "#B7BDF8" # lavender
+
+    # Search colors
+    search:
+        matches:
+            foreground: "#24273A" # base
+            background: "#A5ADCB" # subtext0
+        focused_match:
+            foreground: "#24273A" # base
+            background: "#A6DA95" # green
+        footer_bar:
+            foreground: "#24273A" # base
+            background: "#A5ADCB" # subtext0
+
+    # Keyboard regex hints
+    hints:
+        start:
+            foreground: "#24273A" # base
+            background: "#EED49F" # yellow
+        end:
+            foreground: "#24273A" # base
+            background: "#A5ADCB" # subtext0
+
+    # Selection colors
+    selection:
+        text: "#24273A" # base
+        background: "#F4DBD6" # rosewater
+
+    # Normal colors
+    normal:
+        black: "#494D64" # surface1
+        red: "#ED8796" # red
+        green: "#A6DA95" # green
+        yellow: "#EED49F" # yellow
+        blue: "#8AADF4" # blue
+        magenta: "#F5BDE6" # pink
+        cyan: "#8BD5CA" # teal
+        white: "#B8C0E0" # subtext1
+
+    # Bright colors
+    bright:
+        black: "#5B6078" # surface2
+        red: "#ED8796" # red
+        green: "#A6DA95" # green
+        yellow: "#EED49F" # yellow
+        blue: "#8AADF4" # blue
+        magenta: "#F5BDE6" # pink
+        cyan: "#8BD5CA" # teal
+        white: "#A5ADCB" # subtext0
+
+    # Dim colors
+    dim:
+        black: "#494D64" # surface1
+        red: "#ED8796" # red
+        green: "#A6DA95" # green
+        yellow: "#EED49F" # yellow
+        blue: "#8AADF4" # blue
+        magenta: "#F5BDE6" # pink
+        cyan: "#8BD5CA" # teal
+        white: "#B8C0E0" # subtext1
+
+    indexed_colors:
+        - { index: 16, color: "#F5A97F" }
+        - { index: 17, color: "#F4DBD6" }
