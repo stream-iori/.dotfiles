@@ -26,7 +26,6 @@ export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 export CARGO_HOME="/Users/stream/.cargo"
 
-export PYENV_ROOT="$HOME/.pyenv"
 export CHEAT_CONFIG_PATH="~/.dotfiles/config/cheat/conf.yml"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK
@@ -90,13 +89,8 @@ alias chrome="open -a \"Google Chrome\" $@"
 alias vim="nvim"
 alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
 
-alias mvn="mvn"
-
 # ---- Eza (better ls) -----
 alias ls="eza --color=always --git --icons=always --no-user --no-permissions -1 -m -l --sort newest"
-
-
-
 
 loginName=`id -un`
 
