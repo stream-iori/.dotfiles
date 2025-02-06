@@ -6,7 +6,7 @@
 local map = vim.keymap.set
 
 -- format
-map({ "n", "v" }, "<leader>cf", function()
+map({ "n", "v" }, "<leader>fm", function()
   LazyVim.format({ force = true })
 end, { desc = "Format" })
 
