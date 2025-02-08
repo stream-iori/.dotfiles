@@ -12,7 +12,11 @@ return {
       "rust",
       "markdown",
       "markdown_inline",
+      -- python start
       "python",
+      "ninja",
+      "rst",
+      -- python end
       "query",
       "regex",
       "tsx",
