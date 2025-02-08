@@ -10,5 +10,6 @@ map({ "n", "v" }, "<leader>fm", function()
   LazyVim.format({ force = true })
 end, { desc = "Format" })
 
--- lsp
-vim.keymap.set("n", "ge", vim.diagnostic.open_float)
+-- locate file
+map({ "n", "v" }, "<leader><leader>e", ":Neotree reveal<CR>", { noremap = true, silent = true })
+map({ "n", "v" }, "<leader>gp", ":Neotree reveal<CR>", { noremap = true, silent = true })
