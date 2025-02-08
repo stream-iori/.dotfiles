@@ -9,7 +9,10 @@ return {
       "json5",
       "lua",
       "c",
+      -- rust start
       "rust",
+      "ron",
+      -- rust end
       "markdown",
       "markdown_inline",
       -- python start
