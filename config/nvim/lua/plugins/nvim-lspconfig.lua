@@ -1,5 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
+  dependencies = {
+    "saghen/blink.compat",
+  },
   opts = {
     servers = {
       lua_ls = {

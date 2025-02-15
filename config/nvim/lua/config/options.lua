@@ -5,6 +5,9 @@
 
 local opt = vim.opt
 
+-- enable blink
+vim.g.lazyvim_blink_main = true
+
 --禁用相当行号
 opt.relativenumber = false
 -- 开启自动换行
