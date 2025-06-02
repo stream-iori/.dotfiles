@@ -76,8 +76,6 @@ alias chrome="open -a \"Google Chrome\" $@"
 alias vim="nvim"
 alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
 
-# ---- Eza (better ls) -----
-alias ls="eza --color=always --git --icons=always --no-user --no-permissions -1 -m -l --sort newest"
 
 loginName=`id -un`
 

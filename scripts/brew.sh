@@ -32,6 +32,7 @@ formulas=(
     fx
     bat
     fd
+    jenv
     reattach-to-user-namespace
 )
 
