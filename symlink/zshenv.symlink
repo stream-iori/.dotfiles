@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 [[ -v HOMEBREW_PREFIX ]] || export HOMEBREW_PREFIX="/usr/local"
-export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/stream/bin"
+export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:$HOME/.jenv/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/stream/bin"
 GNU_BIN=${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin
 GNU_SED_BIN=${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin
 LLVM_BIN=${HOMEBREW_PREFIX}/opt/llvm/bin
@@ -39,19 +39,6 @@ export PATH=/usr/local/opt/maven@3.5/bin:$PATH
 export DOTFILES=$HOME/.dotfiles
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-
-# JDK
-export JAVA_8="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
-export JAVA_17="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
-export JAVA_21="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
-export GRAALVM_17="/Library/Java/JavaVirtualMachines/graalvm-ce-java17/Contents/Home"
-
-alias j8='export JAVA_HOME=$JAVA_8'
-alias j17='export JAVA_HOME=$JAVA_17'
-alias g17='export JAVA_HOME=$GRAALVM_17'
-
-export JAVA_HOME=$JAVA_8
-
 
 # You may need to manually set your language environment
 export LC_ALL=en_US.UTF-8
