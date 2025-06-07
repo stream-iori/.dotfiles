@@ -44,8 +44,7 @@ export TERM=screen-256color
 
 export GOPRIVATE=gitlab.alipay-inc.com,code.alipay.com,rsc.io/private
 export GOPROXY=https://goproxy.cn,direct
-#. "$HOME/.cargo/env"
-
+#
 export CHEAT_USE_FZF=true
 
 # User configuration
@@ -68,3 +67,4 @@ alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
 loginName=`id -un`
 
 . "/Users/stream/.cargo/~/.cargo/env"
+. "$HOME/.cargo/env"
