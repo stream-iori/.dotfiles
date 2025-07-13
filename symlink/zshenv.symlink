@@ -65,6 +65,3 @@ alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
 
 
 loginName=`id -un`
-
-. "/Users/stream/.cargo/~/.cargo/env"
-. "$HOME/.cargo/env"
