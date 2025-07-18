@@ -104,7 +104,8 @@ nmap gs :action GotoSuperMethod<CR>
 nmap ge :action GotoNextError<CR>
 nmap gE :action GotoPreviousError<CR>
 nmap ggc :action VcsShowNextChangeMarker<CR>
-nmap K  :action ParameterInfo<CR>
+nmap P  :action ParameterInfo<CR>
+nmap K  :action QuickJavaDoc<CR>
 
 "locate file in project
 nmap gp :action SelectIn<CR><CR>
