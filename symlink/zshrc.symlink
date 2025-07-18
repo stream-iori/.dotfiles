@@ -63,6 +63,8 @@ export PATH="/Users/stream/.rd/bin:$PATH"
 #
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+eval "$(jenv init -)"
+
 # Wasmer
 export WASMER_DIR="/Users/stream/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
@@ -81,3 +83,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/stream/.lmstudio/bin"
