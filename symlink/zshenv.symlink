@@ -56,6 +56,7 @@ alias no_proxy='export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24
 #
 alias ls='ls --color'
 alias ll='ls --color'
+alias cat='bat'
 
 #alias kc="kubectl"
 alias local-ip="ipconfig getifaddr en0"
