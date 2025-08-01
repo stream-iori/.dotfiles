@@ -1,4 +1,5 @@
 source ~/.zshenv
+source ~/.zshprivate
 source ${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh
 
 # theme

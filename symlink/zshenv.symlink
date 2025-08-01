@@ -67,3 +67,5 @@ alias vim="nvim"
 alias aria2c="aria2c --conf-path='/Users/stream/.aria2.conf' -D"
 
 loginName=`id -un`
+
+export PATH="$PATH:/Users/stream/.foundry/bin"
