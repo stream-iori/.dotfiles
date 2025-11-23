@@ -55,3 +55,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export PATH="/Users/stream/.pixi/bin:$PATH"
