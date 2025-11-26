@@ -1,71 +1,130 @@
 #!/usr/bin/env zsh
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2025 osipog
 
-# Get all tabs, including their ids and focused status
-tab_info=$(kitty @ ls \
-    | tr -d '\000-\037' \
-    | jq -r '[
-    .[].tabs[]
-    | (.windows | first) as $window
-    | ($window | .foreground_processes | first | .cmdline | first | split("/") | last) as $program
-    | {
-        title: ([
-            $program,
-            .title,
-            ($window | .last_reported_cmdline),
-            ($window | .cwd)
-        ] | join(" | ")),
-        id,
-        is_focused,
-        lines: $window | .lines,
-        first_window_id: $window | .id,
-    }
-]
+# --- CHECK DEPENDENCIES -----------------------------------------------------
+
+if ! command -v jq >/dev/null 2>&1; then
+    echo "ERROR: jq not found. Please install jq." >&2
+    exit 1
+fi
+
+if ! command -v fzf >/dev/null 2>&1; then
+    echo "ERROR: fzf not found. Please install fzf." >&2
+    exit 1
+fi
+
+# --- GET RAW KITTY TAB INFO -------------------------------------------------
+
+raw=$(kitty @ ls)
+if [ -z "$raw" ]; then
+    echo "ERROR: 'kitty @ ls' returned empty JSON." >&2
+    exit 1
+fi
+
+# Clean all control characters to avoid jq errors
+cleaned=$(echo "$raw" | tr -d '\000-\031')
+
+# --- PARSE TABS SAFELY ------------------------------------------------------
+
+tab_info=$(echo "$cleaned" | jq -r '
+    [
+        .[]?.tabs[]? as $tab
+        | ($tab.windows[0]?) as $win
+        | $win as $window
+        | (
+            ($window.foreground_processes[0]?.cmdline[0] // "")
+            | split("/")
+            | last
+          ) as $program
+        | {
+            title: [
+                $program,
+                ($tab.title // ""),
+                ($window.last_reported_cmdline // ""),
+                ($window.cwd // "")
+            ] | join(" | "),
+            id: $tab.id,
+            is_focused: $tab.is_focused,
+            lines: ($window.lines // 0),
+            first_window_id: ($window.id // empty)
+        }
+    ]
+    | map(select(.id != null))
     | sort_by(.title)
     | reverse
     | sort_by(.is_focused)
     | reverse
 ')
 
-# Generate preview files that can be used by fzf
+# No tabs?
+if [ "$(echo "$tab_info" | jq 'length')" -eq 0 ]; then
+    echo "No tabs found."
+    exit 0
+fi
+
+# --- GENERATE PREVIEW FILES -------------------------------------------------
+
+# Clean old preview files
+rm -f /tmp/kitty-tab-switcher-preview-tab-id-*
+
 echo "$tab_info" | jq -c '.[]' | while read -r item; do
-    filename="/tmp/kitty-tab-switcher-preview-tab-id-$(echo "$item" | jq -r '.id')"
-    kitty @ launch \
-        --source-window="id:$(echo "$item" | jq -r '.first_window_id')" \
-        --stdin-source=@screen \
-        --stdin-add-formatting \
-        --type=background \
-        tee "$filename" \
-        >/dev/null
+    id=$(echo "$item" | jq -r '.id')
+    win=$(echo "$item" | jq -r '.first_window_id')
+    file="/tmp/kitty-tab-switcher-preview-tab-id-$id"
+
+    # Some windows may not exist
+    if [ -n "$win" ]; then
+        kitty @ launch \
+            --source-window="id:$win" \
+            --stdin-source=@screen \
+            --stdin-add-formatting \
+            --type=background \
+            tee "$file" >/dev/null 2>&1
+    fi
 done
 
-tab_count=$(echo "$tab_info" | jq 'length')
-line_height=$(echo "$tab_info" | jq 'if length > 0 then first.lines else 50 end')
-# prompt (1) + divider (1) + list-border (2)
-list_line_height=$((tab_count + 1 + 1 + 2))
-preview_percent_height=$((((line_height - list_line_height) * 100) / line_height))
+# --- COMPUTE HEIGHTS SAFELY -------------------------------------------------
 
-# Use fzf to fuzzy search the tab titles
-# shellcheck disable=SC2016
-selected=$(echo "$tab_info" |
-    jq -r ' .[] | (.id | tostring) + " | " + .title' |
-    fzf \
+tab_count=$(echo "$tab_info" | jq 'length')
+
+line_height=$(echo "$tab_info" | jq 'first.lines // 0')
+# Fallback: macOS Kitty sometimes reports `lines = 0`
+if [ "$line_height" -le 0 ]; then
+    line_height=50
+fi
+
+# fzf layout components
+list_line_height=$((tab_count + 1 + 1 + 2))
+
+if [ "$line_height" -le "$list_line_height" ]; then
+    preview_percent_height=50
+else
+    preview_percent_height=$(( ( (line_height - list_line_height) * 100 ) / line_height ))
+fi
+
+# --- FZF SELECTION ----------------------------------------------------------
+
+selected=$(echo "$tab_info" \
+    | jq -r '.[] | (.id|tostring) + " | " + .title' \
+    | fzf \
         --height=100% \
         --margin=0 \
         --padding=0 \
         --border=none \
-        --list-border=rounded \
-        --info=hidden \
         --layout=reverse \
+        --info=hidden \
         --cycle \
-        --preview-window=down,"$preview_percent_height"%,+"$((list_line_height + 2))",noinfo,border-none,nofollow,nocycle \
-        --preview='cat /tmp/kitty-tab-switcher-preview-tab-id-$(echo {} | awk "{print \$1}")')
+        --list-border=rounded \
+        --preview-window=down,"$preview_percent_height"%,+3,noinfo,border-none,nofollow,nocycle \
+        --preview='file=/tmp/kitty-tab-switcher-preview-tab-id-$(echo {} | awk "{print \$1}"); [ -f "$file" ] && cat "$file" || echo "Preview unavailable"' \
+)
 
-# If a tab was selected, focus on that tab using its ID
+# --- ACTION -----------------------------------------------------------------
+
 if [ -n "$selected" ]; then
     tab_id=$(echo "$selected" | awk '{print $1}')
     kitty @ focus-tab --match id:"$tab_id"
 else
-    echo "No tab selected or operation cancelled."
+    echo "Cancelled."
 fi
+
