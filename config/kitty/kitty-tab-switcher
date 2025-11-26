@@ -3,7 +3,9 @@
 # Copyright (c) 2025 osipog
 
 # Get all tabs, including their ids and focused status
-tab_info=$(kitty @ ls | jq -r '[
+tab_info=$(kitty @ ls \
+    | tr -d '\000-\037' \
+    | jq -r '[
     .[].tabs[]
     | (.windows | first) as $window
     | ($window | .foreground_processes | first | .cmdline | first | split("/") | last) as $program
@@ -39,7 +41,7 @@ echo "$tab_info" | jq -c '.[]' | while read -r item; do
 done
 
 tab_count=$(echo "$tab_info" | jq 'length')
-line_height=$(echo "$tab_info" | jq 'first | .lines')
+line_height=$(echo "$tab_info" | jq 'if length > 0 then first.lines else 50 end')
 # prompt (1) + divider (1) + list-border (2)
 list_line_height=$((tab_count + 1 + 1 + 2))
 preview_percent_height=$((((line_height - list_line_height) * 100) / line_height))
