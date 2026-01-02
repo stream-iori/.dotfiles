@@ -99,4 +99,13 @@ return {
       { "<leader>cv", "<cmd>VenvSelect<cr>", desc = "Select VirtualEnv" },
     },
   },
+  {
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "ruff",
+        "pyright",
+      },
+    },
+  },
 }
