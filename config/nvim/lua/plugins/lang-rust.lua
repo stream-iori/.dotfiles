@@ -1,4 +1,5 @@
 return {
+  -- Crates.nvim for Cargo.toml dependency management
   {
     "Saecki/crates.nvim",
     event = { "BufRead Cargo.toml" },
@@ -16,17 +17,18 @@ return {
       },
     },
   },
+
+  -- Rustaceanvim for LSP
   {
     "mrcjkb/rustaceanvim",
+    version = "^5", -- Ensure we are using version 5
+    lazy = false, -- This plugin is already lazy
     opts = {
       server = {
         on_attach = function(_, bufnr)
           vim.keymap.set("n", "<leader>cR", function()
             vim.cmd.RustLsp("codeAction")
           end, { desc = "Code Action", buffer = bufnr })
-          vim.keymap.set("n", "<leader>dr", function()
-            vim.cmd.RustLsp("debuggables")
-          end, { desc = "Rust Debuggables", buffer = bufnr })
         end,
         default_settings = {
           -- rust-analyzer language server configuration
@@ -38,12 +40,8 @@ return {
                 enable = true,
               },
             },
-            -- Add clippy lints for Rust if using rust-analyzer
-            checkOnSave = diagnostics == "rust-analyzer",
-            -- Enable diagnostics if using rust-analyzer
-            diagnostics = {
-              enable = diagnostics == "rust-analyzer",
-            },
+            -- Use clippy for diagnostics
+            checkOnSave = true,
             procMacro = {
               enable = true,
               ignored = {
@@ -67,6 +65,35 @@ return {
             },
           },
         },
+      },
+    },
+  },
+
+  -- Taplo for TOML support (Cargo.toml)
+  {
+    "tamasfe/taplo",
+    keys = {
+      {
+        "K",
+        function()
+          if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+            require("crates").show_popup()
+          else
+            vim.lsp.buf.hover()
+          end
+        end,
+        desc = "Show Crate Documentation",
+      },
+    },
+  },
+
+  -- Ensure Neotest is configured for Rust
+  {
+    "nvim-neotest/neotest",
+    optional = true,
+    opts = {
+      adapters = {
+        ["rustaceanvim.neotest"] = {},
       },
     },
   },

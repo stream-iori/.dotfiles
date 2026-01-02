@@ -15,14 +15,6 @@ return {
           },
         },
       },
-      --python start
-      pyright = {
-        enabled = true,
-      },
-      ruff = {
-        enabled = true,
-      },
-      --python end
     },
   },
 }
