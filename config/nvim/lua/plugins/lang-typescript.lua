@@ -4,8 +4,7 @@ return {
     opts = {
       servers = {
         vtsls = {
-          -- explicitly add default filetypes, so that we can extend
-          -- them in related extras
+          -- explicitly add default filetypes
           filetypes = {
             "javascript",
             "javascriptreact",
@@ -40,13 +39,23 @@ return {
               },
             },
           },
-          on_attach = function(client, _)
-            client.server_capabilities.documentFormattingProvider = false
-            client.server_capabilities.documentRangeFormattingProvider = false
-          end,
         },
       },
     },
+    -- 使用原生 LspAttach 处理 vtsls 特定逻辑
+    init = function()
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("user-typescript-lsp", { clear = true }),
+        callback = function(event)
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          if client and client.name == "vtsls" then
+             -- 禁用格式化，交给 Prettier/Conform 处理
+             client.server_capabilities.documentFormattingProvider = false
+             client.server_capabilities.documentRangeFormattingProvider = false
+          end
+        end,
+      })
+    end,
   },
   {
     "nvim-neotest/neotest",
