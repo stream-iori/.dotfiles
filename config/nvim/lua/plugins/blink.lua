@@ -1,6 +1,8 @@
 return {
   {
     "saghen/blink.cmp",
+    -- 使用预编译的二进制文件，无需本地 cargo 环境
+    version = "*",
     dependencies = {
       "rafamadriz/friendly-snippets",
     },
@@ -27,9 +29,10 @@ return {
         ["<C-y>"] = { "select_and_accept" },
       },
       fuzzy = {
-        implementation = "lua",
+        -- 默认使用 Rust 实现
       },
     },
+    opts_extend = { "sources.default" },
   },
 
   {

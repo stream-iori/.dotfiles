@@ -39,6 +39,9 @@ return {
         end,
       })
     end,
+    config = function(_, opts)
+      vim.g.rustaceanvim = vim.tbl_deep_extend("force", {}, opts or {})
+    end,
     opts = {
       server = {
         default_settings = {
