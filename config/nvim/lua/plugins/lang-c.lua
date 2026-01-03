@@ -15,10 +15,10 @@ return {
               "config.h.in",
               "meson.build",
               "opt/build/meson.build",
-              "build.ninja"
-            )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(
-              fname
-            ) or require("lspconfig.util").find_git_ancestor(fname)
+              "build.ninja",
+              "compile_commands.json",
+              "compile_flags.txt"
+            )(fname) or vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
           end,
           capabilities = {
             offsetEncoding = { "utf-16" },
@@ -48,7 +48,12 @@ return {
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.name == "clangd" then
             -- C 特定的快捷键
-            vim.keymap.set("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { buffer = event.buf, desc = "Switch Source/Header" })
+            vim.keymap.set(
+              "n",
+              "<leader>ch",
+              "<cmd>ClangdSwitchSourceHeader<cr>",
+              { buffer = event.buf, desc = "Switch Source/Header" }
+            )
           end
         end,
       })

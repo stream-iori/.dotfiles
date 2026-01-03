@@ -20,8 +20,6 @@ export JLI_SO="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home/jre
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
-export CARGO_HOME="/Users/stream/.cargo"
-
 export CHEAT_CONFIG_PATH="~/.dotfiles/config/cheat/conf.yml"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK

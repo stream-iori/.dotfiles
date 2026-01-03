@@ -1,0 +1,119 @@
+# Neovim & LazyVim 终极速查手册
+
+本文档基于您的 LazyVim 配置整理，涵盖核心快捷键、插件用法及高效技巧。
+
+## 1. 核心基础 (Core)
+
+| 功能 | 快捷键 | 描述 |
+| :--- | :--- | :--- |
+| **Leader Key** | `<Space>` | 所有快捷键的前缀（下文用 `<leader>` 表示） |
+| **命令面板** | `<leader>sk` | 查找所有快捷键 (Search Keymaps) |
+| **文件浏览器** | `<leader>e` | 打开/关闭 Neo-tree 文件树 |
+| **查找文件** | `<leader><space>` | 模糊查找项目文件 (Find Files) |
+| **全局搜索** | `<leader>sg` | 在项目中搜索关键字 (Grep) |
+| **最近文件** | `<leader>fr` | 查找最近打开的文件 (Recent) |
+| **保存文件** | `<C-s>` | 快速保存 (Save) |
+| **关闭 Buffer** | `<leader>bd` | 关闭当前文件 (Delete Buffer) |
+| **退出 Neovim** | `<leader>qq` | 退出 (Quit) |
+
+## 2. 窗口与终端 (Window & Terminal)
+
+| 功能 | 快捷键 | 技巧 |
+| :--- | :--- | :--- |
+| **浮动终端** | `<C-/>` | 最常用的终端开关 (Ctrl + /) |
+| **窗口跳转** | `<C-h/j/k/l>` | 无需切模式，直接在分屏间跳转 |
+| **垂直分屏** | `<leader>|` | 左右分屏 |
+| **水平分屏** | `<leader>-` | 上下分屏 |
+| **最大化窗口** | `<leader>wm` | 类似于 Zen Mode，专注当前窗口 |
+| **关闭窗口** | `<leader>wd` | 关闭当前分屏 |
+
+## 2.1 文件资源管理器 (Neo-tree 进阶)
+
+**基础操作：**
+*   **打开/关闭**：`<leader>e`
+*   **定位当前文件**：`<leader>E` (在树中找到当前正在编辑的文件)
+
+**高级技巧：**
+
+| 功能 | 快捷键 (在 Neo-tree 面板中) | 描述 |
+| :--- | :--- | :--- |
+| **添加/新建** | `a` | 新建文件 (输入 `dir/` 可创建目录，`dir/file.txt` 递归创建) |
+| **删除** | `d` | 删除文件 (支持 Trash) |
+| **重命名** | `r` | 重命名文件 |
+| **复制/剪切** | `c` / `x` | 复制/剪切文件 (配合 `p` 粘贴) |
+| **粘贴** | `p` | 粘贴文件 |
+| **显示隐藏文件** | `H` | 切换显示 .gitignore 或隐藏文件 |
+| **查看信息** | `i` | 查看文件详细信息 (大小、权限等) |
+| **预览文件** | `P` | 浮动窗口预览当前文件 (无需打开) |
+| **分屏打开** | `s` / `v` | 水平分屏 (`s`) / 垂直分屏 (`v`) 打开选中文件 |
+
+**多工作区 (CWD) 管理：**
+*   **进入目录 (Change Root)**：在文件夹上按 `.` (点)，将 Neo-tree 的根目录切换到该文件夹。
+*   **上级目录**：按 `Backspace` (退格键)，返回上一级目录。
+*   **筛选/搜索**：按 `/` 输入关键字，实时过滤文件树显示。
+
+**多源切换 (Sources)：**
+*   **`<` / `>`**：在不同的 Source 间切换 (Filesystem, Buffers, Git Status)。
+*   这对于只看 Git 变更文件非常有用。
+
+## 3. 代码导航 (LSP Navigation)
+
+> *基于 Clangd (C), Rust-Analyzer (Rust), Vtsls (TS), Ruff/Pyright (Python)*
+
+| 功能 | 快捷键 | 描述 |
+| :--- | :--- | :--- |
+| **跳转定义** | `gd` | Go to Definition |
+| **跳转引用** | `gr` | Go to References (查看谁用了它) |
+| **查看文档** | `K` | 悬浮显示文档 (Hover) |
+| **重命名** | `<leader>rn` | 智能重命名变量 (Rename) |
+| **代码操作** | `<leader>ca` | 快速修复 (Code Action) |
+| **格式化** | `<leader>cf` | 格式化当前文件 (Format) |
+| **C头/源切换** | `<leader>ch` | 在 .c 和 .h 之间切换 (仅限 C/C++) |
+| **整理导入** | `<leader>co` | 自动整理 import (Python/TS) |
+| **Rust Action**| `<leader>cR` | Rust 专属代码操作 |
+
+## 4. 文本编辑技巧 (Editing)
+
+### 包裹/修改 (Mini.surround)
+*已配置为经典 `vim-surround` 风格*
+
+| 模式 | 快捷键 | 示例 | 效果 |
+| :--- | :--- | :--- | :--- |
+| **添加 (Add)** | `ys{motion}{char}` | `ysiw"` | `word` -> `"word"` |
+| **添加 (Line)** | `yss{char}` | `yss)` | 整行包裹 `(...)` |
+| **删除 (Delete)** | `ds{char}` | `ds"` | `"word"` -> `word` |
+| **修改 (Change)** | `cs{old}{new}` | `cs"'` | `"word"` -> `'word'` |
+| **选中包裹** | `S{char}` | (Visual选区后) `S}` | 包裹选区 |
+
+### 多光标 (Visual Mode)
+1. 选中一段文本。
+2. 按 `gC` (或 LazyVim 默认配置) 可以在多处添加光标。
+
+### 移动代码
+*   **`<A-j>` / `<A-k>`**: 将当前行/块向下或向上移动 (Alt + j/k)。
+
+## 5. UI 与工具 (Snacks & Others)
+
+| 功能 | 快捷键 | 描述 |
+| :--- | :--- | :--- |
+| **通知历史** | `<leader>n` | 查看错过的通知 (Notification History) |
+| **清空通知** | `<leader>un` | 关闭所有弹窗 (Dismiss Notifications) |
+| **Git 懒人包** | `<leader>gg` | 打开 LazyGit (终端界面) |
+| **插件管理** | `<leader>l` | 打开 Lazy 面板 (更新/安装插件) |
+| **Mason** | `<leader>cm` | 打开工具安装面板 (LSP/Linter) |
+
+## 6. 常用命令 (Command Line)
+
+在命令行模式 (`:`) 下输入：
+
+*   `:Lazy update` - 更新所有插件和 LazyVim 核心。
+*   `:Mason` - 管理 LSP、Formatter、Linter 的安装。
+*   `:checkhealth` - 也就是 "体检"，检查 Neovim 状态是否健康。
+
+## 7. 调试 (Debugging) - *目前已精简*
+
+*您当前的配置已移除了 DAP (Debugging) 相关插件以保持轻量。如果需要调试功能，建议使用 print 调试或通过外部终端调试。*
+
+---
+
+**提示**: 如果忘记了某个快捷键，按下 `<Space>` (Leader Key) 并停顿一秒，屏幕底部会自动弹出 **WhichKey** 菜单提示，跟着提示操作即可。
