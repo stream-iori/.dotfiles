@@ -39,4 +39,30 @@ return {
       require("lint").linters_by_ft = opts.linters_by_ft
     end,
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      code = {
+        sign = false,
+        width = "block",
+        right_pad = 1,
+      },
+      heading = {
+        sign = false,
+        icons = {},
+      },
+      -- 开启 LaTeX 支持
+      latex = { enabled = true },
+    },
+    ft = { "markdown", "norg", "rmd", "org" },
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "markdown", "markdown_inline", "latex" })
+      end
+    end,
+  },
 }

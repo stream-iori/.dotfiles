@@ -40,32 +40,14 @@ return {
         },
       },
     },
-    -- 标准 Neovim API: LspAttach
-    init = function()
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("user-c-lsp", { clear = true }),
-        callback = function(event)
-          local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.name == "clangd" then
-            -- C 特定的快捷键
-            vim.keymap.set(
-              "n",
-              "<leader>ch",
-              "<cmd>ClangdSwitchSourceHeader<cr>",
-              { buffer = event.buf, desc = "Switch Source/Header" }
-            )
-          end
-        end,
-      })
-    end,
   },
 
-  -- 确保 Mason 安装了 clangd
+  -- 确保 Mason 安装了 codelldb (clangd 由 Extra 安装)
   {
     "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
-        "clangd",
+        "codelldb",
       },
     },
   },
