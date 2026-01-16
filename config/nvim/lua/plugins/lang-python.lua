@@ -37,6 +37,16 @@ return {
               },
             },
           },
+          keys = {
+            {
+              "<leader>cg",
+              function()
+                local word = vim.fn.expand("<cword>")
+                Snacks.picker.grep({ search = "def " .. word })
+              end,
+              desc = "Grep Method Definition",
+            },
+          },
         },
       },
     },
