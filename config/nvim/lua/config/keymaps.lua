@@ -19,3 +19,10 @@ end, { desc = "Format" })
 -- locate file
 map({ "n", "v" }, "<leader><leader>e", ":Neotree reveal<CR>", { noremap = true, silent = true })
 map({ "n", "v" }, "<leader>gp", ":Neotree reveal<CR>", { noremap = true, silent = true })
+
+-- copy relative path
+map("n", "<leader>fy", function()
+  local path = vim.fn.expand("%")
+  vim.fn.setreg("+", path)
+  vim.notify("Copied relative path: " .. path)
+end, { desc = "Copy Relative Path" })
