@@ -3,8 +3,14 @@ return {
     "ggandor/leap.nvim",
     enabled = true,
     keys = {
-      { "s", "<Plug>(leap-forward)", mode = { "n", "x", "o" }, desc = "Leap Forward to" },
-      { "S", "<Plug>(leap-backward)", mode = { "n", "x", "o" }, desc = "Leap Backward to" },
+      {
+        "s",
+        function()
+          require("leap").leap({ target_windows = { vim.api.nvim_get_current_win() } })
+        end,
+        mode = { "n", "x", "o" },
+        desc = "Leap Bidirectional",
+      },
       { "gs", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from Windows" },
     },
     config = function(_, opts)
