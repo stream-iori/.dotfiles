@@ -14,3 +14,6 @@ opt.relativenumber = false
 opt.wrap = true
 -- 避免隐藏一些字体
 opt.conceallevel = 0
+
+-- 隐藏标签栏 (Hide tabline)
+opt.showtabline = 0
