@@ -24,6 +24,8 @@ stty -ixon
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+export EDITOR="nvim"
+export IGNOREEOF=2
 
 # autojump
 [ -f ${HOMEBREW_PREFIX}/etc/profile.d/autojump.sh ] && . ${HOMEBREW_PREFIX}/etc/profile.d/autojump.sh

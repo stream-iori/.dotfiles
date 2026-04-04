@@ -1,0 +1,123 @@
+# ========== Basic ========= #
+set -g default-terminal "screen-256color"
+set -ga terminal-overrides ",screen-256color:Tc"
+set -as terminal-overrides ',*:Sync'
+set -ga terminal-overrides ",alacritty:Tc"
+set -g display-time 3000
+set -g history-limit 10000
+set -g base-index 1
+set -g pane-base-index 1
+set -s escape-time 1
+set -g mouse on
+set -g status-interval 5
+
+set-option -g focus-events on
+set-window-option -g allow-rename off
+set-window-option -g automatic-rename on
+
+# easy reload
+unbind r
+bind C-r source-file ~/.tmux.conf \; display-message "tmux.conf reloaded."
+
+# bind prefix
+unbind C-b
+set -g prefix C-x
+bind C-x send-prefix
+
+# ========== Plugins ========== #
+set -g @plugin 'tmux-plugins/tpm'
+#set -g @plugin 'tmux-plugins/tmux-sensible'
+#set -g @plugin 'tmux-plugins/tmux-urlview'
+#set -g @plugin 'christoomey/vim-tmux-navigator'
+#set -g @plugin 'tmux-plugins/tmux-yank'
+#
+run -b '~/.dotfiles/tmux/plugins/tpm/tpm'
+#
+
+bind-key v next-layout
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+
+# ========== window =========== #
+# create window in current path
+unbind c
+bind c new-window -c "#{pane_current_path}"
+
+# create session
+
+# clean screen
+bind C-l send-keys 'C-l'
+
+
+# fast switch windows conflict with easy motion, sugest using C-x W
+#bind Space choose-tree -w
+#bind C-a last-window
+#bind C-j previous-window
+#bind C-k next-window
+
+# ========== pane ========== #
+# split window
+unbind %
+bind - split-window -v -c '#{pane_current_path}'
+unbind '"'
+bind '\' split-window -h -c '#{pane_current_path}'
+
+
+# select pane
+bind -r h select-pane -L
+bind -r j select-pane -D
+bind -r k select-pane -U
+bind -r l select-pane -R
+
+# resize pane
+bind -r K resizep -U 5
+bind -r J resizep -D 5
+bind -r H resizep -L 5
+bind -r L resizep -R 5
+
+# swap panes
+bind C-u swap-pane -U
+bind C-d swap-pane -D
+
+# kill pane/window/session
+unbind C-d
+bind q kill-pane
+bind C-q kill-window
+bind Q kill-session
+
+# ========== Notifition ========== #
+setw -g monitor-activity off
+set -g visual-activity off
+
+# ========== Copy Mode ========== #
+setw -g mode-keys vi
+bind v copy-mode
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi 'r' send-keys -X rectangle-toggle
+bind -Tcopy-mode-vi Escape send -X cancel
+
+bind -T copy-mode-vi MouseDrag1Pane send -X begin-selection
+
+# ========== Colorscheme (Zellij Style) ========== #
+set -g status-justify "left"
+set -g status "on"
+set -g status-position top
+set -g status-left-length "100"
+set -g status-right-length "0"
+set -g status-bg "colour235"
+
+# 移除右侧信息 (右上角保持空白)
+set -g status-right ""
+
+# 左侧 Session 样式
+set -g status-left "#[fg=colour232,bg=colour148,bold] #S #[fg=colour148,bg=colour235,nobold] "
+
+# 窗口标签样式 (类 Zellij 箭头)
+setw -g window-status-separator ""
+
+# 未激活窗口
+setw -g window-status-format "#[fg=colour235,bg=colour239,nobold,nounderscore,noitalics]#[fg=colour250,bg=colour239] #I  #W #[fg=colour239,bg=colour235,nobold,nounderscore,noitalics]"
+
+# 当前激活窗口
+setw -g window-status-current-format "#[fg=colour235,bg=colour114,nobold,nounderscore,noitalics]#[fg=colour232,bg=colour114,bold] #I  #W #[fg=colour114,bg=colour235,nobold,nounderscore,noitalics]"
+
