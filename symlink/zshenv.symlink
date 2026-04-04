@@ -1,51 +1,70 @@
 #!/usr/bin/env zsh
+
+# ------------------------------------------------------------------------------
+# 1. Core Paths & Base Environment
+# ------------------------------------------------------------------------------
 [[ -v HOMEBREW_PREFIX ]] || export HOMEBREW_PREFIX="/opt/homebrew"
-export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/stream/bin"
-GNU_BIN=${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin
-GNU_SED_BIN=${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin
-LLVM_BIN=${HOMEBREW_PREFIX}/opt/llvm/bin
 
-LDFLAGS="-L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
+# Base PATH Construction
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:${PATH}:/Users/stream/bin"
 
-export LS_COLORS='di=1;32'
+# ------------------------------------------------------------------------------
+# 2. Locale & Encoding
+# ------------------------------------------------------------------------------
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
-export C_INCLUDE_PATH=/usr/local/include
-export LIBRARY_PATH=/usr/local/lib
-export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
-export DYLD_LIBRARY_PATH=/Users/stream/codes/commando/tree-sitter-java/build
+# ------------------------------------------------------------------------------
+# 3. Dev Toolchains
+# ------------------------------------------------------------------------------
 
+# GNU Toolchains (Prioritized)
+export GNU_BIN="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin"
+export GNU_SED_BIN="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH="${GNU_BIN}:${GNU_SED_BIN}:${PATH}"
+
+# LLVM / C++ Development
+export LLVM_BIN="${HOMEBREW_PREFIX}/opt/llvm/bin"
+export LDFLAGS="-L/usr/local/opt/llvm/lib -L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+export C_INCLUDE_PATH="/usr/local/include"
+export LIBRARY_PATH="/usr/local/lib"
+export CPLUS_INCLUDE_PATH="/usr/local/include:$CPLUS_INCLUDE_PATH"
+export PATH="${LLVM_BIN}:${PATH}"
+
+# Java (Temurin 8)
 export JDK_INCLUDE="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home/include;/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home/include/darwin"
 export JLI_SO="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home/jre/lib/jli"
 
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
+# Maven (Specific Version Prioritized)
+export PATH="/usr/local/opt/maven@3.5/bin:${PATH}"
 
+# Go
+export GOPRIVATE="gitlab.alipay-inc.com,code.alipay.com,rsc.io/private"
+export GOPROXY="https://goproxy.cn,direct"
+
+# Ruby (RVM)
+export PATH="${PATH}:$HOME/.rvm/bin"
+
+# ------------------------------------------------------------------------------
+# 4. Tool Environment Variables
+# ------------------------------------------------------------------------------
 export CHEAT_CONFIG_PATH="~/.dotfiles/config/cheat/conf.yml"
+export CHEAT_USE_FZF=true
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK
+export LS_COLORS='di=1;32'
 
-export PATH=$GNU_BIN:$GNU_SED_BIN:$LLVM_BIN:$PATH:$GNU_BIN
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+# Dynamic Library Paths (tree-sitter, etc.)
+export DYLD_LIBRARY_PATH="/Users/stream/codes/commando/tree-sitter-java/build"
 
-# maven version in my company macbook
-export PATH=/usr/local/opt/maven@3.5/bin:$PATH
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# You may need to manually set your language environment
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-LC_CTYPE=en_US.UTF-8
-LC_ALL=en_US.UTF-8
-
-export GOPRIVATE=gitlab.alipay-inc.com,code.alipay.com,rsc.io/private
-export GOPROXY=https://goproxy.cn,direct
-#
-export CHEAT_USE_FZF=true
-
-export PATH="$PATH:/Users/stream/.foundry/bin"
-export PATH="$PATH:/Users/stream/.orbstack/bin"
-export PATH="$PATH:/Users/stream/.local/bin"
-export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+# ------------------------------------------------------------------------------
+# 5. Application Specific Paths
+# ------------------------------------------------------------------------------
+export PATH="${PATH}:/Users/stream/.foundry/bin"
+export PATH="${PATH}:/Users/stream/.orbstack/bin"
+export PATH="${PATH}:/Users/stream/.local/bin"
+export PATH="${PATH}:/Applications/Obsidian.app/Contents/MacOS"
