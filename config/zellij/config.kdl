@@ -16,6 +16,7 @@ keybinds clear-defaults=true {
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "normal"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "normal"; }
         bind "h" { MoveFocus "left"; }
+        bind "v" { NewPane "right"; SwitchToMode "normal"; }
         bind "i" { TogglePanePinned; SwitchToMode "normal"; }
         bind "j" { MoveFocus "down"; }
         bind "k" { MoveFocus "up"; }
@@ -183,6 +184,7 @@ keybinds clear-defaults=true {
     }
     shared_except "normal" "locked" "entersearch" "renametab" "renamepane" {
         bind "esc" { SwitchToMode "normal"; }
+        bind "Ctrl [" { SwitchToMode "normal"; }
     }
     shared_among "pane" "tmux" {
         bind "x" { CloseFocus; SwitchToMode "normal"; }
@@ -212,16 +214,19 @@ keybinds clear-defaults=true {
     entersearch {
         bind "Ctrl c" { SwitchToMode "scroll"; }
         bind "esc" { SwitchToMode "scroll"; }
+        bind "Ctrl [" { SwitchToMode "scroll"; }
         bind "enter" { SwitchToMode "search"; }
     }
     renametab {
         bind "esc" { UndoRenameTab; SwitchToMode "tab"; }
+        bind "Ctrl [" { UndoRenameTab; SwitchToMode "tab"; }
     }
     shared_among "renametab" "renamepane" {
         bind "Ctrl c" { SwitchToMode "normal"; }
     }
     renamepane {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
+        bind "Ctrl [" { UndoRenamePane; SwitchToMode "pane"; }
     }
 }
 

@@ -11,6 +11,9 @@ source ~/.zshenv
 ZINIT_HOME="${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh"
 [[ -f $ZINIT_HOME ]] && source $ZINIT_HOME
 
+# Completion system initialization
+autoload -Uz compinit && compinit
+
 # Theme (Powerlevel10k)
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
@@ -54,6 +57,9 @@ export IGNOREEOF=2 # Exit after 2 consecutive Ctrl-d
 # Terminal Options
 stty -ixon # Disable C-s terminal locking
 
+# Disable fzf-tab's default continuous trigger which sometimes conflicts
+zstyle ':fzf-tab:*' continuous-trigger '/'
+
 # ------------------------------------------------------------------------------
 # 5. Third-Party Integrations
 # ------------------------------------------------------------------------------
@@ -66,6 +72,7 @@ fi
 # Zoxide (Modern replacement for jump-to-directory)
 if (( $+commands[zoxide] )); then
   eval "$(zoxide init zsh)"
+  alias zz='__zoxide_zi'
 fi
 
 # FZF Initialization
