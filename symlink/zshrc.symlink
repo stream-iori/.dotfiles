@@ -15,14 +15,12 @@ ZINIT_HOME="${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh"
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Core Plugins
-zinit light zsh-users/zsh-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
 
 # Oh My Zsh Plugins
 zinit snippet OMZ::plugins/git
-zinit snippet OMZ::plugins/fzf
-zinit snippet OMZ::lib/history.zsh
 
 # Optimized Plugin Loading
 zinit ice lucid wait='0'; zinit light zsh-users/zsh-completions
@@ -59,6 +57,11 @@ stty -ixon # Disable C-s terminal locking
 # ------------------------------------------------------------------------------
 # 5. Third-Party Integrations
 # ------------------------------------------------------------------------------
+
+# Atuin (Modern shell history)
+if (( $+commands[atuin] )); then
+  eval "$(atuin init zsh)"
+fi
 
 # Zoxide (Modern replacement for jump-to-directory)
 if (( $+commands[zoxide] )); then
