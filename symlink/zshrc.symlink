@@ -32,7 +32,6 @@ zinit snippet OMZ::plugins/git
 
 # Modern replacements
 alias vim="nvim"
-alias cat="bat"
 alias ls="ls --color"
 alias ll="ls --color"
 alias lgit="lazygit"
@@ -80,7 +79,7 @@ zstyle ':fzf-tab:*' continuous-trigger '/'
 
 # Atuin (History)
 if (( $+commands[atuin] )); then
-  zinit ice wait'0' lucid atinit'eval "$(atuin init zsh)"'; zinit light zdharma-continuum/null
+  zinit ice wait'0' lucid nocompile atinit'eval "$(atuin init zsh)"'; zinit light zdharma-continuum/null
 fi
 
 # Zoxide (Navigation)
