@@ -7,7 +7,6 @@ source ~/.zshenv
 # ------------------------------------------------------------------------------
 # 2. Zinit Setup (Plugin Manager)
 # ------------------------------------------------------------------------------
-# Initialize Zinit
 ZINIT_HOME="${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh"
 [[ -f $ZINIT_HOME ]] && source $ZINIT_HOME
 
@@ -44,15 +43,18 @@ alias unproxy='unset all_proxy ALL_PROXY http_proxy https_proxy'
 # Obsidian Quick-open
 unalias ob 2>/dev/null
 function ob() {
-  [[ -d .obsidian ]] || mkdir .obsidian
   local target_dir=$(pwd)
   local folder_name=${1:-$(basename "$target_dir")}
   local vault_name=$(basename "$OBSIDIAN_MAIN_VAULT")
   local link_dir="$OBSIDIAN_MAIN_VAULT/External"
+  
   mkdir -p "$link_dir"
+  [[ -d "$OBSIDIAN_MAIN_VAULT/.obsidian" ]] || mkdir -p "$OBSIDIAN_MAIN_VAULT/.obsidian"
   ln -shf "$target_dir" "$link_dir/$folder_name"
+  
   local encoded_vault=$(python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "$vault_name")
   local encoded_path=$(python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "External/$folder_name")
+  
   echo "Linking $(basename "$target_dir") as '$folder_name' to $vault_name..."
   open "obsidian://open?vault=$encoded_vault&path=$encoded_path"
 }
@@ -62,6 +64,12 @@ function ob() {
 # ------------------------------------------------------------------------------
 export IGNOREEOF=2
 stty -ixon
+
+# Zsh Behavior
+setopt autocd              # Change directory by just typing the name
+setopt autopushd            # Make cd push the old directory onto the directory stack
+setopt pushd_ignore_dups    # Don't push multiple copies of the same directory onto the stack
+setopt pushd_silent         # Don't print the directory stack after pushd or popd
 
 # Emacs-style keybindings
 bindkey -e
@@ -84,7 +92,7 @@ fi
 
 # Zoxide (Navigation)
 if (( $+commands[zoxide] )); then
-  eval "$(zoxide init zsh)" # Keep sync for immediate use
+  eval "$(zoxide init zsh)"
   alias zz='__zoxide_zi'
 fi
 

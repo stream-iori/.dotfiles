@@ -10,9 +10,12 @@ All notable changes to this dotfiles repository will be documented in this file.
     - Automatic symlinking to `~/Documents/Notes/External/` to satisfy Obsidian's security checks while maintaining a clean file structure.
     - Supports custom folder naming: `ob "MyCustomName"`.
 - **Zellij Improvements**:
-    - Mapped `Ctrl + [` to `Esc` globally for seamless mode switching.
-    - Added `v` shortcut in `pane` mode for vertical splitting.
-    - Preserved `h, j, k, l` for Vim-style navigation within panes.
+    - Mapped **`Ctrl + [`** to **`Esc`** globally for seamless mode switching.
+    - Added **`v`** shortcut in `pane` mode for vertical splitting.
+    - Enabled **`session_serialization`**, **`copy_command "pbcopy"`**, and **`on_force_close "detach"`** for a superior macOS experience.
+- **Zsh Smart Options**:
+    - Enabled **`autocd`**: Navigate to directories by just typing their name.
+    - Enabled **`autopushd`**: Automatically maintain a directory stack for easy `popd` navigation.
 
 ### Optimized
 - **Zsh Startup & Performance**:
@@ -26,13 +29,13 @@ All notable changes to this dotfiles repository will be documented in this file.
     - Migrated to `eval "$(fzf --zsh)"` for cleaner keybindings and completion initialization.
 - **UI & UX**:
     - Restored `bindkey -e` and `Ctrl+A/E` for consistent Emacs-style line editing.
-    - Refactored `zshrc` into modular sections (Base, Plugins, Aliases, Options, Integrations) for better maintainability.
-    - **Modernized Proxy Aliases**: Reconfigured `proxy` to use `socks5h` on port 6153 (enabling remote DNS resolution) and `http/https` on port 6152 via `all_proxy` for maximum tool compatibility.
+    - **Modernized Proxy Aliases**: Reconfigured `proxy` to use `socks5h` on port 6153 (remote DNS) and `http/https` on port 6152 via `all_proxy`.
+    - Refactored `zshrc` into modular sections for better maintainability.
 
 ### Removed
-- **Redundant Config**: Cleaned up legacy `conda`, `LLVM/C++`, and `Java (JDK)` environment variables in favor of modern tools like `SDKMAN`.
-- **Legacy Plugins**: Removed `zsh-autopair` and duplicate `zsh-completions` to keep the environment lean.
-- **Old FZF**: Removed manual `~/.fzf.zsh` sourcing.
+- **Redundant Config**: Cleaned up legacy `conda`, `LLVM/C++`, and `Java (JDK)` environment variables.
+- **Legacy Plugins**: Removed `zsh-autopair` and duplicate `zsh-completions`.
+- **Aliases**: Removed `cat="bat"` and `za` aliases to keep the environment minimal.
 
 ## [2026-04-04] - Initial Modernization
 *(Previous entries omitted for brevity)*
