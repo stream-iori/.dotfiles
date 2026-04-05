@@ -2,30 +2,36 @@
 
 All notable changes to this dotfiles repository will be documented in this file.
 
-## [2026-04-04] - Terminal Environment Modernization
+## [2026-04-04] - Zsh & Zellij Final Optimization
 
 ### Added
-- **Zoxide Integration**: Replaced `autojump` with `zoxide` (Rust-based) for faster directory navigation.
-- **Atuin Support**: Integrated `atuin` for modern, encrypted, and searchable shell history management.
-- **Improved Syntax Highlighting**: Migrated to `fast-syntax-highlighting` for better performance and accuracy.
-- **Zellij Layout**: Configured `compact-top` as the default layout to keep status information at the top.
-- **Safety Measures**: Added `IGNOREEOF=2` to zsh to prevent accidental shell exits with `Ctrl-d`.
-
-### Changed
-- **Zsh Configuration Refactor**: 
-    - Decoupled `zshenv` (core environment) and `zshrc` (interactive features).
-    - Moved all interactive aliases and UI-related settings to `zshrc`.
-    - Removed redundant `TERM` exports and dynamic login calculations to speed up shell startup.
-    - All internal comments in `zshenv` and `zshrc` have been translated to English for better maintainability.
-- **Zellij Keybindings**:
-    - Unified the rename action to `r` for both Tabs and Panes.
-    - Rebound `Ctrl + q` from `Quit` to `Detach` to prevent accidental session termination.
-
-### Removed
-- **Legacy Tools**: Completely removed `autojump` configuration and its Zinit plugin.
-- **Redundant Plugins**: Removed `OMZ::lib/history.zsh` and `OMZ::plugins/fzf` to avoid conflicts with `atuin`.
-- **Zellij Built-in Compact**: Reverted to custom `compact-top` as the built-in `compact` does not support top-alignment.
+- **Obsidian Integration**:
+    - Implemented a robust `ob` function in `zshrc` to quickly open any folder as an Obsidian vault.
+    - Automatic symlinking to `~/Documents/Notes/External/` to satisfy Obsidian's security checks while maintaining a clean file structure.
+    - Supports custom folder naming: `ob "MyCustomName"`.
+- **Zellij Improvements**:
+    - Mapped `Ctrl + [` to `Esc` globally for seamless mode switching.
+    - Added `v` shortcut in `pane` mode for vertical splitting.
+    - Preserved `h, j, k, l` for Vim-style navigation within panes.
 
 ### Optimized
-- **PATH Construction**: Standardized PATH building logic in `zshenv` to ensure predictable tool precedence (GNU/Homebrew tools first).
-- **Startup Speed**: Significantly reduced the number of system calls during zsh initialization by removing dynamic command executions from `zshenv`.
+- **Zsh Startup & Performance**:
+    - **PATH Refactor**: Migrated to Zsh-native `path=(...)` array with `typeset -U path` for automatic deduplication and cleaner precedence management.
+    - **Async Loading**: Leveraged Zinit `wait'0' lucid` for all core plugins and integrations (including `atuin` and `fzf-tab`).
+    - **Eval Caching**: Optimized `atuin` and `fzf` initialization to minimize shell startup latency.
+    - **Compinit**: Removed manual `compinit` calls in favor of Zinit's more efficient completion management.
+- **FZF Modernization**:
+    - Global `FZF_DEFAULT_OPTS` with a modern, border-aware UI and layout.
+    - Switched `FZF_DEFAULT_COMMAND` to `fd` for faster, git-aware file discovery.
+    - Migrated to `eval "$(fzf --zsh)"` for cleaner keybindings and completion initialization.
+- **UI & UX**:
+    - Restored `bindkey -e` and `Ctrl+A/E` for consistent Emacs-style line editing.
+    - Refactored `zshrc` into modular sections (Base, Plugins, Aliases, Options, Integrations) for better maintainability.
+
+### Removed
+- **Redundant Config**: Cleaned up legacy `conda`, `LLVM/C++`, and `Java (JDK)` environment variables in favor of modern tools like `SDKMAN`.
+- **Legacy Plugins**: Removed `zsh-autopair` and duplicate `zsh-completions` to keep the environment lean.
+- **Old FZF**: Removed manual `~/.fzf.zsh` sourcing.
+
+## [2026-04-04] - Initial Modernization
+*(Previous entries omitted for brevity)*
