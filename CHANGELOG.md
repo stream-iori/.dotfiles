@@ -27,6 +27,7 @@ All notable changes to this dotfiles repository will be documented in this file.
 - **UI & UX**:
     - Restored `bindkey -e` and `Ctrl+A/E` for consistent Emacs-style line editing.
     - Refactored `zshrc` into modular sections (Base, Plugins, Aliases, Options, Integrations) for better maintainability.
+    - **Modernized Proxy Aliases**: Reconfigured `proxy` to use `socks5h` on port 6153 (enabling remote DNS resolution) and `http/https` on port 6152 via `all_proxy` for maximum tool compatibility.
 
 ### Removed
 - **Redundant Config**: Cleaned up legacy `conda`, `LLVM/C++`, and `Java (JDK)` environment variables in favor of modern tools like `SDKMAN`.
