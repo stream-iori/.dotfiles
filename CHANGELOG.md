@@ -19,7 +19,8 @@ All notable changes to this dotfiles repository will be documented in this file.
 - **Alacritty Optimization**:
     - Refactored `alacritty.toml` into a modular, modern structure.
     - Enabled `save_to_clipboard` for seamless copy-on-select.
-    - Standardized `TERM=alacritty` for better terminal compatibility.
+    - Standardized `TERM=xterm-256color` in `zshenv` for better SSH/terminal compatibility.
+    - Added `COLORTERM=truecolor` to ensure 24-bit color support for modern tools.
     - Enhanced UI with cursor blinking and refined padding.
     - Fixed `Ctrl + Return` behavior to ensure standard terminal sequences.
 - **Atuin Interaction & UI**:
