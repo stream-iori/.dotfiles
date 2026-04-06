@@ -93,7 +93,8 @@ fi
 # Zoxide (Navigation)
 if (( $+commands[zoxide] )); then
   eval "$(zoxide init zsh)"
-  alias zz='__zoxide_zi'
+  alias j='__zoxide_z'
+  alias jj='__zoxide_zi'
 fi
 
 # FZF (Keybindings)
