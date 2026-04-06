@@ -13,6 +13,13 @@ All notable changes to this dotfiles repository will be documented in this file.
     - Mapped **`Ctrl + [`** to **`Esc`** globally for seamless mode switching.
     - Added **`v`** shortcut in `pane` mode for vertical splitting.
     - Enabled **`session_serialization`**, **`copy_command "pbcopy"`**, and **`on_force_close "detach"`** for a superior macOS experience.
+    - **Keyboard Compatibility**: Explicitly disabled `support_kitty_keyboard_protocol` to prevent broken escape sequences (e.g., `14;5u`) during session reconnection.
+- **Alacritty Optimization**:
+    - Refactored `alacritty.toml` into a modular, modern structure.
+    - Enabled `save_to_clipboard` for seamless copy-on-select.
+    - Standardized `TERM=alacritty` for better terminal compatibility.
+    - Enhanced UI with cursor blinking and refined padding.
+    - Fixed `Ctrl + Return` behavior to ensure standard terminal sequences.
 - **Zsh Smart Options**:
     - Enabled **`autocd`**: Navigate to directories by just typing their name.
     - Enabled **`autopushd`**: Automatically maintain a directory stack for easy `popd` navigation.
