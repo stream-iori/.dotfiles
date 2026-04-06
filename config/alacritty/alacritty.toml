@@ -66,10 +66,6 @@ bright_foreground = "#CAD3F5"
 text = "#24273A"
 cursor = "#F4DBD6"
 
-[colors.vi_mode_cursor]
-text = "#24273A"
-cursor = "#B7BDF8"
-
 [colors.selection]
 text = "#24273A"
 background = "#F4DBD6"
