@@ -20,6 +20,12 @@ All notable changes to this dotfiles repository will be documented in this file.
     - Standardized `TERM=alacritty` for better terminal compatibility.
     - Enhanced UI with cursor blinking and refined padding.
     - Fixed `Ctrl + Return` behavior to ensure standard terminal sequences.
+- **Atuin Interaction & UI**:
+    - Created a dedicated `config.toml` for Atuin in the dotfiles repository.
+    - Configured `date_format = "%Y-%m-%d %H:%M"` to prevent time/seconds from flickering and ticking in the UI.
+    - Set `enter_accept = false` to allow users to edit the selected command in the shell prompt before execution.
+    - Adjusted `inline_height = 15` and `style = "compact"` for a cleaner, non-intrusive terminal experience.
+    - Fixed `[stats]` configuration to match the latest Atuin schema (replacing the deprecated boolean `stats` key).
 - **Zsh Smart Options**:
     - Enabled **`autocd`**: Navigate to directories by just typing their name.
     - Enabled **`autopushd`**: Automatically maintain a directory stack for easy `popd` navigation.

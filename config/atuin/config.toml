@@ -1,0 +1,37 @@
+# Atuin configuration file
+# For more options, see https://docs.atuin.sh/configuration/config/
+
+## Interface Settings
+# "compact" (default), "full"
+style = "compact"
+
+# The direction of the interface. "top" or "bottom" (default)
+inline_height = 15
+
+# Show a preview of the selected command
+show_preview = true
+
+# The date format to use in the list
+# Use standard strftime formatting. 
+# Leaving out the seconds will stop the ticking/flickering.
+date_format = "%Y-%m-%d %H:%M"
+
+# Enter accepts the command
+# If set to false, pressing Enter will put the command in the shell buffer, allowing you to edit it before running.
+enter_accept = false
+
+# Filter mode. "global" (default), "host", "session", "directory"
+filter_mode = "global"
+
+# Filter mode per session
+filter_mode_shell_up_key_binding = "directory"
+
+# Stats
+# Enable/disable search history stats
+# Stats is now a struct in recent versions, not a boolean
+[stats]
+# Enable history stats
+# enabled = true
+
+# Update check
+update_check = false
