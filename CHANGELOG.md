@@ -34,11 +34,10 @@ All notable changes to this dotfiles repository will be documented in this file.
     - Enabled **`autopushd`**: Automatically maintain a directory stack for easy `popd` navigation.
 
 ### Optimized
-- **Zsh Startup & Performance**:
-    - **PATH Refactor**: Migrated to Zsh-native `path=(...)` array with `typeset -U path` for automatic deduplication and cleaner precedence management.
-    - **Async Loading**: Leveraged Zinit `wait'0' lucid` for all core plugins and integrations (including `atuin` and `fzf-tab`).
-    - **Eval Caching**: Optimized `atuin` and `fzf` initialization to minimize shell startup latency.
-    - **Compinit**: Removed manual `compinit` calls in favor of Zinit's more efficient completion management.
+- **Zsh Completion Engine Fix**:
+    - Re-introduced explicit `compinit` initialization to resolve issues where `cd` and other command completions were failing.
+    - Adjusted plugin loading order: `zsh-completions` -> `compinit` -> `fzf-tab` (synchronous loading for core completion logic to ensure reliability).
+    - Kept `zsh-autosuggestions` and `fast-syntax-highlighting` as asynchronous for optimal startup performance.
 - **FZF Modernization**:
     - Global `FZF_DEFAULT_OPTS` with a modern, border-aware UI and layout.
     - Switched `FZF_DEFAULT_COMMAND` to `fd` for faster, git-aware file discovery.

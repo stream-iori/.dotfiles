@@ -14,13 +14,19 @@ ZINIT_HOME="${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# Core Plugins (Async loading)
-zinit ice wait'0' lucid; zinit light zsh-users/zsh-completions
+# Core Completion Engine (MUST load before compinit)
+zinit light zsh-users/zsh-completions
+
+# Completion system initialization
+# This must happen AFTER zsh-completions but BEFORE fzf-tab
+autoload -Uz compinit && compinit
+
+# fzf-tab (Modern completion interface, MUST load after compinit)
+zinit light Aloxaf/fzf-tab
+
+# Other UI Plugins (Can be async)
 zinit ice wait'0' lucid; zinit light zsh-users/zsh-autosuggestions
 zinit ice wait'0' lucid; zinit light zdharma-continuum/fast-syntax-highlighting
-
-# fzf-tab (Modern completion interface)
-zinit ice wait'0' lucid; zinit light Aloxaf/fzf-tab
 
 # Oh My Zsh snippets
 zinit snippet OMZ::plugins/git
