@@ -38,6 +38,9 @@ All notable changes to this dotfiles repository will be documented in this file.
     - Re-introduced explicit `compinit` initialization to resolve issues where `cd` and other command completions were failing.
     - Adjusted plugin loading order: `zsh-completions` -> `compinit` -> `fzf-tab` (synchronous loading for core completion logic to ensure reliability).
     - Kept `zsh-autosuggestions` and `fast-syntax-highlighting` as asynchronous for optimal startup performance.
+- **SDKMAN-based Toolchain**:
+    - Explicitly exported `SDKMAN_DIR` to ensure reliable toolchain initialization.
+    - Removed redundant, hardcoded Maven paths from `zshenv`, allowing SDKMAN to fully manage Maven versions.
 - **FZF Modernization**:
     - Global `FZF_DEFAULT_OPTS` with a modern, border-aware UI and layout.
     - Switched `FZF_DEFAULT_COMMAND` to `fd` for faster, git-aware file discovery.

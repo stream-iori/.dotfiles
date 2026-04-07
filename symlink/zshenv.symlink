@@ -14,7 +14,6 @@ path=(
   ${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin
   ${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin
   ${HOMEBREW_PREFIX}/opt/llvm/bin
-  ${HOMEBREW_PREFIX}/opt/maven@3.5/bin
   $HOME/.cargo/bin
   $HOME/.foundry/bin
   $HOME/.orbstack/bin
@@ -41,6 +40,9 @@ export COLORTERM="truecolor"
 # ------------------------------------------------------------------------------
 # 3. Dev Toolchains
 # ------------------------------------------------------------------------------
+
+# SDKMAN
+export SDKMAN_DIR="$HOME/.sdkman"
 
 # Go
 export GOPRIVATE="gitlab.alipay-inc.com,code.alipay.com,rsc.io/private"
