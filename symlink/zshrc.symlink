@@ -32,64 +32,11 @@ zinit ice wait'0' lucid; zinit light zdharma-continuum/fast-syntax-highlighting
 zinit snippet OMZ::plugins/git
 
 # ------------------------------------------------------------------------------
-# 3. Aliases & Functions
+# 3. Integrations (Optimized for speed)
 # ------------------------------------------------------------------------------
 
-# Modern replacements
-alias vim="nvim"
-alias ls="ls --color"
-alias ll="ls --color"
-alias lgit="lazygit"
-
-# Network
-alias local-ip="ipconfig getifaddr en0"
-alias proxy='export http_proxy=http://127.0.0.1:6152; export https_proxy=http://127.0.0.1:6152; export all_proxy=socks5h://127.0.0.1:6153; export ALL_PROXY=socks5h://127.0.0.1:6153'
-alias unproxy='unset all_proxy ALL_PROXY http_proxy https_proxy'
-
-# Obsidian Quick-open
-unalias ob 2>/dev/null
-function ob() {
-  local target_dir=$(pwd)
-  local folder_name=${1:-$(basename "$target_dir")}
-  local vault_name=$(basename "$OBSIDIAN_MAIN_VAULT")
-  local link_dir="$OBSIDIAN_MAIN_VAULT/External"
-  
-  mkdir -p "$link_dir"
-  [[ -d "$OBSIDIAN_MAIN_VAULT/.obsidian" ]] || mkdir -p "$OBSIDIAN_MAIN_VAULT/.obsidian"
-  ln -shf "$target_dir" "$link_dir/$folder_name"
-  
-  local encoded_vault=$(python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "$vault_name")
-  local encoded_path=$(python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "External/$folder_name")
-  
-  echo "Linking $(basename "$target_dir") as '$folder_name' to $vault_name..."
-  open "obsidian://open?vault=$encoded_vault&path=$encoded_path"
-}
-
-# ------------------------------------------------------------------------------
-# 4. Interactive Options
-# ------------------------------------------------------------------------------
-export IGNOREEOF=2
-stty -ixon
-
-# Zsh Behavior
-setopt autocd              # Change directory by just typing the name
-setopt autopushd            # Make cd push the old directory onto the directory stack
-setopt pushd_ignore_dups    # Don't push multiple copies of the same directory onto the stack
-setopt pushd_silent         # Don't print the directory stack after pushd or popd
-
-# Emacs-style keybindings
-bindkey -e
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-
-# Completion Styling (Consistent with FZF theme)
-zstyle ':completion:*' menu no
-zstyle ':completion:*' completer _extensions _complete _approximate
-zstyle ':fzf-tab:*' continuous-trigger '/'
-
-# ------------------------------------------------------------------------------
-# 5. Integrations (Optimized for speed)
-# ------------------------------------------------------------------------------
+# Load Aliases (Unified management)
+[[ -f $DOTFILES/config/my-zsh/aliases.zsh ]] && . $DOTFILES/config/my-zsh/aliases.zsh
 
 # Atuin (History)
 if (( $+commands[atuin] )); then
@@ -99,8 +46,6 @@ fi
 # Zoxide (Navigation)
 if (( $+commands[zoxide] )); then
   eval "$(zoxide init zsh)"
-  alias j='__zoxide_z'
-  alias jj='__zoxide_zi'
 fi
 
 # FZF (Keybindings)
@@ -108,9 +53,9 @@ if (( $+commands[fzf] )); then
   eval "$(fzf --zsh)"
 fi
 
+# Cheat
+[[ -f $DOTFILES/config/my-zsh/cheat-fzf.sh ]] && . $DOTFILES/config/my-zsh/cheat-fzf.sh
+
 # SDKMAN & Cargo (Deferred loading)
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
-
-# Cheat
-[[ -f $DOTFILES/config/my-zsh/cheat-fzf.sh ]] && . $DOTFILES/config/my-zsh/cheat-fzf.sh
