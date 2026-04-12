@@ -41,7 +41,7 @@ blink_interval = 750
 # 3. Environment & Scrolling
 # ------------------------------------------------------------------------------
 [env]
-TERM = "alacritty"
+TERM = "xterm-256color"
 
 [scrolling]
 history = 10000
