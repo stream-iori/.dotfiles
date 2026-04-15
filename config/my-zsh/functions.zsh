@@ -54,3 +54,31 @@ function sdk() {
     echo "SDKMAN not found at $SDKMAN_DIR"
   fi
 }
+
+# ------------------------------------------------------------------------------
+# 4. Obsidian & Notes
+# ------------------------------------------------------------------------------
+
+# Obsidian Quick-open
+# Links current directory into Obsidian's External folder and opens it
+function ob() {
+  if [[ -z "$OBSIDIAN_MAIN_VAULT" ]]; then
+    echo "Error: OBSIDIAN_MAIN_VAULT is not set."
+    return 1
+  fi
+
+  local target_dir=$(pwd)
+  local folder_name=${1:-$(basename "$target_dir")}
+  local vault_name=$(basename "$OBSIDIAN_MAIN_VAULT")
+  local link_dir="$OBSIDIAN_MAIN_VAULT/External"
+  
+  mkdir -p "$link_dir"
+  [[ -d "$OBSIDIAN_MAIN_VAULT/.obsidian" ]] || mkdir -p "$OBSIDIAN_MAIN_VAULT/.obsidian"
+  ln -shf "$target_dir" "$link_dir/$folder_name"
+  
+  local encoded_vault=$(python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "$vault_name")
+  local encoded_path=$(python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "External/$folder_name")
+  
+  echo "󱓧 Linking $(basename "$target_dir") as '$folder_name' to $vault_name..."
+  open "obsidian://open?vault=$encoded_vault&path=$encoded_path"
+}
