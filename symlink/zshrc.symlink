@@ -35,8 +35,9 @@ zinit snippet OMZ::plugins/git
 # 3. Integrations (Optimized for speed)
 # ------------------------------------------------------------------------------
 
-# Load Aliases (Unified management)
+# Load Aliases & Functions (Unified management)
 [[ -f $DOTFILES/config/my-zsh/aliases.zsh ]] && . $DOTFILES/config/my-zsh/aliases.zsh
+[[ -f $DOTFILES/config/my-zsh/functions.zsh ]] && . $DOTFILES/config/my-zsh/functions.zsh
 
 # Atuin (History)
 if (( $+commands[atuin] )); then
@@ -69,6 +70,5 @@ bindkey '^E' end-of-line
 export IGNOREEOF=2
 stty -ixon
 
-# SDKMAN & Cargo (Deferred loading)
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+# Cargo (Deferred loading)
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"

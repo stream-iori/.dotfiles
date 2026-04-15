@@ -9,12 +9,8 @@ alias l="ls --color -CF"
 alias lgit="lazygit"
 
 # ------------------------------------------------------------------------------
-# 2. Network & Utilities
+# 2. Network & Utilities (Moved to functions.zsh)
 # ------------------------------------------------------------------------------
-alias local-ip="ipconfig getifaddr en0"
-alias proxy='export http_proxy=http://127.0.0.1:6152; export https_proxy=http://127.0.0.1:6152; export all_proxy=socks5h://127.0.0.1:6153; export ALL_PROXY=socks5h://127.0.0.1:6153'
-alias unproxy='unset all_proxy ALL_PROXY http_proxy https_proxy'
-alias rt="printf '\e[?1000l\e[?1002l\e[?1003l\e[?1006l'; reset"
 
 # ------------------------------------------------------------------------------
 # 3. Development Tools
