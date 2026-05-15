@@ -8,6 +8,7 @@ live_config_reload = true
 decorations = "buttonless"
 dynamic_padding = false
 opacity = 0.98
+blur = true
 option_as_alt = "Both"
 startup_mode = "Windowed"
 
@@ -29,6 +30,18 @@ size = 17.0
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
 [font.offset]
 x = 0
 y = 1
@@ -36,9 +49,10 @@ y = 1
 [cursor]
 style = "Block"
 blink_interval = 750
+unfocused_hollow = true
 
 # ------------------------------------------------------------------------------
-# 3. Environment & Scrolling
+# 3. Environment, Scrolling & Mouse
 # ------------------------------------------------------------------------------
 [env]
 TERM = "alacritty"
@@ -50,8 +64,23 @@ multiplier = 3
 [selection]
 save_to_clipboard = true
 
+[mouse]
+hide_when_typing = true
+
 # ------------------------------------------------------------------------------
-# 4. Colors (Catppuccin Macchiato)
+# 4. Hints
+# ------------------------------------------------------------------------------
+[[hints.enabled]]
+command = "open" # macOS open command
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "U", mods = "Command|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|ftp:|ftps:|news:|file:|git:|ssh:|itms-services:|afp:|smb:|nfs:|rsync:|telnet:|rtsp:|svn:|git\\+ssh:|x-man-page:|ts3server:|utls:|vnc:|yandexdisk:|ed2k:|irc:|ircs:|git\\+https:|tel:|mumble:|ssh:|svn\\+ssh:|sftp:|vnc:|x-man-page:)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+# ------------------------------------------------------------------------------
+# 5. Colors (Catppuccin Macchiato)
 # ------------------------------------------------------------------------------
 [colors.primary]
 background = "#24273A"
@@ -106,12 +135,22 @@ index = 17
 color = "#F4DBD6"
 
 # ------------------------------------------------------------------------------
-# 5. Keyboard Bindings
+# 6. Keyboard Bindings
 # ------------------------------------------------------------------------------
 [[keyboard.bindings]]
 key = "N"
 mods = "Command"
 action = "CreateNewWindow"
+
+[[keyboard.bindings]]
+key = "Key0"
+mods = "Command"
+action = "ResetFontSize"
+
+[[keyboard.bindings]]
+key = "F"
+mods = "Command"
+action = "SearchForward"
 
 [[keyboard.bindings]]
 key = "Return"

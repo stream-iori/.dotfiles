@@ -1,5 +1,5 @@
 # ========== Basic ========= #
-set -g default-terminal "tmux-256color"
+set -g default-terminal "xterm-256color"
 # 启用 RGB/TrueColor 支持 (Tmux 3.2+)
 set -as terminal-features ",alacritty:RGB"
 set -as terminal-features ",xterm-256color:RGB"
