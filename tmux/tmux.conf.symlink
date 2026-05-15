@@ -44,7 +44,7 @@ bind c new-window -c "#{pane_current_path}"
 # create session
 
 # clean screen
-bind C-l send-keys 'C-l'
+bind C-l send-keys -R C-l \; clear-history
 
 
 # fast switch windows conflict with easy motion, sugest using C-x W
