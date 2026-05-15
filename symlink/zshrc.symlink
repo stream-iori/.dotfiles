@@ -67,7 +67,7 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
 # Interactive Options
-export IGNOREEOF=2
+export IGNOREEOF=3
 stty -ixon
 
 # Cargo (Deferred loading)
