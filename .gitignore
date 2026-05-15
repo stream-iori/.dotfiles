@@ -3,6 +3,5 @@ config/nvim/lazy-lock.json
 config/nvim/lazyvim.json
 *.un~
 vim/sessions
-tmux/plugins/*
 
 alfred/Alfred.alfredpreferences/preferences/local/*
