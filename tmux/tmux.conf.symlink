@@ -100,7 +100,7 @@ bind -T copy-mode-vi MouseDrag1Pane send -X begin-selection
 # ========== Colorscheme (Zellij Style) ========== #
 set -g status-justify "left"
 set -g status "on"
-set -g status-position bottom
+set -g status-position top
 set -g status-left-length "100"
 set -g status-right-length "0"
 set -g status-bg "colour235"
