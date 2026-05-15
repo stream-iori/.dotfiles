@@ -7,7 +7,7 @@ set -as terminal-features ",xterm-256color:RGB"
 # 解决某些 TUI 闪烁和延迟
 set -s escape-time 0
 set -g focus-events on
-set -g aggressive-resize on
+set -g aggressive-resize off
 set -g allow-passthrough on
 
 # 终端扩展支持 (下划线、颜色等)
