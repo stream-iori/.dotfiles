@@ -72,3 +72,4 @@ stty -ixon
 
 # Cargo (Deferred loading)
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
+
