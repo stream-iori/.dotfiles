@@ -5,3 +5,4 @@ config/nvim/lazyvim.json
 vim/sessions
 
 alfred/Alfred.alfredpreferences/preferences/local/*
+.antigravitycli/
