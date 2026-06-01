@@ -67,12 +67,8 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
 # Interactive Options
-export IGNOREEOF=2
+export IGNOREEOF=3
 stty -ixon
 
 # Cargo (Deferred loading)
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
-
-
-# Added by CodeFuse CLI installer
-export PATH="$HOME/.local/bin:$PATH"

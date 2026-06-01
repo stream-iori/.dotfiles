@@ -75,13 +75,17 @@ bind -r L resizep -R 5
 
 # swap panes
 bind C-u swap-pane -U
-bind C-d swap-pane -D
 
 # kill pane/window/session
-unbind C-d
 bind q kill-pane
 bind C-q kill-window
 bind Q kill-session
+
+# 拦截 Ctrl + d (不带前缀键) 以防误关 Shell
+# 如果当前进程是 zsh/bash/sh，则忽略并提示；否则发送 C-d (用于 vim 翻页等)
+bind-key -n C-d if-shell "echo '#{pane_current_command}' | grep -iqE '(zsh|bash|sh)'" \
+    "display-message \"Ctrl-D intercepted. Type 'exit' and press Enter to close this pane.\"" \
+    "send-keys C-d"
 
 # ========== Notifition ========== #
 setw -g monitor-activity off
@@ -120,3 +124,37 @@ setw -g window-status-format "#[fg=colour235,bg=colour239,nobold,nounderscore,no
 # 当前激活窗口
 setw -g window-status-current-format "#[fg=colour235,bg=colour114,nobold,nounderscore,noitalics]#[fg=colour232,bg=colour114,bold] #I  #W #[fg=colour114,bg=colour235,nobold,nounderscore,noitalics]"
 
+# ========== Plugins (TPM) ========== #
+# 【快捷键提示】
+# 1. 安装插件：Prefix (Ctrl-x) + I (大写 I)
+# 2. 更新插件：Prefix (Ctrl-x) + U (大写 U)
+# 3. 清理插件：Prefix (Ctrl-x) + alt + u (小写 u)
+#
+# --- 会话保存/恢复快捷键 (tmux-resurrect) ---
+# * 手动保存当前会话：Prefix (Ctrl-x) + Ctrl-s
+# * 手动恢复上次会话：Prefix (Ctrl-x) + Ctrl-r
+#
+# --- 自动恢复机制 (tmux-continuum) ---
+# * 后台每 15 分钟自动保存一次当前所有会话，开机/启动 tmux 时自动执行恢复
+
+# 默认需要引入的插件管理器
+set -g @plugin 'tmux-plugins/tpm'
+# 自动保存/手动恢复 session 的核心插件
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+# 自动备份以及开机自动恢复插件
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# --- tmux-resurrect 配置 ---
+# 恢复面板内的内容
+set -g @resurrect-capture-pane-contents 'on'
+# 恢复额外的程序（默认只恢复一些常用程序，可以自定义添加比如 nvim 等）
+set -g @resurrect-processes 'ssh psql mysql sqlite3 mock'
+
+# --- tmux-continuum 配置 ---
+# 开启电脑开机或 tmux 服务启动时自动恢复上一次保存的 session
+set -g @continuum-restore 'on'
+# 自动保存的时间间隔（单位：分钟，默认15分钟）
+set -g @continuum-save-interval '15'
+
+# 初始化 TMUX 插件管理器 (这行必须保持在配置文件的最底部)
+run '~/.tmux/plugins/tpm/tpm'
