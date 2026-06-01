@@ -72,3 +72,7 @@ stty -ixon
 
 # Cargo (Deferred loading)
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
+
+
+# Added by CodeFuse CLI installer
+export PATH="$HOME/.local/bin:$PATH"
