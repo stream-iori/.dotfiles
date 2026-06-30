@@ -1,5 +1,5 @@
 return {
-  -- 启用 LazyVim 官方默认的跳转插件 flash.nvim
+  -- 启用跳转插件 flash.nvim
   {
     "folke/flash.nvim",
     enabled = true,
