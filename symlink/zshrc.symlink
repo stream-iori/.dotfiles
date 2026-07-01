@@ -75,3 +75,6 @@ stty -ixon
 
 # Added by CodeFuse CLI installer
 export PATH="$HOME/.local/bin:$PATH"
+
+# Added by qtcd (qoder-token-collect): required by Qoder CLI to expose token usage
+export QODER_EXPOSE_TOKEN_USAGE=1
