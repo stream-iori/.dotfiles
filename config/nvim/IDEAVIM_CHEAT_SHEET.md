@@ -140,6 +140,6 @@ IdeaVimExtension 不是这套快捷键的必要依赖。`surround` 和 `commenta
 - Neotest → JetBrains Run Context 与 Run Configuration
 - LSP Code Action → JetBrains Intentions
 
-以下 Neovim 能力不在 IdeaVim 中建立伪映射：Conjure、nvim-paredit、Snacks、Conform、nvim-lint、Tree-sitter textobjects、Lazy、Mason 和 Neovide 专属操作。
+以下 Neovim 能力不在 IdeaVim 中建立伪映射：Snacks、Conform、nvim-lint、Tree-sitter textobjects、Lazy、Mason 和 Neovide 专属操作。
 
 当快捷键没有反应时，依次确认插件已启用、执行 `:source ~/.ideavimrc`、用 `:map {key}` 检查映射，再用 `:actionlist {pattern}` 检查当前 IDE 是否提供对应动作。

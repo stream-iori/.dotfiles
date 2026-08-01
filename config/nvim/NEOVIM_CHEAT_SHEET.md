@@ -134,21 +134,6 @@ nvim-surround：
 | 添加拼写白名单 | `zg` |
 | 标记拼写错误 | `zw` |
 
-## Clojure / Fennel
-
-Conjure 仅在 Clojure 和 Fennel Buffer 中加载。常用求值键位仍使用 Conjure 的 `<localleader>e...` 前缀。
-
-Paredit 使用独立的 `<localleader>p...` 前缀，不覆盖 Vim 的 `W/B/E/(`/`)`：
-
-| 功能 | 快捷键 |
-| --- | --- |
-| 向前 / 向后 Slurp | `<localleader>ps` / `<localleader>pS` |
-| 向前 / 向后 Barf | `<localleader>pb` / `<localleader>pB` |
-| Raise form | `<localleader>pr` |
-| Splice / Unwrap form | `<localleader>px` |
-| 前后移动 element | `<localleader>p]` / `<localleader>p[` |
-| Around / Inner form 文本对象 | `af` / `if` |
-
 ## 测试
 
 | 功能 | 快捷键 |
