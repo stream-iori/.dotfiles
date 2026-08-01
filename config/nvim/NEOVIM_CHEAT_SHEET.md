@@ -11,6 +11,7 @@
 | 保存文件 | `<C-s>` |
 | 新建文件 | `<leader>fn` |
 | 关闭 Buffer | `<leader>bd` |
+| 删除不可见 Buffer | `<leader>bi` |
 | 退出全部 | `<leader>qq` |
 | 插件管理 | `<leader>l` |
 | Mason 工具管理 | `<leader>cm` |
