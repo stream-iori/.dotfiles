@@ -1,6 +1,6 @@
 # Neovim / LazyVim 速查手册
 
-本文档对应当前配置。Leader 为 `<Space>`，LocalLeader 使用 Neovim 默认的 `\`。第一次使用请从 [Neovim 场景化新手指南](./NEOVIM_BEGINNER_GUIDE.md) 开始；JetBrains IDE 用户参见 [IdeaVim 速查手册](./IDEAVIM_CHEAT_SHEET.md)。
+本文档对应当前配置。Leader 为 `<Space>`，LocalLeader 使用 Neovim 默认的 `\`。第一次使用请从 [Neovim 场景化新手指南](./NEOVIM_BEGINNER_GUIDE.md) 开始；进阶文本处理参见 [Neovim 技巧、Hack 与文本处理手册](./NEOVIM_TIPS_AND_HACKS.md)；JetBrains IDE 用户参见 [IdeaVim 速查手册](./IDEAVIM_CHEAT_SHEET.md)。
 
 ## 核心操作
 
