@@ -1,202 +1,178 @@
-# Neovim & LazyVim 终极速查手册
+# Neovim / LazyVim 速查手册
 
-本文档基于您的 LazyVim 配置整理，涵盖核心快捷键、插件用法及高效技巧。
+本文档对应当前配置。Leader 为 `<Space>`，LocalLeader 使用 Neovim 默认的 `\`。
 
-## 1. 核心基础 (Core)
+## 核心操作
 
-| 功能 | 快捷键 | 描述 |
-| :--- | :--- | :--- |
-| **Leader Key** | `<Space>` | 所有快捷键的前缀（下文用 `<leader>` 表示） |
-| **命令面板** | `<leader>sk` | 查找所有快捷键 (Search Keymaps) |
-| **文件浏览器** | `<leader>e` | 打开/关闭 Neo-tree 文件树 |
-| **查找文件** | `<leader><space>` | 模糊查找项目文件 (Find Files) |
-| **全局搜索** | `<leader>sg` | 在项目中搜索关键字 (Grep) |
-| **最近文件** | `<leader>fr` | 查找最近打开的文件 (Recent) |
-| **保存文件** | `<C-s>` | 快速保存 (Save) |
-| **关闭 Buffer** | `<leader>bd` | 关闭当前文件 (Delete Buffer) |
-| **退出 Neovim** | `<leader>qq` | 退出 (Quit) |
+| 功能 | 快捷键 |
+| --- | --- |
+| 查看当前 Buffer 快捷键 | `<leader>?` |
+| 搜索所有快捷键 | `<leader>sk` |
+| 保存文件 | `<C-s>` |
+| 新建文件 | `<leader>fn` |
+| 关闭 Buffer | `<leader>bd` |
+| 删除不可见 Buffer | `<leader>bi` |
+| 退出全部 | `<leader>qq` |
+| 插件管理 | `<leader>l` |
+| Mason 工具管理 | `<leader>cm` |
+| 通知历史 | `<leader>n` |
+| 清除通知 | `<leader>un` |
 
-## 2. 窗口与终端 (Window & Terminal)
+Neovide 额外支持 `<D-s>` 保存、Visual `<D-c>` 复制，以及各模式下的 `<D-v>` 系统剪贴板粘贴。终端版 Neovim 不覆盖 `<D-v>`。
 
-| 功能 | 快捷键 | 技巧 |
-| :--- | :--- | :--- |
-| **浮动终端** | `<C-/>` | 最常用的终端开关 (Ctrl + /) |
-| **窗口跳转** | `<C-h/j/k/l>` | 无需切模式，直接在分屏间跳转 |
-| **垂直分屏** | `<leader>|` | 左右分屏 |
-| **水平分屏** | `<leader>-` | 上下分屏 |
-| **最大化窗口** | `<leader>wm` | 类似于 Zen Mode，专注当前窗口 |
-| **关闭窗口** | `<leader>wd` | 关闭当前分屏 |
+## 文件、搜索与 Git
 
-## 2.1 文件资源管理器 (Neo-tree 进阶)
+| 功能 | 快捷键 |
+| --- | --- |
+| 打开 Neo-tree（项目根目录） | `<leader>e` / `<leader>fe` |
+| 打开 Neo-tree（当前工作目录） | `<leader>E` / `<leader>fE` |
+| 复制当前文件相对路径 | `<leader>fy` |
+| 查找项目文件 | `<leader><space>` / `<leader>ff` |
+| 查找当前目录文件 | `<leader>fF` |
+| Git 文件 | `<leader>fg` |
+| 最近文件 | `<leader>fr` |
+| 当前目录最近文件 | `<leader>fR` |
+| 全局文本搜索 | `<leader>sg` |
+| 当前目录文本搜索 | `<leader>sG` |
+| 搜索光标下单词 | `<leader>sw` |
+| 切换 Buffer | `<leader>,` |
+| Lazygit（项目根目录） | `<leader>gg` |
+| Git 状态 | `<leader>gs` |
+| Git 文件历史 | `<leader>gf` |
 
-**基础操作：**
-*   **打开/关闭**：`<leader>e`
-*   **定位当前文件**：`<leader>E` (在树中找到当前正在编辑的文件)
+Neo-tree 内常用操作：
 
-**高级技巧：**
+| 功能 | 快捷键 |
+| --- | --- |
+| 新建 | `a` |
+| 删除 | `d` |
+| 重命名 | `r` |
+| 复制 / 剪切 / 粘贴 | `c` / `x` / `p` |
+| 水平 / 垂直分屏打开 | `s` / `v` |
+| 浮动预览 | `P` |
+| 打开 / 关闭节点 | `l` / `h` |
+| 显示隐藏文件 | `H` |
 
-| 功能 | 快捷键 (在 Neo-tree 面板中) | 描述 |
-| :--- | :--- | :--- |
-| **添加/新建** | `a` | 新建文件 (输入 `dir/` 可创建目录，`dir/file.txt` 递归创建) |
-| **删除** | `d` | 删除文件 (支持 Trash) |
-| **重命名** | `r` | 重命名文件 |
-| **复制/剪切** | `c` / `x` | 复制/剪切文件 (配合 `p` 粘贴) |
-| **粘贴** | `p` | 粘贴文件 |
-| **显示隐藏文件** | `H` | 切换显示 .gitignore 或隐藏文件 |
-| **查看信息** | `i` | 查看文件详细信息 (大小、权限等) |
-| **预览文件** | `P` | 浮动窗口预览当前文件 (无需打开) |
-| **分屏打开** | `s` / `v` | 水平分屏 (`s`) / 垂直分屏 (`v`) 打开选中文件 |
+Neo-tree 已启用 `follow_current_file`，打开文件树时会跟踪当前文件，不需要额外 reveal 快捷键。
 
-**多工作区 (CWD) 管理：**
-*   **进入目录 (Change Root)**：在文件夹上按 `.` (点)，将 Neo-tree 的根目录切换到该文件夹。
-*   **上级目录**：按 `Backspace` (退格键)，返回上一级目录。
-*   **筛选/搜索**：按 `/` 输入关键字，实时过滤文件树显示。
+## 窗口与终端
 
-**多源切换 (Sources)：**
-*   **`<` / `>`**：在不同的 Source 间切换 (Filesystem, Buffers, Git Status)。
-*   这对于只看 Git 变更文件非常有用。
+| 功能 | 快捷键 |
+| --- | --- |
+| 浮动终端 | `<C-/>` |
+| 窗口跳转 | `<C-h/j/k/l>` |
+| 水平分屏 | `<leader>-` |
+| 垂直分屏 | `<leader>\|` |
+| 关闭窗口 | `<leader>wd` |
+| 最大化 / 恢复窗口 | `<leader>wm` |
 
-## 3. 代码导航 (LSP Navigation)
+## LSP、诊断与格式化
 
-> *基于 Clangd (C), Rust-Analyzer (Rust), Vtsls (TS), Ruff/Pyright (Python)*
+| 功能 | 快捷键 |
+| --- | --- |
+| 跳转定义 | `gd` |
+| 查找引用 | `gr` |
+| 跳转实现 | `gI` |
+| 跳转类型定义 | `gy` |
+| 查看文档 | `K` |
+| 重命名符号 | `<leader>cr` |
+| Code Action | `<leader>ca` |
+| Source Action | `<leader>cA` |
+| 整理导入 | `<leader>co` |
+| 当前行诊断 | `<leader>cd` |
+| 全部诊断 | `<leader>xx` |
+| Buffer 诊断 | `<leader>xX` |
+| 格式化 | `<leader>cf` |
+| 格式化嵌入语言 | `<leader>cF` |
+| C/C++ 头文件与源文件切换 | `<leader>ch` |
+| Rust Code Action | `<leader>cR` |
+| Python 虚拟环境 | `<leader>cv` |
 
-| 功能 | 快捷键 | 描述 |
-| :--- | :--- | :--- |
-| **跳转定义** | `gd` | Go to Definition |
-| **跳转引用** | `gr` | Go to References (查看谁用了它) |
-| **查看文档** | `K` | 悬浮显示文档 (Hover) |
-| **重命名** | `<leader>rn` | 智能重命名变量 (Rename) |
-| **代码操作** | `<leader>ca` | 快速修复 (Code Action) |
-| **格式化** | `<leader>cf` | 格式化当前文件 (Format) |
-| **C头/源切换** | `<leader>ch` | 在 .c 和 .h 之间切换 (仅限 C/C++) |
-| **整理导入** | `<leader>co` | 自动整理 import (Python/TS) |
-| **Rust Action**| `<leader>cR` | Rust 专属代码操作 |
+显式格式化工具：
 
-## 4. 文本编辑技巧 (Editing)
+| 语言 | Formatter |
+| --- | --- |
+| Lua | Stylua |
+| Python | Ruff Format |
+| C/C++/Objective-C/CUDA | clang-format |
+| JavaScript/TypeScript/JSON/HTML/CSS | Prettier |
+| Rust | rustfmt |
+| Shell | shfmt |
+| Markdown | Prettier + markdownlint-cli2 + markdown-toc |
 
-### 4.1 极速跳转 (Leap & Flit)
-*替代了默认的 Flash，提供更直观的双字符定位跳转。*
+诊断来源包括语言服务器、Ruff、Shellcheck 和 markdownlint-cli2。ESLint 只在项目存在 ESLint 配置时启动。
 
-| 快捷键 | 功能 | 描述 |
-| :--- | :--- | :--- |
-| **`s{char1}{char2}`** | **向前跳转** | 输入两个字符定位，屏幕出现标签，按标签字母直达目标。 |
-| **`S{char1}{char2}`** | **向后跳转** | 反向搜索并跳转 (操作同上)。 |
-| **`gs`** | **跨窗口跳转** | 可以在当前 Tab 页内的所有分屏窗口间快速跳转。 |
-| **`f{char}`** | **增强查找** | (Flit) 像平时一样用 `f`，但匹配项会有高亮标签，可直接按标签跳转到远处的匹配。 |
-| **`t{char}`** | **增强定位** | (Flit) 同上，但光标停在字符前一位 (Till)。 |
-| **`;` / `,`** | **重复查找** | 在 Leap/Flit 模式下，可用这两键快速跳到下一个/上一个匹配。 |
+## 跳转、包裹与编辑
 
-### 4.2 基础导航与跳转 (Motions)
-*利用 Vim 的核心动力，在代码中快速穿梭。*
+Flash：
 
-| 功能 | 快捷键 | 描述 |
-| :--- | :--- | :--- |
-| **单词向前** | `w` / `W` | 跳到下一个单词开头 (`W` 忽略标点) |
-| **单词向后** | `b` / `B` | 跳到上一个单词开头 |
-| **单词结尾** | `e` / `E` | 跳到单词末尾 |
-| **行首/行尾** | `^` / `$` | `^` 跳到第一个非空字符，`$` 跳到行末 |
-| **段落跳转** | `{` / `}` | 跳到上一个/下一个空行 (在代码块间跳转极快) |
-| **字符查找** | `f{char}` | 在当前行向前跳到指定字符 (`F` 向后) |
-| **字符定位** | `t{char}` | 跳到指定字符的前一个位置 (Till) |
-| **居中显示** | `zz` | 将当前行滚动到屏幕正中间 |
-| **屏幕顶/中/底** | `H` / `M` / `L` | 光标跳到屏幕顶部 (High)、中间 (Middle)、底部 (Low) |
-| **跳转历史** | `<C-o>` / `<C-i>` | 跳回到上一个位置 / 跳向下一个位置 (极其有用) |
+| 模式 | 快捷键 | 功能 |
+| --- | --- | --- |
+| Normal / Visual / Operator | `s` | Flash 跳转 |
+| Normal / Operator | `S` | Treesitter 跳转 |
+| Operator | `r` | Remote Flash |
+| Operator / Visual | `R` | Treesitter Search |
 
-### 4.3 文本对象 (Text Objects)
-*口诀：`操作` + `范围` + `对象` (Operator + Inner/Around + Object)*
+nvim-surround：
 
-| 快捷键 | 含义 | 场景示例 |
-| :--- | :--- | :--- |
-| **`ciw`** | **C**hange **I**nner **W**ord | 修改当前单词 (最常用) |
-| **`ci"`** | **C**hange **I**nner **"** | 修改双引号内的内容 |
-| **`ci(`** | **C**hange **I**nner **(** | 修改括号内的内容 |
-| **`dat`** | **D**elete **A**round **T**ag | 删除整个 HTML 标签 (包括标签本身) |
-| **`yap`** | **Y**ank **A**round **P**aragraph | 复制整个段落 |
-| **`vii`** | **V**isual **I**nner **I**ndent | 选中当前缩进层级的所有代码 |
+| 功能 | 快捷键 | 示例 |
+| --- | --- | --- |
+| 包裹 motion | `ys{motion}{char}` | `ysiw"` |
+| 包裹整行 | `yss{char}` | `yss)` |
+| 删除包裹 | `ds{char}` | `ds"` |
+| 修改包裹 | `cs{old}{new}` | `cs"'` |
+| 包裹 Visual 选区 | `S{char}` | Visual 选择后按 `S}` |
 
-### 4.3 高效编辑
-| 功能 | 快捷键 | 描述 |
-| :--- | :--- | :--- |
-| **移动行** | `<A-j>` / `<A-k>` | 上下移动当前行或选中块 (Alt + j/k) |
-| **注释行** | `gcc` | 注释/取消注释当前行 |
-| **注释块** | `gc` | (Visual模式) 注释选中代码 |
-| **缩进** | `<` / `>` | (Visual模式) 向左/向右缩进 |
-| **多行编辑** | `<C-v>` | 进入 **Visual Block** 模式，可垂直选中多行，按 `I` (大写) 统一插入，或 `x` 统一删除。 |
+其他常用编辑：
 
-### 4.4 高效编辑
-| 功能 | 快捷键 | 描述 |
-| :--- | :--- | :--- |
-| **移动行** | `<A-j>` / `<A-k>` | 上下移动当前行或选中块 (Alt + j/k) |
-| **注释行** | `gcc` | 注释/取消注释当前行 |
-| **注释块** | `gc` | (Visual模式) 注释选中代码 |
-| **缩进** | `<` / `>` | (Visual模式) 向左/向右缩进 |
-| **多行编辑** | `<C-v>` | 进入 **Visual Block** 模式，可垂直选中多行，按 `I` (大写) 统一插入，或 `x` 统一删除。 |
+| 功能 | 快捷键 |
+| --- | --- |
+| 注释行 | `gcc` |
+| 注释选区 / motion | `gc` |
+| 上下移动行或选区 | `<A-j>` / `<A-k>` |
+| Treesitter 扩展选区 | `<C-Space>` |
+| 添加拼写白名单 | `zg` |
+| 标记拼写错误 | `zw` |
 
-### 4.5 寄存器 (Registers)
-*Vim 拥有 26 个以上的“剪贴板”，让你能同时保存多段内容。*
+## Clojure / Fennel
 
-| 快捷键 | 功能 | 描述 |
-| :--- | :--- | :--- |
-| **`"+y`** | **系统剪贴板** | 将内容复制到系统全局剪贴板 (与外部程序交互) |
-| **`"0p`** | **粘贴复制项** | 粘贴你最后一次**复制**的内容。解决“删除导致复制内容被覆盖”的痛点。 |
-| **`"ap`** | **有名寄存器** | 从寄存器 `a` 中粘贴内容。你可以使用 `a-z` 来存放长期使用的文本。 |
-| **`"_d`** | **黑洞寄存器** | 真正彻底删除，不把删除的内容放入任何寄存器。 |
-| **`"ay`** | **存入寄存器** | 将选中内容存入寄存器 `a`。 |
-| **`:reg`** | **查看内容** | 在命令行输入，查看所有寄存器当前存储的内容。 |
+Conjure 仅在 Clojure 和 Fennel Buffer 中加载。常用求值键位仍使用 Conjure 的 `<localleader>e...` 前缀。
 
-**实战技巧：**
-1.  **不覆盖粘贴**：先选中要替换的文本，按 `"_dP`，这样你原本复制的内容就不会被替换掉的文本覆盖。
-2.  **宏命令**：宏其实也是存储在寄存器里的。`qa` 开始录制宏到 `a`，输入 `q` 停止，`@a` 播放。
+Paredit 使用独立的 `<localleader>p...` 前缀，不覆盖 Vim 的 `W/B/E/(`/`)`：
 
-### 4.6 包裹/修改 (Mini.surround)
-*已配置为经典 `vim-surround` 风格*
+| 功能 | 快捷键 |
+| --- | --- |
+| 向前 / 向后 Slurp | `<localleader>ps` / `<localleader>pS` |
+| 向前 / 向后 Barf | `<localleader>pb` / `<localleader>pB` |
+| Raise form | `<localleader>pr` |
+| Splice / Unwrap form | `<localleader>px` |
+| 前后移动 element | `<localleader>p]` / `<localleader>p[` |
+| Around / Inner form 文本对象 | `af` / `if` |
 
-| 模式 | 快捷键 | 示例 | 效果 |
-| :--- | :--- | :--- | :--- |
-| **添加 (Add)** | `ys{motion}{char}` | `ysiw"` | `word` -> `"word"` |
-| **添加 (Line)** | `yss{char}` | `yss)` | 整行包裹 `(...)` |
-| **删除 (Delete)** | `ds{char}` | `ds"` | `"word"` -> `word` |
-| **修改 (Change)** | `cs{old}{new}` | `cs"'` | `"word"` -> `'word'` |
-| **选中包裹** | `S{char}` | (Visual选区后) `S}` | 包裹选区 |
+## 测试
 
-### 4.7 拼写检查 (Spell Check)
-*通过 `zg` 添加的单词会自动忽略下划线提示。*
+| 功能 | 快捷键 |
+| --- | --- |
+| 运行当前文件 | `<leader>tt` |
+| 运行全部测试文件 | `<leader>tT` |
+| 运行最近测试 | `<leader>tr` |
+| 重跑上一次 | `<leader>tl` |
+| 测试摘要 | `<leader>ts` |
+| 查看输出 | `<leader>to` |
+| 输出面板 | `<leader>tO` |
+| 停止测试 | `<leader>tS` |
+| Watch 当前文件 | `<leader>tw` |
 
-| 快捷键 | 功能 | 描述 |
-| :--- | :--- | :--- |
-| **`zg`** | **添加白名单** | 将当前光标下的单词标记为正确 (Good)，不再显示下划线 |
-| **`zw`** | **标记错误** | 将当前单词标记为错误 (Wrong) |
-| **`zug`** | **撤销标记** | 撤销上一次对单词的 `zg` (Good) 标记 |
+已配置 Python、Jest、Vitest 和 Rust Neotest Adapter。当前配置不包含 DAP 调试功能。
 
-### 多光标 (Visual Mode)
-1. 选中一段文本。
-2. 按 `gC` (或 LazyVim 默认配置) 可以在多处添加光标。
+## Markdown 与常用命令
 
-### 移动代码
-*   **`<A-j>` / `<A-k>`**: 将当前行/块向下或向上移动 (Alt + j/k)。
+Markdown 自动启用英文拼写检查、CJK 忽略、软换行和渲染；预览命令为 `<leader>cp`。Markdown lint 忽略 MD013、MD025、MD033、MD041。
 
-## 5. UI 与工具 (Snacks & Others)
+常用命令：
 
-| 功能 | 快捷键 | 描述 |
-| :--- | :--- | :--- |
-| **通知历史** | `<leader>n` | 查看错过的通知 (Notification History) |
-| **清空通知** | `<leader>un` | 关闭所有弹窗 (Dismiss Notifications) |
-| **Git 懒人包** | `<leader>gg` | 打开 LazyGit (终端界面) |
-| **插件管理** | `<leader>l` | 打开 Lazy 面板 (更新/安装插件) |
-| **Mason** | `<leader>cm` | 打开工具安装面板 (LSP/Linter) |
-
-## 6. 常用命令 (Command Line)
-
-在命令行模式 (`:`) 下输入：
-
-*   `:Lazy update` - 更新所有插件和 LazyVim 核心。
-*   `:Mason` - 管理 LSP、Formatter、Linter 的安装。
-*   `:checkhealth` - 也就是 "体检"，检查 Neovim 状态是否健康。
-
-## 7. 调试 (Debugging) - *目前已精简*
-
-*您当前的配置已移除了 DAP (Debugging) 相关插件以保持轻量。如果需要调试功能，建议使用 print 调试或通过外部终端调试。*
-
----
-
-**提示**: 如果忘记了某个快捷键，按下 `<Space>` (Leader Key) 并停顿一秒，屏幕底部会自动弹出 **WhichKey** 菜单提示，跟着提示操作即可。
+- `:Lazy`：插件管理。
+- `:Mason`：LSP、Formatter、Linter 工具管理。
+- `:ConformInfo`：查看当前 Buffer 格式化器。
+- `:LspInfo`：查看 LSP 状态。
+- `:checkhealth`：运行健康检查。

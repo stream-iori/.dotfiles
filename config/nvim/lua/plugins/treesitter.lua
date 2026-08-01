@@ -1,34 +1,17 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  opts = {
-    ensure_installed = {
-      "java",
-      "bash",
-      "html",
-      "javascript",
-      "json5",
-      "lua",
-      "c",
-      -- rust start
-      "rust",
-      "ron",
-      -- rust end
-      --  markdown start
-      "markdown",
-      "markdown_inline",
-      -- markdown end
-      -- python start
-      "python",
-      "ninja",
-      "rst",
-      -- python end
-      "query",
-      "regex",
-      "tsx",
-      "typescript",
-      "vim",
-      "yaml",
-      "toml",
-    },
-  },
+  opts = function(_, opts)
+    local parsers = {}
+    local seen = {}
+    for _, parser in ipairs(opts.ensure_installed or {}) do
+      if not seen[parser] then
+        seen[parser] = true
+        parsers[#parsers + 1] = parser
+      end
+    end
+    if not seen.java then
+      parsers[#parsers + 1] = "java"
+    end
+    opts.ensure_installed = parsers
+  end,
 }
