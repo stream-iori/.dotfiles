@@ -5,13 +5,10 @@
 
 local opt = vim.opt
 
--- enable blink
-vim.g.lazyvim_blink_main = true
-
 --禁用相当行号
 opt.relativenumber = false
--- 开启自动换行
-opt.wrap = true
+-- 代码默认不自动换行；文档类文件在 autocmds.lua 中按文件类型开启
+opt.wrap = false
 -- 避免隐藏一些字体
 opt.conceallevel = 0
 
@@ -19,5 +16,4 @@ opt.conceallevel = 0
 opt.showtabline = 0
 
 -- system clipboard
-vim.opt.clipboard = "unnamedplus"
-
+opt.clipboard = "unnamedplus"

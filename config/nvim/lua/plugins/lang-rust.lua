@@ -2,9 +2,18 @@ return {
   {
     "mrcjkb/rustaceanvim",
     opts = {
+      dap = {
+        adapter = false,
+        configuration = false,
+        autoload_configurations = false,
+      },
       server = {
+        on_attach = function(_, bufnr)
+          vim.keymap.set("n", "<leader>cR", function()
+            vim.cmd.RustLsp("codeAction")
+          end, { desc = "Rust Code Action", buffer = bufnr })
+        end,
         default_settings = {
-          -- rust-analyzer language server configuration
           ["rust-analyzer"] = {
             cargo = {
               allFeatures = true,
@@ -13,7 +22,6 @@ return {
                 enable = true,
               },
             },
-            -- Use clippy for diagnostics
             checkOnSave = true,
             procMacro = {
               enable = true,
@@ -24,9 +32,10 @@ return {
               },
             },
             files = {
-              excludeDirs = {
+              exclude = {
                 ".direnv",
                 ".git",
+                ".jj",
                 ".github",
                 ".gitlab",
                 "bin",
@@ -35,35 +44,22 @@ return {
                 "venv",
                 ".venv",
               },
+              watcher = "client",
             },
           },
         },
       },
     },
-  },
-  {
-    "Saecki/crates.nvim",
-    opts = {
-      completion = {
-        crates = {
-          enabled = true,
-        },
-      },
-      lsp = {
-        enabled = true,
-        actions = true,
-        completion = true,
-        hover = true,
-      },
-    },
-  },
-  {
-    "nvim-neotest/neotest",
-    optional = true,
-    opts = {
-      adapters = {
-        ["rustaceanvim.neotest"] = {},
-      },
-    },
+    config = function(_, opts)
+      opts.dap = {
+        adapter = false,
+        configuration = false,
+        autoload_configurations = false,
+      }
+      vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts)
+      if vim.fn.executable("rust-analyzer") == 0 then
+        LazyVim.error("rust-analyzer not found in PATH", { title = "rustaceanvim" })
+      end
+    end,
   },
 }

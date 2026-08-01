@@ -11,11 +11,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Disable spell checking for markdown files (or configure it to ignore CJK)
+-- Enable English spell checking in Markdown while ignoring CJK text.
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown" },
   callback = function()
     vim.opt_local.spell = true
     vim.opt_local.spelllang = { "en_us", "cjk" }
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "Enable soft wrapping for prose buffers",
+  group = vim.api.nvim_create_augroup("prose-options", { clear = true }),
+  pattern = { "markdown", "text", "gitcommit" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+    vim.opt_local.breakindent = true
   end,
 })

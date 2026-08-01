@@ -4,15 +4,6 @@ return {
     opts = {
       servers = {
         vtsls = {
-          -- explicitly add default filetypes
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-          },
           settings = {
             complete_function_calls = true,
             vtsls = {
