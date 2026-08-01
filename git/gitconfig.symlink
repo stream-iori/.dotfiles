@@ -17,3 +17,9 @@
 	required = true
 [alias]
 	upmirror = !git fetch upstream && git checkout main && git reset --hard upstream/master && git push -f origin main
+
+[includeIf "gitdir:/Users/stream/codes/antcodes/"]
+    path = /Users/stream/codes/antcodes/.gitconfig
+
+[includeIf "gitdir:/Users/stream/codes/opensource/"]
+    path = /Users/stream/codes/opensource/.gitconfig
