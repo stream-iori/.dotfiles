@@ -5,3 +5,7 @@ vim/sessions
 
 alfred/Alfred.alfredpreferences/preferences/local/*
 .antigravitycli/
+
+# Local Clojure tooling caches
+.clj-kondo/.cache/
+.lsp/.cache/
