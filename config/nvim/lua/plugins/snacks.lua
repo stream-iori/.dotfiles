@@ -4,6 +4,21 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
+      terminal = {
+        win = {
+          position = "float",
+          width = 0.9,
+          height = 0.9,
+          keys = {
+            term_normal = {
+              "<esc>",
+              "<C-\\><C-n>",
+              mode = "t",
+              desc = "Terminal Normal Mode",
+            },
+          },
+        },
+      },
       -- 启动画面 (Dashboard)
       dashboard = {
         enabled = true,

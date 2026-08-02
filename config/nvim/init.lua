@@ -1,3 +1,6 @@
+-- Keep Catppuccin's dark flavours from falling back to Latte in GUI clients.
+vim.o.background = "dark"
+
 --- neovide
 if vim.g.neovide then
   vim.o.guifont = "JetBrainsMonoNL Nerd Font Mono:h16"
