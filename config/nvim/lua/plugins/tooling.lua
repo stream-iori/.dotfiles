@@ -68,7 +68,6 @@ return {
       }
       local required = {
         "bash-language-server",
-        "clojure-lsp",
         "markdown-toc",
         "markdownlint-cli2",
         "prettier",

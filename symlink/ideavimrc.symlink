@@ -1,117 +1,78 @@
+" IdeaVim mappings shared by IntelliJ IDEA and PyCharm.
+" Keep this file aligned with config/nvim/NEOVIM_CHEAT_SHEET.md.
 
-set history=100000
-set hlsearch                      " highlight search occurrences
-set surround                      " enable vim-surround emulation
-set commentary                    " set multiple-cursors
-set easymotion
+" Search and editor behavior
+set history=10000
+set hlsearch
 set incsearch
 set ignorecase
-set ideajoin
 set smartcase
-set visualbell
-set clipboard=unnamedplus,unnamed,ideaput " integrate with system clipboard
-set gdefault                      " substitute all occurrences in line per default
-set scrolloff=5 sidescrolloff=10  " keep some lines before and after the cursor visible
-set wrapscan                      " searches wrap around the end of the file
+set wrapscan
+set nowrap
+set scrolloff=4
+set sidescrolloff=8
+set clipboard=unnamedplus,ideaput
+
+" IdeaVim plugins
+set surround
+set commentary
+set easymotion
 
 let mapleader = " "
 
-noremap \e :e ~/.ideavimrc<CR>
-nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+" Save in Normal, Visual, and Insert modes
+nmap <C-s> <Action>(SaveAll)
+xmap <C-s> <Action>(SaveAll)
+imap <C-s> <Action>(SaveAll)
 
-" make Y behave like D and C, yanking till end of line
-map Y y$
+" Flash-style two-character jump
+map s <Plug>(easymotion-s2)
 
-"imap jk <Esc>
-"imap kj <Esc>
+" Files, buffers, project tree, and search
+nmap <leader><space> <Action>(GotoFile)
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fr <Action>(RecentFiles)
+nmap <leader>, <Action>(Switcher)
+nmap [b <Action>(PreviousEditorTab)
+nmap ]b <Action>(NextEditorTab)
+nmap <leader>bd <Action>(CloseContent)
+nmap <leader>e <Action>(ActivateProjectToolWindow)
+nmap <leader>/ <Action>(FindInPath)
+nmap <leader>sg <Action>(FindInPath)
 
-" don't overwrite register when pasting over selection
-vnoremap p pgvy
+" Code navigation and help
+nmap gd <Action>(GotoDeclaration)
+nmap gr <Action>(FindUsages)
+nmap gI <Action>(GotoImplementation)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap K <Action>(QuickJavaDoc)
+nmap gK <Action>(ParameterInfo)
 
-" clear search highlighting
-nnoremap <leader>/ :nohls<CR><ESC>
+" Code actions and diagnostics
+nmap <leader>ca <Action>(ShowIntentionActions)
+nmap <leader>cr <Action>(RenameElement)
+nmap <leader>co <Action>(OptimizeImports)
+nmap <leader>cf <Action>(ReformatCode)
+nmap <leader>cd <Action>(ShowErrorDescription)
+nmap [d <Action>(GotoPreviousError)
+nmap ]d <Action>(GotoNextError)
+nmap <leader>xx <Action>(ActivateProblemsViewToolWindow)
 
-map <C-s> :action SaveAll<CR>
-nnoremap <leader>si :source ~/.ideavimrc<CR>
+" Editor splits
+nmap <leader>- <Action>(SplitHorizontally)
+nmap <leader><Bar> <Action>(SplitVertically)
+nmap <leader>wd <Action>(Unsplit)
+nmap <leader>wm <Action>(MaximizeEditorInSplit)
 
-" High frequency
-nmap <C-x>b :action RecentFiles<CR>
-nmap <Leader>f <Plug>(easymotion-s2)
+" Git and VCS
+nmap <leader>gg <Action>(Vcs.QuickListPopupAction)
+nmap <leader>gs <Action>(ActivateCommitToolWindow)
+nmap <leader>gf <Action>(Vcs.ShowTabbedFileHistory)
+nmap <leader>gb <Action>(Annotate)
+nmap [h <Action>(VcsShowPrevChangeMarker)
+nmap ]h <Action>(VcsShowNextChangeMarker)
 
-" Editor which will change file
-map <leader>fm :action ReformatCode<CR>
-map <leader>cf :action ReformatCode<CR>
-map <leader>lo :action OptimizeImports<CR>
-map <A-e> :action EditorCompleteStatement<CR>
-map <A-c> :action CommentByBlockComment<CR>
-map <C-A-y> :action PasteMultiple<CR>
-
-nnoremap <Leader>es :%s//g<Left><Left>
-xnoremap <Leader>es :s//g<Left><Left>
-nnoremap <leader>rt :action Refactorings.QuickListPopupAction<CR>
-
-" Editor refactor
-nnoremap <leader>re :action RenameElement <CR> <ESC>
-nnoremap <leader>: :action GotoAction<CR>
-
-" Create
-nmap <leader>cc :action NewClass<CR>
-nmap <leader>cg :action Generate<CR>
-
-"Compile and Running
-nmap <leader>rr :action ChooseRunConfiguration<CR>
-nmap <leader>rs :action Stop<CR>
-
-" Active window
-nmap <C-w>q :action CloseContent<CR>
-nmap <leader>wp :action ActivateProplemsToolWindow<CR>
-nmap <leader>ws :action ActivateStructureToolWindow<CR>
-nmap <leader>wd :action ActivateDebugToolWindow<CR>
-nmap <leader>e :action ActivateProjectToolWindow<CR>
-nmap <Leader>wh :action HideAllWindows<CR>
-nmap <Leader>wb :action ActivateBookmarkWindow<CR>
-nmap <leader>wx :action MoveEditorToOppositeTabGroup<CR>
-nmap <leader>wm :action MaximizeEditorInSplit<CR>
-nmap <leader>wc :action CallHierarchy<CR>
-
-" Git
-nmap <leader>gbl :action Annotate<CR>
-nmap <leader>gb :action Git.Branches<CR>
-nmap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
-nmap <leader>gc :action CheckinProject<CR>
-nmap <leader>ga :action Git.Add<CR>
-nmap <leader>gs :action ActivateCommitToolWindow<CR>
-
-" Search
-map <leader>f :action SearchEverywhere<CR>
-map <leader>fc :action GotoClass<CR>
-map <leader>F :action FindInPath<CR>
-map <leader>ff :action FindInPath<CR>
-map <leader>bl :action RecentFiles<CR>
-map <leader>bb :action RecentFiles<CR>
-
-" Codes navigation in multiple files
-nnoremap <C-o> :action Back<CR>
-nnoremap <C-t> :action Back<CR>
-nnoremap <C-i> :action Forward<CR>
-
-" For java or jump in single file
-nmap gt :action GotoTypeDeclaration<CR>
-nmap gd :action GotoDeclaration<CR>
-nmap gr :action ShowUsages<CR>
-nmap gi :action GotoImplementation<CR>
-nmap gs :action GotoSuperMethod<CR>
-nmap ge :action GotoNextError<CR>
-nmap gE :action GotoPreviousError<CR>
-nmap ggc :action VcsShowNextChangeMarker<CR>
-nmap P  :action ParameterInfo<CR>
-nmap K  :action QuickJavaDoc<CR>
-
-"locate file in project
-nmap gp :action SelectIn<CR><CR>
-nmap <leader><leader>e :action SelectIn<CR><CR>
-
-"Tip
-nmap <leader>le :e pom.xml<CR>
-nmap <leader>bmr :action Maven.Reimport<CR>
-
+" Tests and run configurations
+nmap <leader>tr <Action>(RunClass)
+nmap <leader>tl <Action>(Rerun)
+nmap <leader>tS <Action>(Stop)
