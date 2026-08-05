@@ -19,6 +19,7 @@ name = "terminal"
 
 # Override individual color tokens on top of the base theme.
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
+auto_switch = false
 [theme.custom]
 # Approximate the former tmux/Zellij-style status palette.
 panel_bg = "#262626"
