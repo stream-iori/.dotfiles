@@ -41,8 +41,8 @@ nmap <leader>/ <Action>(FindInPath)
 nmap <leader>sg <Action>(FindInPath)
 
 " Code navigation and help
-nmap gd <Action>(GotoDeclaration)
-nmap gr <Action>(FindUsages)
+nmap gf <Action>(FindUsages)
+nmap gr <Action>(GotoDeclaration)
 nmap gI <Action>(GotoImplementation)
 nmap gy <Action>(GotoTypeDeclaration)
 nmap K <Action>(QuickJavaDoc)
