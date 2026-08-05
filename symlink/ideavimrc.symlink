@@ -29,7 +29,7 @@ imap <C-s> <Action>(SaveAll)
 map s <Plug>(easymotion-s2)
 
 " Files, buffers, project tree, and search
-nmap <leader><space> <Action>(GotoFile)
+nmap <leader>gp <Action>(SelectInProjectView)
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>fr <Action>(RecentFiles)
 nmap <leader>, <Action>(Switcher)

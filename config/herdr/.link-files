@@ -1,0 +1,2 @@
+# Keep ~/.config/herdr as a real directory because Herdr stores logs, sockets,
+# and session state beside config.toml. scripts/link.sh links tracked files only.

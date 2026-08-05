@@ -67,9 +67,8 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
 # Interactive Options
-export IGNOREEOF=3
+setopt IGNORE_EOF
 stty -ixon
 
 # Cargo (Deferred loading)
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
-
