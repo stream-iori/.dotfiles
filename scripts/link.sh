@@ -36,7 +36,18 @@ for config in "$DOTFILES_ROOT/config"/*; do
   [ -d "$config" ] || continue
   dirname="$(basename "$config")"
   target="$HOME/.config/$dirname"
-  link_file "$config" "$target"
+
+  # Some applications keep runtime state (logs, sockets, sessions) beside
+  # their configuration. A .link-files marker keeps the target directory real
+  # and links only the tracked files inside it.
+  if [ -f "$config/.link-files" ]; then
+    mkdir -p "$target"
+    find "$config" -maxdepth 1 -type f ! -name '.link-files' | while read -r file; do
+      link_file "$file" "$target/$(basename "$file")"
+    done
+  else
+    link_file "$config" "$target"
+  fi
 done
 
 echo -e "\nDone! All symlinks updated."

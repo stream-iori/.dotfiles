@@ -29,7 +29,7 @@ imap <C-s> <Action>(SaveAll)
 map s <Plug>(easymotion-s2)
 
 " Files, buffers, project tree, and search
-nmap <leader><space> <Action>(GotoFile)
+nmap <leader>gp <Action>(SelectInProjectView)
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>fr <Action>(RecentFiles)
 nmap <leader>, <Action>(Switcher)
@@ -41,8 +41,8 @@ nmap <leader>/ <Action>(FindInPath)
 nmap <leader>sg <Action>(FindInPath)
 
 " Code navigation and help
-nmap gd <Action>(GotoDeclaration)
-nmap gr <Action>(FindUsages)
+nmap gf <Action>(FindUsages)
+nmap gr <Action>(GotoDeclaration)
 nmap gI <Action>(GotoImplementation)
 nmap gy <Action>(GotoTypeDeclaration)
 nmap K <Action>(QuickJavaDoc)
