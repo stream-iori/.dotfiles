@@ -32,7 +32,7 @@ font-style-italic = Italic
 font-style-bold-italic = Bold Italic
 font-size = 17
 font-thicken = true
-font-thicken-strength = 65
+font-thicken-strength = 100
 
 # Alacritty's font.offset.y adds vertical cell spacing.
 adjust-cell-height = 1
