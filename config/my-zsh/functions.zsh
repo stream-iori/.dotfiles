@@ -42,7 +42,7 @@ function rt() {
 
 # Display images at the largest size that fits in the current terminal pane.
 function img() {
-  chafa --format kitty --clear --scale max --align mid,mid "$@"
+  chafa --format kitty --clear --scale max --align top,left "$@"
 }
 
 # ------------------------------------------------------------------------------
