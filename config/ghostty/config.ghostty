@@ -50,6 +50,7 @@ shell-integration-features = no-cursor
 # Ghostty measures scrollback in bytes rather than lines. 10 MB is a practical
 # approximation of Alacritty's 10,000-line history and is allocated lazily.
 scrollback-limit = 10000000
+scrollbar = never
 mouse-scroll-multiplier = 3
 copy-on-select = clipboard
 mouse-hide-while-typing = true
