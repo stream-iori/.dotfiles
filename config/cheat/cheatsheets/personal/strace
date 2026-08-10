@@ -1,9 +1,0 @@
-
----
-tags: [ debug ]
----
-
-# strace system invoke with pid
-# system-debug
-strace -f -s 1024 -tt -v -p ${pid}
-
