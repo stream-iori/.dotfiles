@@ -22,14 +22,7 @@ macos-option-as-alt = true
 # -----------------------------------------------------------------------------
 # 2. Font & Cursor
 # -----------------------------------------------------------------------------
-font-family = JetBrainsMono Nerd Font
-font-family-bold = JetBrainsMono Nerd Font
-font-family-italic = JetBrainsMono Nerd Font
-font-family-bold-italic = JetBrainsMono Nerd Font
-font-style = Regular
-font-style-bold = Bold
-font-style-italic = Italic
-font-style-bold-italic = Bold Italic
+font-family = Maple Mono NF CN
 font-size = 17
 font-thicken = true
 font-thicken-strength = 100
