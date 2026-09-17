@@ -22,7 +22,7 @@ macos-option-as-alt = true
 # -----------------------------------------------------------------------------
 # 2. Font & Cursor
 # -----------------------------------------------------------------------------
-font-family = Maple Mono NF CN
+font-family = Maple Mono Normal NL NF CN
 font-size = 17
 font-thicken = true
 font-thicken-strength = 100
