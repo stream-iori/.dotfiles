@@ -1,6 +1,21 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
+    keys = {
+      {
+        "<leader>e",
+        function()
+          require("neo-tree.command").execute({
+            action = "show",
+            source = "filesystem",
+            position = "left",
+            dir = LazyVim.root(),
+            reveal = true,
+          })
+        end,
+        desc = "Reveal Current File in NeoTree",
+      },
+    },
     opts = {
       window = {
         mappings = {

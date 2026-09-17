@@ -11,12 +11,17 @@
 | 保存文件 | `<C-s>` |
 | 新建文件 | `<leader>fn` |
 | 关闭 Buffer | `<leader>bd` |
+| 上一个 / 下一个 Buffer | `<S-h>` / `<S-l>` |
+| 最近两个 Buffer 间切换 | `<leader>bb` |
+| 关闭其他 Buffer | `<leader>bo` |
 | 删除不可见 Buffer | `<leader>bi` |
 | 退出全部 | `<leader>qq` |
 | 插件管理 | `<leader>l` |
 | Mason 工具管理 | `<leader>cm` |
 | 通知历史 | `<leader>n` |
 | 清除通知 | `<leader>un` |
+| 恢复当前目录会话 | `<leader>qs` |
+| 恢复上次会话 | `<leader>ql` |
 
 Neovide 额外支持 `<D-s>` 保存、Visual `<D-c>` 复制，以及各模式下的 `<D-v>` 系统剪贴板粘贴。终端版 Neovim 不覆盖 `<D-v>`。
 
@@ -35,10 +40,19 @@ Neovide 额外支持 `<D-s>` 保存、Visual `<D-c>` 复制，以及各模式下
 | 全局文本搜索 | `<leader>sg` |
 | 当前目录文本搜索 | `<leader>sG` |
 | 搜索光标下单词 | `<leader>sw` |
+| 搜索当前 / 工作区符号 | `<leader>ss` / `<leader>sS` |
+| 搜索命令 | `<leader>sC` |
+| 恢复上一次搜索 | `<leader>sR` |
+| 项目内搜索替换 | `<leader>sr` |
 | 切换 Buffer | `<leader>,` |
 | Lazygit（项目根目录） | `<leader>gg` |
 | Git 状态 | `<leader>gs` |
 | Git 文件历史 | `<leader>gf` |
+| 上一个 / 下一个 Git hunk | `[h` / `]h` |
+| 行内预览 Git hunk | `<leader>ghp` |
+| Stage / 撤销 Stage hunk | `<leader>ghs` / `<leader>ghu` |
+| 当前行 Git blame | `<leader>ghb` |
+| Reset Git hunk（丢弃修改） | `<leader>ghr` |
 
 Neo-tree 内常用操作：
 
@@ -60,7 +74,10 @@ Neo-tree 已启用 `follow_current_file`，打开文件树时会跟踪当前文�
 | 功能 | 快捷键 |
 | --- | --- |
 | 浮动终端 | `<C-/>` |
+| 终端进入 Normal 模式 | `<Esc>` |
 | 窗口跳转 | `<C-h/j/k/l>` |
+| 调整窗口高度 | `<C-Up>` / `<C-Down>` |
+| 调整窗口宽度 | `<C-Left>` / `<C-Right>` |
 | 水平分屏 | `<leader>-` |
 | 垂直分屏 | `<leader>\|` |
 | 关闭窗口 | `<leader>wd` |
@@ -74,19 +91,36 @@ Neo-tree 已启用 `follow_current_file`，打开文件树时会跟踪当前文�
 | 查找引用 | `gr` |
 | 跳转实现 | `gI` |
 | 跳转类型定义 | `gy` |
+| 跳转声明 | `gD` |
 | 查看文档 | `K` |
+| 查看函数签名 | `gK` / Insert `<C-k>` |
+| LSP 状态 | `<leader>cl` |
 | 重命名符号 | `<leader>cr` |
 | Code Action | `<leader>ca` |
 | Source Action | `<leader>cA` |
 | 整理导入 | `<leader>co` |
 | 当前行诊断 | `<leader>cd` |
+| 上一个 / 下一个诊断 | `[d` / `]d` |
+| 上一个 / 下一个引用 | `[[` / `]]` |
 | 全部诊断 | `<leader>xx` |
 | Buffer 诊断 | `<leader>xX` |
+| 上一个 / 下一个 Quickfix 项 | `[q` / `]q` |
 | 格式化 | `<leader>cf` |
 | 格式化嵌入语言 | `<leader>cF` |
 | C/C++ 头文件与源文件切换 | `<leader>ch` |
 | Rust Code Action | `<leader>cR` |
 | Python 虚拟环境 | `<leader>cv` |
+
+代码补全（Insert 模式）：
+
+| 功能 | 快捷键 |
+| --- | --- |
+| 手动打开补全 / 查看文档 | `<C-Space>` |
+| 下一个 / 上一个候选 | `<C-n>` / `<C-p>` |
+| 接受当前候选 | `<CR>` |
+| 选择并接受第一个候选 | `<C-y>` |
+| 关闭补全菜单 | `<C-e>` |
+| 下一个 / 上一个代码片段位置 | `<Tab>` / `<S-Tab>` |
 
 显式格式化工具：
 
@@ -122,6 +156,11 @@ nvim-surround：
 | 删除包裹 | `ds{char}` | `ds"` |
 | 修改包裹 | `cs{old}{new}` | `cs"'` |
 | 包裹 Visual 选区 | `S{char}` | Visual 选择后按 `S}` |
+| 自定义左右分隔符 | `ys{motion}i` | `ysiwi`，依次输入 `/*`、`*/` |
+| HTML 标签包裹 | `ys{motion}t` | `ysiwt`，输入 `strong` 得到 `<strong>word</strong>` |
+| 函数调用包裹 | `ys{motion}f` | `ysiwf`，输入 `foo` 得到 `foo(word)` |
+
+`i` 后分别输入左、右分隔符并按回车，分隔符可以是多个字符；Visual 模式下使用 `Si`。
 
 其他常用编辑：
 
@@ -129,7 +168,11 @@ nvim-surround：
 | --- | --- |
 | 注释行 | `gcc` |
 | 注释选区 / motion | `gc` |
+| 在下方 / 上方新增注释 | `gco` / `gcO` |
 | 上下移动行或选区 | `<A-j>` / `<A-k>` |
+| 在下方 / 上方插入空行 | `]<Space>` / `[<Space>` |
+| 用系统程序打开路径或 URL | `gx` |
+| 上一个 / 下一个 TODO | `[t` / `]t` |
 | Treesitter 扩展选区 | `<C-Space>` |
 | 添加拼写白名单 | `zg` |
 | 标记拼写错误 | `zw` |
@@ -152,7 +195,14 @@ nvim-surround：
 
 ## Markdown 与常用命令
 
-Markdown 自动启用英文拼写检查、CJK 忽略、软换行和渲染；预览命令为 `<leader>cp`。Markdown lint 忽略 MD013、MD025、MD033、MD041。
+Markdown 自动启用英文拼写检查、CJK 忽略、软换行和渲染。Markdown lint 忽略 MD013、MD025、MD033、MD041。
+
+| 功能 | 快捷键 |
+| --- | --- |
+| Markdown 浏览器预览 | `<leader>cp` |
+| 切换 Markdown 渲染 | `<leader>um` |
+| 切换拼写检查 | `<leader>us` |
+| 切换软换行 | `<leader>uw` |
 
 常用命令：
 
