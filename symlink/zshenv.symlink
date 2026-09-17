@@ -91,8 +91,3 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --e
 # 5. Obsidian Configuration
 # ------------------------------------------------------------------------------
 export OBSIDIAN_MAIN_VAULT="$HOME/Documents/Notes"
-
-# QODER_DISPATCHER_PATH v1
-path=("$HOME/.qoder/entry" ${path:#"$HOME/.qoder/entry"})
-export PATH
-# END QODER_DISPATCHER_PATH v1

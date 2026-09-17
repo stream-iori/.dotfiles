@@ -5,3 +5,4 @@ vim/sessions
 
 alfred/Alfred.alfredpreferences/preferences/local/*
 .antigravitycli/
+git/gitconfig.symlink

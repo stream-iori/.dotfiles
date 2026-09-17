@@ -72,21 +72,3 @@ stty -ixon
 
 # Cargo (Deferred loading)
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
-
-# Added by CodeFuse CLI installer
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.utoo-proxy:$PATH"
-export PATH="$HOME/.antfamily:$PATH"
-# >>> ai-coding-trace >>>
-export PATH="$HOME/.r2c/bin:$PATH"
-# <<< ai-coding-trace <<<
-
-# >>> ai-coding-trace qoder-token-usage >>>
-export QODER_EXPOSE_TOKEN_USAGE=1
-export QODERCN_EXPOSE_TOKEN_USAGE=1
-# <<< ai-coding-trace qoder-token-usage <<<
-
-# QODER_DISPATCHER_PATH v1
-path=("$HOME/.qoder/entry" ${path:#"$HOME/.qoder/entry"})
-export PATH
-# END QODER_DISPATCHER_PATH v1
