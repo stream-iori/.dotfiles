@@ -45,6 +45,10 @@ shell-integration-features = no-cursor
 scrollback-limit = 10000000
 scrollbar = never
 mouse-scroll-multiplier = 3
+# Keep the viewport at its current position when a terminal application sends
+# an unexpected key event. This also works around older Codex TUI versions
+# jumping to the bottom after Cmd+C; output is already excluded as well.
+scroll-to-bottom = no-keystroke, no-output
 copy-on-select = clipboard
 mouse-hide-while-typing = true
 
@@ -97,4 +101,8 @@ palette = 17=#F4DBD6
 keybind = cmd+n=new_window
 keybind = cmd+0=reset_font_size
 keybind = cmd+f=start_search
+# Copy terminal selections as plain text. This avoids the mixed HTML clipboard
+# format changing line breaks in rich-text and Electron applications. Automatic
+# copy-on-select above is separate from this binding and may still use mixed.
+keybind = cmd+c=copy_to_clipboard:plain
 keybind = ctrl+enter=text:\x0d
