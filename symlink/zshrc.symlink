@@ -72,3 +72,19 @@ stty -ixon
 
 # Cargo (Deferred loading)
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
+
+# >>> ai-coding-trace qoder-token-usage >>>
+export QODER_EXPOSE_TOKEN_USAGE=1
+export QODERCN_EXPOSE_TOKEN_USAGE=1
+# <<< ai-coding-trace qoder-token-usage <<<
+
+# >>> ai-coding-trace >>>
+export PATH="$HOME/.r2c/bin:$PATH"
+# <<< ai-coding-trace <<<
+
+# meso bin
+export PATH="/Users/stream/.meso/bin:$PATH"
+
+export PATH="$HOME/.utoo-proxy:$PATH"
+
+export PATH="$HOME/.antfamily:$PATH"
