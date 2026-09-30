@@ -1,6 +1,9 @@
 " IdeaVim mappings shared by IntelliJ IDEA and PyCharm.
 " Keep this file aligned with config/nvim/NEOVIM_CHEAT_SHEET.md.
 
+" Set Leader before plugins register their mappings.
+let mapleader = " "
+
 " Search and editor behavior
 set history=10000
 set hlsearch
@@ -16,59 +19,217 @@ set clipboard=unnamedplus,ideaput
 " IdeaVim plugins
 set surround
 set commentary
+set mini-ai
+let g:argtextobj_pairs = '(:),{:},[:]'
+set argtextobj
+set functextobj
+set classtextobj
+" Keep ae/ie free: LazyVim uses them for identifier sub-words.
+let g:textobj_entire_no_default_mappings = 1
+set textobj-entire
+xmap af <Plug>(textobj-function-am)
+omap af <Plug>(textobj-function-am)
+xmap if <Plug>(textobj-function-im)
+omap if <Plug>(textobj-function-im)
+xmap ag <Plug>(textobj-entire-ae)
+omap ag <Plug>(textobj-entire-ae)
+xmap ig <Plug>(textobj-entire-ie)
+omap ig <Plug>(textobj-entire-ie)
+let g:EasyMotion_do_mapping = 0
 set easymotion
 
-let mapleader = " "
+" Configure tree-local keys before the extensions create their dispatchers.
+let g:NERDTreeMapActivateNode = 'l'
+let g:NERDTreeMapCloseDir = 'h'
+let g:NERDTreeMapNewFile = 'a'
+let g:NERDTreeMapNewDir = 'A'
+let g:NERDTreeMapRename = 'r'
+let g:NERDTreeMapCopy = 'c'
+let g:NERDTreeMapPaste = 'p'
+let g:NERDTreeMapOpenSplit = 's'
+let g:NERDTreeMapOpenVSplit = 'v'
+let g:NERDTreeMapPreview = 'P'
+let g:NERDTreeMapJumpParent = 'u'
+let g:NERDTreeMapJumpRoot = 'gP'
+let g:NERDTreeMapRefresh = 'gr'
+let g:NERDTreeMapToggleZoom = 'z'
+set NERDTree
+set NERDTreeEverywhere
 
-" Save in Normal, Visual, and Insert modes
-nmap <C-s> <Action>(SaveAll)
-xmap <C-s> <Action>(SaveAll)
-imap <C-s> <Action>(SaveAll)
+" Match LazyVim screen-line movement, search direction, and visual indentation.
+nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+xnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
+xnoremap <expr> k v:count == 0 ? 'gk' : 'k'
+nnoremap <expr> n v:searchforward ? 'nzv' : 'Nzv'
+nnoremap <expr> N v:searchforward ? 'Nzv' : 'nzv'
+xnoremap <expr> n v:searchforward ? 'n' : 'N'
+xnoremap <expr> N v:searchforward ? 'N' : 'n'
+onoremap <expr> n v:searchforward ? 'n' : 'N'
+onoremap <expr> N v:searchforward ? 'N' : 'n'
+xnoremap < <gv
+xnoremap > >gv
 
-" Flash-style two-character jump
+" Save the current document and return to Normal mode, like LazyVim.
+nmap <C-s> <Action>(SaveDocument)<Esc>
+xmap <C-s> <Esc><Action>(SaveDocument)
+imap <C-s> <Esc><Action>(SaveDocument)
+
+" Escape also clears search highlighting.
+nnoremap <Esc> <Esc>:nohlsearch<CR>
+xnoremap <Esc> <Esc>:nohlsearch<CR>
+inoremap <Esc> <Esc>:nohlsearch<CR>
+
+" EasyMotion jump using the same entry key as Flash.
 map s <Plug>(easymotion-s2)
+" S starts structural selection; Visual S remains surround.
+nmap S <Action>(EditorSelectWord)
+nmap <C-Space> <Action>(EditorSelectWord)
+xmap <C-Space> <Action>(EditorSelectWord)
+xmap <BS> <Action>(EditorUnSelectWord)
+sethandler <C-Space> n:vim x:vim i:ide
+" Completion confirmation/newline are controlled by the IDE keymap.
+sethandler <Tab> i:ide
+sethandler <CR> i:ide
+nnoremap [f [m
+nnoremap ]f ]m
+nnoremap [F [M
+nnoremap ]F ]M
+xnoremap [f [m
+xnoremap ]f ]m
+xnoremap [F [M
+xnoremap ]F ]M
+onoremap [f [m
+onoremap ]f ]m
+onoremap [F [M
+onoremap ]F ]M
+" Same sequences as LazyVim's new-comment-line mappings.
+nmap gco o<Esc>Vcx<Esc><Plug>CommentaryLinefxa<BS>
+nmap gcO O<Esc>Vcx<Esc><Plug>CommentaryLinefxa<BS>
 
 " Files, buffers, project tree, and search
 nmap <leader>gp <Action>(SelectInProjectView)
+nmap <leader><space> <Action>(GotoFile)
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>fr <Action>(RecentFiles)
+nmap <leader>fn <Action>(NewFile)
+" Choose Path From Repository Root; outside VCS choose Path From Content Root.
+nmap <leader>fy <Action>(CopyReferencePopupGroup)
 nmap <leader>, <Action>(Switcher)
+nmap <leader>fb <Action>(Switcher)
+nmap <S-h> <Action>(PreviousEditorTab)
+nmap <S-l> <Action>(NextEditorTab)
 nmap [b <Action>(PreviousEditorTab)
 nmap ]b <Action>(NextEditorTab)
-nmap <leader>bd <Action>(CloseContent)
-nmap <leader>e <Action>(ActivateProjectToolWindow)
+nnoremap <leader>bb <C-^>
+nnoremap <leader>` <C-^>
+nmap <leader>bd <Action>(CloseEditor)
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
+" Match Neovim's reveal=true: open the tree and select the current file.
+nmap <leader>e <Action>(SelectInProjectView)
+nmap <leader>fe <Action>(SelectInProjectView)
 nmap <leader>/ <Action>(FindInPath)
 nmap <leader>sg <Action>(FindInPath)
+xmap <leader>/ <Action>(FindInPath)
+xmap <leader>sg <Action>(FindInPath)
+nmap <leader>sw viw<Action>(FindInPath)
+xmap <leader>sw <Action>(FindInPath)
+nmap <leader>sr <Action>(ReplaceInPath)
+xmap <leader>sr <Action>(ReplaceInPath)
+nmap <leader>ss <Action>(FileStructurePopup)
+nmap <leader>sS <Action>(GotoSymbol)
+nmap <leader>sC <Action>(GotoAction)
+nmap <leader>sk <Action>(GotoAction)
 
 " Code navigation and help
-nmap gf <Action>(FindUsages)
-nmap gr <Action>(GotoDeclaration)
+" Use IDE navigation history for action-based jumps, including gd/gI/gy.
+" Ctrl-t keeps the Back behavior from the old configuration, not the Vim tag stack.
+nmap <C-t> <Action>(Back)
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+sethandler <C-t> n:vim
+sethandler <C-o> n:vim
+sethandler <C-i> n:vim
+" Also remove the old gf override when sourcing this file in an existing session.
+if maparg('gf', 'n') != ''
+  nunmap gf
+endif
+nmap gd <Action>(GotoDeclaration)
+nmap gr <Action>(FindUsages)
 nmap gI <Action>(GotoImplementation)
 nmap gy <Action>(GotoTypeDeclaration)
+nmap [[ <Action>(GotoPrevElementUnderCaretUsage)
+nmap ]] <Action>(GotoNextElementUnderCaretUsage)
 nmap K <Action>(QuickJavaDoc)
 nmap gK <Action>(ParameterInfo)
+imap <C-k> <Action>(ParameterInfo)
 
 " Code actions and diagnostics
 nmap <leader>ca <Action>(ShowIntentionActions)
+xmap <leader>ca <Action>(ShowIntentionActions)
 nmap <leader>cr <Action>(RenameElement)
 nmap <leader>co <Action>(OptimizeImports)
 nmap <leader>cf <Action>(ReformatCode)
+xmap <leader>cf <Action>(ReformatCode)
 nmap <leader>cd <Action>(ShowErrorDescription)
 nmap [d <Action>(GotoPreviousError)
 nmap ]d <Action>(GotoNextError)
 nmap <leader>xx <Action>(ActivateProblemsViewToolWindow)
+" Problems remembers its tab: choose Project Errors / File for the desired scope.
+nmap <leader>sd <Action>(ActivateProblemsViewToolWindow)
+nmap <leader>xX <Action>(ActivateProblemsViewToolWindow)
+nmap <leader>sD <Action>(ActivateProblemsViewToolWindow)
+nmap [q <Action>(PreviousOccurence)
+nmap ]q <Action>(NextOccurence)
+
+" Move lines / selections without invoking semantic statement movement.
+nmap <A-j> <Action>(MoveLineDown)
+nmap <A-k> <Action>(MoveLineUp)
+xmap <A-j> <Action>(MoveLineDown)
+xmap <A-k> <Action>(MoveLineUp)
+imap <A-j> <Action>(MoveLineDown)
+imap <A-k> <Action>(MoveLineUp)
+
+" Editor-only options; IDE panels keep their native keymaps.
+nnoremap <leader>uw :set wrap!<CR>
 
 " Editor splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 nmap <leader>- <Action>(SplitHorizontally)
 nmap <leader><Bar> <Action>(SplitVertically)
+" Merge the split and preserve its open files.
 nmap <leader>wd <Action>(Unsplit)
 nmap <leader>wm <Action>(MaximizeEditorInSplit)
 
+" Terminal tool window; this is not a floating terminal or a cwd override.
+nmap <leader>ft <Action>(ActivateTerminalToolWindow)
+nmap <C-/> <Action>(ActivateTerminalToolWindow)
+nmap <C-_> <Action>(ActivateTerminalToolWindow)
+
 " Git and VCS
 nmap <leader>gg <Action>(Vcs.QuickListPopupAction)
-nmap <leader>gs <Action>(ActivateCommitToolWindow)
+nmap <leader>gs <Action>(Git.Show.Stage)
+nmap <leader>gl <Action>(Vcs.Show.Log)
+nmap <leader>gc <Action>(Vcs.Show.Log)
+nmap <leader>gd <Action>(Vcs.Show.Local.Changes)
 nmap <leader>gf <Action>(Vcs.ShowTabbedFileHistory)
-nmap <leader>gb <Action>(Annotate)
+" Explicit selection avoids the IDE's enclosing-code-block history heuristic.
+nmap <leader>gb V<Action>(Vcs.ShowHistoryForBlock)
+xmap <leader>gb <Action>(Vcs.ShowHistoryForBlock)
+nmap <leader>ghb <Action>(Annotate)
+nmap <leader>ghB <Action>(Annotate)
+nmap <leader>ghd <Action>(Compare.SameVersion)
+nmap <leader>ghp <Action>(VcsShowCurrentChangeMarker)
+" Hunk Stage: open gutter popup, then use its Stage button. Never stage the file here.
+nmap <leader>ghs <Action>(VcsShowCurrentChangeMarker)
+" Unstage: select the staged file/hunk in the staging panel and its diff.
+nmap <leader>ghu <Action>(Git.Show.Stage)
+nmap <leader>ghS <Action>(Git.Stage.Add)
+nmap <leader>ghr <Action>(Vcs.RollbackChangedLines)
+xmap <leader>ghr <Action>(Vcs.RollbackChangedLines)
 nmap [h <Action>(VcsShowPrevChangeMarker)
 nmap ]h <Action>(VcsShowNextChangeMarker)
 
@@ -76,3 +237,10 @@ nmap ]h <Action>(VcsShowNextChangeMarker)
 nmap <leader>tr <Action>(RunClass)
 nmap <leader>tl <Action>(Rerun)
 nmap <leader>tS <Action>(Stop)
+" Select a run configuration with file / suite scope explicitly.
+nmap <leader>tt <Action>(ChooseRunConfiguration)
+nmap <leader>tT <Action>(ChooseRunConfiguration)
+" The IDE combines the test results tree and console in the Run tool window.
+nmap <leader>ts <Action>(ActivateRunToolWindow)
+nmap <leader>to <Action>(ActivateRunToolWindow)
+nmap <leader>tO <Action>(ActivateRunToolWindow)

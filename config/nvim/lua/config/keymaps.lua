@@ -5,14 +5,23 @@
 --
 local map = vim.keymap.set
 
--- copy relative path
+-- Use the jump list for all everyday navigation returns, including LSP jumps.
+map("n", "<C-t>", "<C-o>", { desc = "Back to Previous Location" })
+
+local selection = require("config.text-selection")
+map("n", "S", selection.expand, { desc = "Expand Structural Selection" })
+map({ "n", "x" }, "<C-Space>", selection.expand, { desc = "Expand Structural Selection" })
+map("x", "<BS>", selection.shrink, { desc = "Shrink Structural Selection" })
+
+-- Repository-relative, independent of :cd; fall back to the logical project root.
 map("n", "<leader>fy", function()
   local name = vim.api.nvim_buf_get_name(0)
   if name == "" then
     vim.notify("Current buffer has no file path", vim.log.levels.WARN)
     return
   end
-  local path = vim.fn.fnamemodify(name, ":.")
+  local root = vim.fs.root(vim.fs.dirname(name), ".git") or LazyVim.root()
+  local path = vim.fs.relpath(root, name) or name
   vim.fn.setreg("+", path)
   vim.notify("Copied relative path: " .. path)
 end, { desc = "Copy Relative Path" })
