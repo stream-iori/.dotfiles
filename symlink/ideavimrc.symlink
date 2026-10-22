@@ -155,7 +155,7 @@ if maparg('gf', 'n') != ''
   nunmap gf
 endif
 nmap gd <Action>(GotoDeclaration)
-nmap gr <Action>(FindUsages)
+nmap gr <Action>(GotoDeclaration)
 nmap gI <Action>(GotoImplementation)
 nmap gy <Action>(GotoTypeDeclaration)
 nmap [[ <Action>(GotoPrevElementUnderCaretUsage)
