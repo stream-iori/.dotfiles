@@ -87,7 +87,7 @@ rename_tab = "prefix+shift+t"
 previous_tab = "prefix+p"
 next_tab = "prefix+n"
 switch_tab = "prefix+1..9"
-close_tab = "prefix+ctrl+t"
+close_tab = ""
 
 # Pane focus
 focus_pane_left = "prefix+h"
@@ -103,7 +103,7 @@ split_horizontal = "prefix+minus"
 split_vertical = "prefix+backslash"
 zoom = "prefix+z"
 resize_mode = "prefix+r"
-close_pane = "prefix+ctrl+p"
+close_pane = "prefix+q"
 
 # Pane name, copy, and scrollback
 rename_pane = "prefix+shift+p"
@@ -128,12 +128,6 @@ toggle_sidebar = "prefix+b"
 # type = "popup" opens a session-modal terminal without changing the tab layout.
 # Popup width and height accept terminal cells or percentages such as "80%".
 # On Windows, command strings run through cmd.exe /d /c.
-[[keys.command]]
-key = "prefix+q"
-type = "popup"
-command = "python3 ~/.dotfiles/config/herdr/close-current.py"
-description = "close pane, tab, or session"
-
 # [[keys.command]]
 # key = "prefix+alt+g"
 # type = "popup"

@@ -1,3 +1,8 @@
+# Powerlevel10k instant prompt must run before the rest of interactive setup.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # ------------------------------------------------------------------------------
 # 1. Base Setup
 # ------------------------------------------------------------------------------
@@ -10,7 +15,7 @@ source ~/.zshenv
 ZINIT_HOME="${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh"
 [[ -f $ZINIT_HOME ]] && source $ZINIT_HOME
 
-# Powerlevel10k (Instant prompt initialization)
+# Powerlevel10k configuration and theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
