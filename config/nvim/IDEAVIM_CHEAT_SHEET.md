@@ -235,7 +235,7 @@ IDE Action ID、扩展源码与设置存储字段已按本机安装包核对。�
 | 实际 Neovim + 临时 Git 仓库 | 已验证块级／整文件暂存、混合 staged/unstaged 修改、重复 `ghs` 不反向取消暂存 |
 | 实际 Neovim 文件操作 | 已验证 3 个文件在关闭分屏后保留、仓库相对路径、三个定位入口、`h` 返回并折叠父目录 |
 | 实际 Neovim 文本输入 | 已验证非破坏性 S、扩展／回退选区、基础 surround、f 重复不跨行、参数／引号／括号／函数对象、函数跳转、gco/gcO |
-| 实际 Neovim 补全输入 | 已验证 Tab 接受候选，Enter 只换行；配置见 [completion.lua](./lua/plugins/completion.lua) |
+| 实际 Neovim 补全输入 | Tab 接受候选，Enter 接受已选候选；配置见 [completion.lua](./lua/plugins/completion.lua) |
 | IdeaVim 静态核对 | 两款 IDE 的 Action ID、新增扩展名称、Plug 入口均已按安装包核对；用替代 Action 的 Neovim 检查通过映射语法及重复 source，不等于 IdeaVim 实机验收 |
 | IDE 设置落盘 | PyCharm 的设置及 Tab 补全 Keymap 已写入；IDEA 运行中被跳过，退出后执行上述脚本 |
 | 尚未完成的交互验收 | IDE 面板／分屏／诊断／块级 Stage 和 Unstage，以及 Lazygit 内选块 Unstage；后者仅验证入口不误改 index |

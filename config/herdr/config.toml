@@ -96,7 +96,7 @@ focus_pane_up = "prefix+k"
 focus_pane_right = "prefix+l"
 cycle_pane_next = ["prefix+o", "prefix+tab"]
 cycle_pane_previous = "prefix+shift+tab"
-last_pane = "prefix+t"
+last_pane = "prefix+;"
 
 # Pane layout, size, and close
 split_horizontal = "prefix+minus"
@@ -128,6 +128,12 @@ toggle_sidebar = "prefix+b"
 # type = "popup" opens a session-modal terminal without changing the tab layout.
 # Popup width and height accept terminal cells or percentages such as "80%".
 # On Windows, command strings run through cmd.exe /d /c.
+[[keys.command]]
+key = "prefix+q"
+type = "popup"
+command = "python3 ~/.dotfiles/config/herdr/close-current.py"
+description = "close pane, tab, or session"
+
 # [[keys.command]]
 # key = "prefix+alt+g"
 # type = "popup"
