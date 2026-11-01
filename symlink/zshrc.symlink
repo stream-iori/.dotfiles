@@ -1,3 +1,6 @@
+# Disable terminal flow control before instant prompt redirects standard input.
+[[ -t 0 ]] && stty -ixon
+
 # Powerlevel10k instant prompt must run before the rest of interactive setup.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -73,7 +76,6 @@ bindkey '^E' end-of-line
 
 # Interactive Options
 setopt IGNORE_EOF
-stty -ixon
 
 # Cargo (Deferred loading)
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
