@@ -34,15 +34,17 @@ cursor-style = block
 cursor-style-blink = false
 
 # Prevent Ghostty's shell integration from replacing the block cursor with a
-# thin bar at the command prompt. Other shell integration features stay on.
-shell-integration-features = no-cursor
+# thin bar at the command prompt. Prepare remote SSH sessions with Ghostty's
+# terminfo and environment, falling back to xterm-256color if needed.
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo
 
 # -----------------------------------------------------------------------------
 # 3. Scrolling, Selection & Mouse
 # -----------------------------------------------------------------------------
-# Ghostty measures scrollback in bytes rather than lines. 10 MB is a practical
-# approximation of Alacritty's 10,000-line history and is allocated lazily.
-scrollback-limit = 10000000
+# Retain roughly 10,000 scrollback lines, capped at 50 MB of uncompressed data.
+# The first limit reached applies. Idle scrollback compression is on by default.
+scrollback-limit-bytes = 50000000
+scrollback-limit-lines = 10000
 scrollbar = never
 mouse-scroll-multiplier = 3
 # Keep the viewport at its current position when a terminal application sends

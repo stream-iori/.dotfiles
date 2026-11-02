@@ -87,7 +87,7 @@ rename_tab = "prefix+shift+t"
 previous_tab = "prefix+p"
 next_tab = "prefix+n"
 switch_tab = "prefix+1..9"
-close_tab = "prefix+ctrl+t"
+close_tab = ""
 
 # Pane focus
 focus_pane_left = "prefix+h"
@@ -96,14 +96,14 @@ focus_pane_up = "prefix+k"
 focus_pane_right = "prefix+l"
 cycle_pane_next = ["prefix+o", "prefix+tab"]
 cycle_pane_previous = "prefix+shift+tab"
-last_pane = "prefix+t"
+last_pane = "prefix+;"
 
 # Pane layout, size, and close
 split_horizontal = "prefix+minus"
 split_vertical = "prefix+backslash"
 zoom = "prefix+z"
 resize_mode = "prefix+r"
-close_pane = "prefix+ctrl+p"
+close_pane = "prefix+q"
 
 # Pane name, copy, and scrollback
 rename_pane = "prefix+shift+p"
