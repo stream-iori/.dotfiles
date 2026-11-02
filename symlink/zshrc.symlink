@@ -88,3 +88,6 @@ export PATH="/Users/stream/.meso/bin:$PATH"
 export PATH="$HOME/.utoo-proxy:$PATH"
 
 export PATH="$HOME/.antfamily:$PATH"
+
+# Added by git-ai installer on Sun Nov  1 23:20:24 2026
+export PATH="/Users/stream/.git-ai/bin:$PATH"
