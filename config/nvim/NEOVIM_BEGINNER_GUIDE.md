@@ -255,7 +255,10 @@ Visual 选中若干行后输入 `:s/old/new/gc`，Neovim 会自动把范围限�
 | Git 跟踪文件 | `<leader>fg` |
 | 最近文件 | `<leader>fr` |
 | 项目树 | `<leader>e` |
-| 复制当前文件相对路径 | `<leader>fy` |
+| 复制光标所在的类、方法、字段或函数 | `<leader>fy` |
+| 复制当前文件相对路径 | `<leader>fY` |
+
+复制引用支持 Java、TypeScript/TSX、Python 和 Rust。光标在调用处时复制包住这行的声明，不追踪被调用的对象；需要文件路径时用 `<leader>fY`。
 
 知道文件名时优先用文件搜索；需要理解目录结构、创建或重命名文件时再打开 Neo-tree。
 

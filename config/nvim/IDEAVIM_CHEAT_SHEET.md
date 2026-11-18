@@ -18,7 +18,7 @@ Leader 是空格；未标模式的按键在 Normal 编辑器中使用。配置�
 | 关闭文件／其他文件 | `<leader>bd` / `<leader>bo` | IDE 当前标签／标签组；Neovim 对应 Buffer |
 | 新建文件 | `<leader>fn` | IDE 选择目录和名称；Neovim 先建无名 Buffer |
 | 在左侧树定位当前文件 | `<leader>e` / `<leader>fe` / `<leader>gp` | 两端均打开、聚焦树并选中当前文件；重复按不关树 |
-| 复制相对路径 | `<leader>fy` | 在菜单选择 **Path From Repository Root**；非 Git 项目选择 **Path From Content Root**。Neovim 自动选择 Git 根／项目根 |
+| 复制引用／相对路径 | `<leader>fy` | IDE 打开菜单选择 **Copy Reference**、**Path From Repository Root** 或 **Path From Content Root**。Neovim 用 `<leader>fy` 直接复制所在声明，`<leader>fY` 直接复制相对路径 |
 | 定义／引用／实现／类型 | `gd` / `gr` / `gI` / `gy` | IDE 对应代码导航动作 |
 | 回跳／前进 | `Ctrl-t` 或 `Ctrl-o` / `Ctrl-i` | IDE Back / Forward；Neovim jump list |
 | 当前文件上／下一个符号使用处 | `[[` / `]]` | IDE Under Caret Usage；需 IDE 能识别该符号 |

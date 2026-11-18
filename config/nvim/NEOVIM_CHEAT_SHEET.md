@@ -31,7 +31,8 @@ Neovide 额外支持 `<D-s>` 保存、Visual `<D-c>` 复制，以及各模式下
 | --- | --- |
 | 打开 Neo-tree 并定位当前文件（项目根目录） | `<leader>e` / `<leader>fe` / `<leader>gp` |
 | 打开 Neo-tree（当前工作目录） | `<leader>E` / `<leader>fE` |
-| 复制当前文件相对路径（Git 根优先，否则项目根） | `<leader>fy` |
+| 复制光标所在声明（Java、TypeScript/TSX、Python、Rust） | `<leader>fy` |
+| 复制当前文件相对路径（Git 根优先，否则项目根） | `<leader>fY` |
 | 查找项目文件 | `<leader><space>` / `<leader>ff` |
 | 查找当前目录文件 | `<leader>fF` |
 | Git 文件 | `<leader>fg` |
@@ -248,7 +249,7 @@ Markdown 自动启用英文拼写检查、CJK 忽略、软换行和渲染。Mark
 | `Ctrl-t` | Normal 回跳改用 jump list；Insert 保留原生缩进 |
 | `j/k`、`n/N`、Visual `<`/`>` | 无计数按显示行；下一／上一匹配方向固定；缩进后保留选区 |
 | `<leader>wd` | 关闭分屏并保留文件；IDE 用 Unsplit 合并标签 |
-| `<leader>fy` | Neovim 自动复制仓库相对路径；IDE 在菜单选 Repository Root，非 Git 选 Content Root |
+| 复制引用／路径 | Neovim 用 `<leader>fy` 复制所在声明、`<leader>fY` 复制相对路径；IDE 用 `<leader>fy` 打开菜单选择 |
 | Git／诊断／测试 | 同键进入同一任务；IDE 额外选择页签、配置或确认步骤见 [IdeaVim 手册](./IDEAVIM_CHEAT_SHEET.md) |
 
 诊断仅覆盖分析器已上报的内容，不保证所有未打开文件都有结果。IDE 与 Neovim 的跨分屏文件范围仍有差异，详情和验收步骤见同一手册。

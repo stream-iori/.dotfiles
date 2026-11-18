@@ -13,15 +13,6 @@ map("n", "S", selection.expand, { desc = "Expand Structural Selection" })
 map({ "n", "x" }, "<C-Space>", selection.expand, { desc = "Expand Structural Selection" })
 map("x", "<BS>", selection.shrink, { desc = "Shrink Structural Selection" })
 
--- Repository-relative, independent of :cd; fall back to the logical project root.
-map("n", "<leader>fy", function()
-  local name = vim.api.nvim_buf_get_name(0)
-  if name == "" then
-    vim.notify("Current buffer has no file path", vim.log.levels.WARN)
-    return
-  end
-  local root = vim.fs.root(vim.fs.dirname(name), ".git") or LazyVim.root()
-  local path = vim.fs.relpath(root, name) or name
-  vim.fn.setreg("+", path)
-  vim.notify("Copied relative path: " .. path)
-end, { desc = "Copy Relative Path" })
+local reference = require("config.copy-reference")
+map("n", "<leader>fy", reference.copy_symbol, { desc = "Copy Reference" })
+map("n", "<leader>fY", reference.copy_path, { desc = "Copy Relative Path" })
