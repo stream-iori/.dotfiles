@@ -143,8 +143,8 @@
     "layoutsShowInLauncher": false,
     "roomsShowInLauncher": false,
     "shortcuts": {
-      "left-half": "ctrl+[",
-      "right-half": "ctrl+]",
+      "left-half": "ctrl+cmd+[",
+      "right-half": "ctrl+cmd+]",
       "top-half": null,
       "bottom-half": null,
       "top-left-quarter": null,
