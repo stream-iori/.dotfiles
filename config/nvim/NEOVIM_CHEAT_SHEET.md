@@ -147,6 +147,17 @@ Neo-tree 内常用操作：
 
 诊断来源包括语言服务器、Ruff、Shellcheck 和 markdownlint-cli2。ESLint 只在项目存在 ESLint 配置时启动。
 
+### Java
+
+在含 `pom.xml` 的项目根目录启动 `nvim .`。项目有 `.sdkmanrc` 时，先执行 `sdk env`。
+Neovim 从 SDKMAN 已安装的 JDK 中识别 Java 8、17、25。JDT LS 优先用其中的 Java 25 启动。
+同一主版本有多个 JDK 时，优先用当前选中的 JDK，其余主版本选已安装的最新版本。
+Maven 使用当前 shell 选定的 JDK，可用 `mvn -version` 确认，然后用 `mvn test` 跑测试。
+
+打开 `.java` 文件后，用 `:LspInfo` 确认 `jdtls` 已附加，用 `gd` 跳转定义，或用 `<leader>co` 整理导入。
+首次打开项目时，等 JDT LS 完成索引后再跳转。
+若没有附加，先在 `:Mason` 确认 `jdtls` 已安装。
+
 ## 跳转、包裹与编辑
 
 Flash：
