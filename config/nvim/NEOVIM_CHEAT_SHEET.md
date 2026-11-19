@@ -42,6 +42,7 @@ Neovide 额外支持 `<D-s>` 保存、Visual `<D-c>` 复制，以及各模式下
 | 当前目录文本搜索 | `<leader>sG` |
 | 搜索光标下单词 | `<leader>sw` |
 | 搜索当前 / 工作区符号 | `<leader>ss` / `<leader>sS` |
+| 当前文件结构侧栏 | `<leader>cs` |
 | 搜索命令 | `<leader>sC` |
 | 恢复上一次搜索 | `<leader>sR` |
 | 项目内搜索替换 | `<leader>sr` |
@@ -58,6 +59,11 @@ Neovide 额外支持 `<D-s>` 保存、Visual `<D-c>` 复制，以及各模式下
 | 提交历史／变更文件 diff | `<leader>gl` 或 `<leader>gc` / `<leader>gd` |
 | 当前行 Git blame | `<leader>ghb` |
 | Reset Git hunk（丢弃修改） | `<leader>ghr` |
+
+结构侧栏显示符号的 `[行, 列]`，在侧栏按 `Enter` 跳到选中的声明。
+要查看语言服务器返回的全部当前文件符号，可以执行 `:FzfLua lsp_document_symbols`。
+
+Neo-tree 会预先扫描并合并没有分叉的单子目录链，例如 `com/ipay/iopenmcp`。
 
 Neo-tree 内常用操作：
 
@@ -153,6 +159,9 @@ Neo-tree 内常用操作：
 Neovim 从 SDKMAN 已安装的 JDK 中识别 Java 8、17、25。JDT LS 优先用其中的 Java 25 启动。
 同一主版本有多个 JDK 时，优先用当前选中的 JDK，其余主版本选已安装的最新版本。
 Maven 使用当前 shell 选定的 JDK，可用 `mvn -version` 确认，然后用 `mvn test` 跑测试。
+
+保存 Java 文件时，命中的 `.editorconfig` 规则优先，跳过 JDT LS 自动格式化。
+没有命中规则时，Java 默认使用 4 空格缩进，沿用 LazyVim 的 JDT LS 保存格式化设置。
 
 打开 `.java` 文件后，用 `:LspInfo` 确认 `jdtls` 已附加，用 `gd` 跳转定义，或用 `<leader>co` 整理导入。
 首次打开项目时，等 JDT LS 完成索引后再跳转。

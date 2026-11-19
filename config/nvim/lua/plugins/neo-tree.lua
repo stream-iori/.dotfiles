@@ -21,6 +21,10 @@ return {
       { "<leader>gp", reveal, desc = "Reveal Current File in NeoTree" },
     },
     opts = {
+      filesystem = {
+        group_empty_dirs = true,
+        scan_mode = "deep",
+      },
       window = {
         mappings = {
           ["v"] = "open_vsplit",
