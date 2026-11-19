@@ -3,7 +3,7 @@ vim.o.background = "dark"
 
 --- neovide
 if vim.g.neovide then
-  vim.o.guifont = "JetBrainsMonoNL Nerd Font Mono:h16"
+  vim.o.guifont = "Maple Mono Normal NL NF CN:h15"
   vim.g.neovide_window_blurred = true
   vim.g.neovide_floating_blur_amount_x = 1.0
   vim.g.neovide_floating_blur_amount_y = 1.0
