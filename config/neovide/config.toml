@@ -1,0 +1,2 @@
+# Keep the temporary startup UI from claiming Noice's command line and messages.
+startup-message-capture = false
